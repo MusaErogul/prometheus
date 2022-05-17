@@ -1,0 +1,781 @@
+// Decompiled with JetBrains decompiler
+// Type: promethues_projesi.sifre_degistirmeFrm
+// Assembly: promethues_projesi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: B9C4A65B-B397-4621-A7E0-7BC7D8FEFDBA
+// Assembly location: C:\Users\Belediye\AppData\Local\Temp\Gutadis\09e50f9ba5\promethues_projesi.exe
+
+using DevExpress.XtraEditors;
+using promethues_projesi.prometheus_projesiDataSetTableAdapters;
+using System;
+using System.ComponentModel;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Security.Cryptography;
+using System.Text;
+using System.Windows.Forms;
+
+namespace promethues_projesi
+{
+  public class sifre_degistirmeFrm : XtraForm
+  {
+    private IContainer components = (IContainer) null;
+    private TabControl tabControl1;
+    private TabPage tabPage1;
+    private TabPage tabPage2;
+    private TextBox yeniSifreTBTekrar;
+    private Label label5;
+    private TextBox yeniSifreTB;
+    private Label label1;
+    private Button sifreDegistirBT;
+    private TextBox sifreTB;
+    private Label label2;
+    private Button degistirBT;
+    private ComboBox yetkiCB;
+    private ComboBox gorevCB;
+    private ComboBox unvanCB;
+    private TextBox soyadTB;
+    private TextBox kuladTB;
+    private TextBox adTB;
+    private Label label9;
+    private Label label8;
+    private Label label7;
+    private Label label6;
+    private Label label4;
+    private Label label3;
+    private TabPage tabPage3;
+    private Button yeniBT;
+    private CheckBox kaktifCB;
+    private ComboBox kyetkiCB;
+    private ComboBox kgorevCB;
+    private ComboBox kunvanCB;
+    private TextBox ksoyadiTB;
+    private TextBox kkuladiTB;
+    private TextBox kadiTB;
+    private Label label10;
+    private Label label11;
+    private Label label12;
+    private Label label13;
+    private Label label14;
+    private Label label15;
+    private prometheus_projesiDataSet prometheus_projesiDataSet;
+    private BindingSource kullaniciBindingSource;
+    private kullaniciTableAdapter kullaniciTableAdapter;
+    private BindingSource unvanlarBindingSource;
+    private unvanlarTableAdapter unvanlarTableAdapter;
+    private BindingSource gorevlerBindingSource;
+    private gorevlerTableAdapter gorevlerTableAdapter;
+    private BindingSource yetkilerBindingSource;
+    private yetkilerTableAdapter yetkilerTableAdapter;
+    private Label label17;
+    private TextBox ksifreTekrarTB;
+    private TextBox ksifreTB;
+    private Label label16;
+    private TabPage tabPage4;
+    private Button KullanicisilBTN;
+    private DataGridView dataGridView1;
+    private DataGridViewTextBoxColumn kullaniciidDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn kullaniciadiDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn adDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn soyadDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn gorevDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn sifreDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn yetkiDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn unvanidDataGridViewTextBoxColumn;
+    private DataGridViewCheckBoxColumn aktifDataGridViewCheckBoxColumn;
+    private TextBox silkuladTB;
+    private BindingSource kullaniciBS;
+    private prometheus_projesiDataSet prometheus_projesiDataSet1;
+    private kullaniciTableAdapter kullaniciTableAdapter1;
+
+    public sifre_degistirmeFrm() => this.InitializeComponent();
+
+    private string sifrele(string gelen_sifre)
+    {
+      byte[] hash = new MD5CryptoServiceProvider().ComputeHash(new UTF8Encoding().GetBytes(gelen_sifre));
+      string str = "";
+      for (int index = 0; index < hash.Length; ++index)
+        str += Convert.ToString(hash[index], 16).PadLeft(2, '0');
+      return str.PadLeft(32, '0');
+    }
+
+    private void sifreDegistirBT_Click(object sender, EventArgs e)
+    {
+      SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["promethues_projesi.Properties.Settings.prometheus_projesiConnectionString"].ConnectionString);
+      SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+      SqlCommand sqlCommand = new SqlCommand("update kullanici set sifre=@sifre where kullanici_id=@kullanici_id and sifre=@eskisifre");
+      sqlCommand.Connection = sqlConnection;
+      if (this.sifreTB.Text.Trim() == "")
+      {
+        int num1 = (int) MessageBox.Show("Mevcut şifreyi giriniz");
+      }
+      else if (this.yeniSifreTB.Text.Trim() == "")
+      {
+        int num2 = (int) MessageBox.Show("Yeni şifre giriniz");
+      }
+      else if (this.yeniSifreTBTekrar.Text.Trim() == "")
+      {
+        int num3 = (int) MessageBox.Show("Yeni şifreyi tekrar giriniz");
+      }
+      else if (this.yeniSifreTBTekrar.Text.Trim() != this.yeniSifreTB.Text.Trim())
+      {
+        int num4 = (int) MessageBox.Show("Şifreler Uyuşmuyor");
+      }
+      else
+      {
+        sqlCommand.Parameters.AddWithValue("kullanici_id", (object) kullanici_girisi.kullanici_id);
+        sqlCommand.Parameters.AddWithValue("sifre", (object) this.sifrele(this.yeniSifreTB.Text.Trim()));
+        sqlCommand.Parameters.AddWithValue("eskisifre", (object) this.sifrele(this.sifreTB.Text.Trim()));
+        try
+        {
+          sqlConnection.Open();
+          if (sqlCommand.ExecuteNonQuery() > 0)
+          {
+            int num5 = (int) MessageBox.Show("Şifre Değiştirildi");
+          }
+          else
+          {
+            int num6 = (int) MessageBox.Show("Kullanıcı Bulunamadı");
+          }
+          sqlConnection.Close();
+        }
+        catch (Exception ex)
+        {
+          int num7 = (int) MessageBox.Show(ex.Message);
+        }
+      }
+    }
+
+    private void degistirBT_Click(object sender, EventArgs e)
+    {
+      SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["promethues_projesi.Properties.Settings.prometheus_projesiConnectionString"].ConnectionString);
+      SqlCommand sqlCommand = new SqlCommand("update kullanici set ad=@ad,soyad=@soyad,gorev=@gorev,unvan_id=@unvan,yetki=@yetki where kullanici_id=@kullanici_id");
+      sqlCommand.Connection = sqlConnection;
+      sqlCommand.Parameters.AddWithValue("kullanici_id", (object) kullanici_girisi.kullanici_id);
+      sqlCommand.Parameters.AddWithValue("ad", (object) this.adTB.Text);
+      sqlCommand.Parameters.AddWithValue("soyad", (object) this.soyadTB.Text);
+      sqlCommand.Parameters.AddWithValue("unvan", this.unvanCB.SelectedValue);
+      sqlCommand.Parameters.AddWithValue("gorev", this.gorevCB.SelectedValue);
+      sqlCommand.Parameters.AddWithValue("yetki", this.yetkiCB.SelectedValue);
+      try
+      {
+        sqlConnection.Open();
+        if (sqlCommand.ExecuteNonQuery() > 0)
+        {
+          int num = (int) MessageBox.Show("Bilgiler Güncellendi");
+          this.kullaniciTableAdapter.Fill(this.prometheus_projesiDataSet.kullanici);
+        }
+        sqlConnection.Close();
+      }
+      catch (Exception ex)
+      {
+        int num = (int) MessageBox.Show(ex.Message);
+      }
+    }
+
+    private void kaydetBT_Click(object sender, EventArgs e)
+    {
+    }
+
+    private void sifre_degistirmeFrm_Load(object sender, EventArgs e)
+    {
+      this.yetkilerTableAdapter.Fill(this.prometheus_projesiDataSet.yetkiler);
+      this.gorevlerTableAdapter.Fill(this.prometheus_projesiDataSet.gorevler);
+      this.unvanlarTableAdapter.Fill(this.prometheus_projesiDataSet.unvanlar);
+      this.kullaniciTableAdapter.Fill(this.prometheus_projesiDataSet.kullanici);
+      this.kullaniciTableAdapter1.Fillara(this.prometheus_projesiDataSet1.kullanici, kullanici_girisi.kullanici_id);
+      if (kullanici_girisi.yetki == 1)
+        return;
+      this.yetkiCB.Enabled = false;
+    }
+
+    private void yeniBT_Click(object sender, EventArgs e)
+    {
+      SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["promethues_projesi.Properties.Settings.prometheus_projesiConnectionString"].ConnectionString);
+      SqlCommand sqlCommand = new SqlCommand(" INSERT INTO [dbo].[kullanici]   ([kullanici_adi],[ad],[soyad],[gorev],[sifre],[yetki],[unvan_id],[aktif]) VALUES(@kuladi,@ad,@soyad,@gorev,@sifre,@yetki,@unvan,@aktif)");
+      sqlCommand.Connection = sqlConnection;
+      sqlCommand.Parameters.AddWithValue("kuladi", (object) this.kkuladiTB.Text.Trim());
+      sqlCommand.Parameters.AddWithValue("ad", (object) this.kadiTB.Text);
+      sqlCommand.Parameters.AddWithValue("soyad", (object) this.ksoyadiTB.Text);
+      sqlCommand.Parameters.AddWithValue("unvan", this.kunvanCB.SelectedValue);
+      sqlCommand.Parameters.AddWithValue("gorev", this.kgorevCB.SelectedValue);
+      sqlCommand.Parameters.AddWithValue("yetki", this.kyetkiCB.SelectedValue);
+      sqlCommand.Parameters.AddWithValue("aktif", (object) this.kaktifCB.Checked);
+      sqlCommand.Parameters.AddWithValue("sifre", (object) this.sifrele(this.ksifreTB.Text));
+      try
+      {
+        sqlConnection.Open();
+        if (sqlCommand.ExecuteNonQuery() > 0)
+        {
+          int num1 = (int) MessageBox.Show("Kullanıcı Eklendi");
+        }
+        else
+        {
+          int num2 = (int) MessageBox.Show("Ekleme Sırasında Bir Hata Oluştu");
+        }
+        sqlConnection.Close();
+      }
+      catch (Exception ex)
+      {
+        int num = (int) MessageBox.Show(ex.Message);
+      }
+    }
+
+    private void tabControl1_TabIndexChanged(object sender, EventArgs e)
+    {
+    }
+
+    private void KullanicisilBTN_Click(object sender, EventArgs e)
+    {
+      if (MessageBox.Show("Verileriniz Silinecektir.Verilerinizi Silmek İstediğinizden Eminmisiniz?", "silme", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) != DialogResult.Yes)
+        return;
+      this.kullaniciTableAdapter.sil(this.silkuladTB.Text);
+      this.kullaniciTableAdapter.Fill(this.prometheus_projesiDataSet.kullanici);
+      int num = (int) MessageBox.Show("Kullanıcı Silindi");
+    }
+
+    private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      if (kullanici_girisi.yetki == 1 || this.tabControl1.SelectedIndex != 2 && this.tabControl1.SelectedIndex != 3)
+        return;
+      int num = (int) MessageBox.Show("Kullanıcı Ekleme Yetkiniz Yok");
+      this.tabControl1.SelectedIndex = 1;
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      this.components = (IContainer) new Container();
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (sifre_degistirmeFrm));
+      this.tabControl1 = new TabControl();
+      this.tabPage1 = new TabPage();
+      this.yeniSifreTBTekrar = new TextBox();
+      this.label5 = new Label();
+      this.yeniSifreTB = new TextBox();
+      this.label1 = new Label();
+      this.sifreDegistirBT = new Button();
+      this.sifreTB = new TextBox();
+      this.label2 = new Label();
+      this.tabPage2 = new TabPage();
+      this.degistirBT = new Button();
+      this.yetkiCB = new ComboBox();
+      this.kullaniciBS = new BindingSource(this.components);
+      this.prometheus_projesiDataSet1 = new prometheus_projesiDataSet();
+      this.yetkilerBindingSource = new BindingSource(this.components);
+      this.prometheus_projesiDataSet = new prometheus_projesiDataSet();
+      this.gorevCB = new ComboBox();
+      this.gorevlerBindingSource = new BindingSource(this.components);
+      this.unvanCB = new ComboBox();
+      this.unvanlarBindingSource = new BindingSource(this.components);
+      this.soyadTB = new TextBox();
+      this.kuladTB = new TextBox();
+      this.adTB = new TextBox();
+      this.label9 = new Label();
+      this.label8 = new Label();
+      this.label7 = new Label();
+      this.label6 = new Label();
+      this.label4 = new Label();
+      this.label3 = new Label();
+      this.tabPage3 = new TabPage();
+      this.label17 = new Label();
+      this.ksifreTekrarTB = new TextBox();
+      this.ksifreTB = new TextBox();
+      this.label16 = new Label();
+      this.yeniBT = new Button();
+      this.kaktifCB = new CheckBox();
+      this.kyetkiCB = new ComboBox();
+      this.kgorevCB = new ComboBox();
+      this.kunvanCB = new ComboBox();
+      this.ksoyadiTB = new TextBox();
+      this.kkuladiTB = new TextBox();
+      this.kadiTB = new TextBox();
+      this.label10 = new Label();
+      this.label11 = new Label();
+      this.label12 = new Label();
+      this.label13 = new Label();
+      this.label14 = new Label();
+      this.label15 = new Label();
+      this.tabPage4 = new TabPage();
+      this.KullanicisilBTN = new Button();
+      this.dataGridView1 = new DataGridView();
+      this.kullaniciidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.kullaniciadiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.adDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.soyadDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.gorevDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.sifreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.yetkiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.unvanidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.aktifDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
+      this.kullaniciBindingSource = new BindingSource(this.components);
+      this.silkuladTB = new TextBox();
+      this.kullaniciTableAdapter = new kullaniciTableAdapter();
+      this.unvanlarTableAdapter = new unvanlarTableAdapter();
+      this.gorevlerTableAdapter = new gorevlerTableAdapter();
+      this.yetkilerTableAdapter = new yetkilerTableAdapter();
+      this.kullaniciTableAdapter1 = new kullaniciTableAdapter();
+      this.tabControl1.SuspendLayout();
+      this.tabPage1.SuspendLayout();
+      this.tabPage2.SuspendLayout();
+      ((ISupportInitialize) this.kullaniciBS).BeginInit();
+      this.prometheus_projesiDataSet1.BeginInit();
+      ((ISupportInitialize) this.yetkilerBindingSource).BeginInit();
+      this.prometheus_projesiDataSet.BeginInit();
+      ((ISupportInitialize) this.gorevlerBindingSource).BeginInit();
+      ((ISupportInitialize) this.unvanlarBindingSource).BeginInit();
+      this.tabPage3.SuspendLayout();
+      this.tabPage4.SuspendLayout();
+      ((ISupportInitialize) this.dataGridView1).BeginInit();
+      ((ISupportInitialize) this.kullaniciBindingSource).BeginInit();
+      this.SuspendLayout();
+      this.tabControl1.Controls.Add((Control) this.tabPage1);
+      this.tabControl1.Controls.Add((Control) this.tabPage2);
+      this.tabControl1.Controls.Add((Control) this.tabPage3);
+      this.tabControl1.Controls.Add((Control) this.tabPage4);
+      this.tabControl1.Location = new Point(0, 0);
+      this.tabControl1.Margin = new Padding(3, 4, 3, 4);
+      this.tabControl1.Name = "tabControl1";
+      this.tabControl1.SelectedIndex = 0;
+      this.tabControl1.Size = new Size(378, 351);
+      this.tabControl1.TabIndex = 14;
+      this.tabControl1.SelectedIndexChanged += new EventHandler(this.tabControl1_SelectedIndexChanged);
+      this.tabControl1.TabIndexChanged += new EventHandler(this.tabControl1_TabIndexChanged);
+      this.tabPage1.Controls.Add((Control) this.yeniSifreTBTekrar);
+      this.tabPage1.Controls.Add((Control) this.label5);
+      this.tabPage1.Controls.Add((Control) this.yeniSifreTB);
+      this.tabPage1.Controls.Add((Control) this.label1);
+      this.tabPage1.Controls.Add((Control) this.sifreDegistirBT);
+      this.tabPage1.Controls.Add((Control) this.sifreTB);
+      this.tabPage1.Controls.Add((Control) this.label2);
+      this.tabPage1.Location = new Point(4, 25);
+      this.tabPage1.Margin = new Padding(3, 4, 3, 4);
+      this.tabPage1.Name = "tabPage1";
+      this.tabPage1.Padding = new Padding(3, 4, 3, 4);
+      this.tabPage1.Size = new Size(370, 322);
+      this.tabPage1.TabIndex = 0;
+      this.tabPage1.Text = "Şifre Değiştir";
+      this.tabPage1.UseVisualStyleBackColor = true;
+      this.yeniSifreTBTekrar.Location = new Point(170, 156);
+      this.yeniSifreTBTekrar.Margin = new Padding(3, 4, 3, 4);
+      this.yeniSifreTBTekrar.Name = "yeniSifreTBTekrar";
+      this.yeniSifreTBTekrar.PasswordChar = '*';
+      this.yeniSifreTBTekrar.Size = new Size(160, 23);
+      this.yeniSifreTBTekrar.TabIndex = 2;
+      this.label5.AutoSize = true;
+      this.label5.Location = new Point(36, 160);
+      this.label5.Name = "label5";
+      this.label5.Size = new Size(135, 17);
+      this.label5.TabIndex = 19;
+      this.label5.Text = "YENİ ŞİFRE (Tekrar):";
+      this.yeniSifreTB.Location = new Point(170, 111);
+      this.yeniSifreTB.Margin = new Padding(3, 4, 3, 4);
+      this.yeniSifreTB.Name = "yeniSifreTB";
+      this.yeniSifreTB.PasswordChar = '*';
+      this.yeniSifreTB.Size = new Size(160, 23);
+      this.yeniSifreTB.TabIndex = 1;
+      this.label1.AutoSize = true;
+      this.label1.Location = new Point(36, 114);
+      this.label1.Name = "label1";
+      this.label1.Size = new Size(82, 17);
+      this.label1.TabIndex = 17;
+      this.label1.Text = "YENİ ŞİFRE:";
+      this.sifreDegistirBT.BackColor = Color.FromArgb((int) byte.MaxValue, 128, 0);
+      this.sifreDegistirBT.Location = new Point(40, 190);
+      this.sifreDegistirBT.Margin = new Padding(3, 4, 3, 4);
+      this.sifreDegistirBT.Name = "sifreDegistirBT";
+      this.sifreDegistirBT.Size = new Size(292, 44);
+      this.sifreDegistirBT.TabIndex = 3;
+      this.sifreDegistirBT.Text = "DEĞİŞTİR";
+      this.sifreDegistirBT.UseVisualStyleBackColor = false;
+      this.sifreDegistirBT.Click += new EventHandler(this.sifreDegistirBT_Click);
+      this.sifreTB.Location = new Point(170, 62);
+      this.sifreTB.Margin = new Padding(3, 4, 3, 4);
+      this.sifreTB.Name = "sifreTB";
+      this.sifreTB.PasswordChar = '*';
+      this.sifreTB.Size = new Size(160, 23);
+      this.sifreTB.TabIndex = 0;
+      this.label2.AutoSize = true;
+      this.label2.Location = new Point(36, 65);
+      this.label2.Name = "label2";
+      this.label2.Size = new Size(105, 17);
+      this.label2.TabIndex = 14;
+      this.label2.Text = "MEVCUT ŞİFRE:";
+      this.tabPage2.Controls.Add((Control) this.degistirBT);
+      this.tabPage2.Controls.Add((Control) this.yetkiCB);
+      this.tabPage2.Controls.Add((Control) this.gorevCB);
+      this.tabPage2.Controls.Add((Control) this.unvanCB);
+      this.tabPage2.Controls.Add((Control) this.soyadTB);
+      this.tabPage2.Controls.Add((Control) this.kuladTB);
+      this.tabPage2.Controls.Add((Control) this.adTB);
+      this.tabPage2.Controls.Add((Control) this.label9);
+      this.tabPage2.Controls.Add((Control) this.label8);
+      this.tabPage2.Controls.Add((Control) this.label7);
+      this.tabPage2.Controls.Add((Control) this.label6);
+      this.tabPage2.Controls.Add((Control) this.label4);
+      this.tabPage2.Controls.Add((Control) this.label3);
+      this.tabPage2.Location = new Point(4, 25);
+      this.tabPage2.Margin = new Padding(3, 4, 3, 4);
+      this.tabPage2.Name = "tabPage2";
+      this.tabPage2.Padding = new Padding(3, 4, 3, 4);
+      this.tabPage2.Size = new Size(370, 322);
+      this.tabPage2.TabIndex = 1;
+      this.tabPage2.Text = "Kullanıcı Bilgileri";
+      this.tabPage2.UseVisualStyleBackColor = true;
+      this.degistirBT.Location = new Point(51, 257);
+      this.degistirBT.Margin = new Padding(3, 4, 3, 4);
+      this.degistirBT.Name = "degistirBT";
+      this.degistirBT.Size = new Size(225, 28);
+      this.degistirBT.TabIndex = 10;
+      this.degistirBT.Text = "Kaydet";
+      this.degistirBT.UseVisualStyleBackColor = true;
+      this.degistirBT.Click += new EventHandler(this.degistirBT_Click);
+      this.yetkiCB.DataBindings.Add(new Binding("SelectedValue", (object) this.kullaniciBS, "yetki", true));
+      this.yetkiCB.DataSource = (object) this.yetkilerBindingSource;
+      this.yetkiCB.DisplayMember = "yetki_adi";
+      this.yetkiCB.FormattingEnabled = true;
+      this.yetkiCB.Location = new Point(110, 191);
+      this.yetkiCB.Margin = new Padding(3, 4, 3, 4);
+      this.yetkiCB.Name = "yetkiCB";
+      this.yetkiCB.Size = new Size(140, 24);
+      this.yetkiCB.TabIndex = 9;
+      this.yetkiCB.ValueMember = "yetki_id";
+      this.kullaniciBS.DataMember = "kullanici";
+      this.kullaniciBS.DataSource = (object) this.prometheus_projesiDataSet1;
+      this.prometheus_projesiDataSet1.DataSetName = "prometheus_projesiDataSet";
+      this.prometheus_projesiDataSet1.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+      this.yetkilerBindingSource.DataMember = "yetkiler";
+      this.yetkilerBindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.prometheus_projesiDataSet.DataSetName = "prometheus_projesiDataSet";
+      this.prometheus_projesiDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+      this.gorevCB.DataBindings.Add(new Binding("SelectedValue", (object) this.kullaniciBS, "gorev", true));
+      this.gorevCB.DataSource = (object) this.gorevlerBindingSource;
+      this.gorevCB.DisplayMember = "gorev_adi";
+      this.gorevCB.FormattingEnabled = true;
+      this.gorevCB.Location = new Point(110, 158);
+      this.gorevCB.Margin = new Padding(3, 4, 3, 4);
+      this.gorevCB.Name = "gorevCB";
+      this.gorevCB.Size = new Size(140, 24);
+      this.gorevCB.TabIndex = 8;
+      this.gorevCB.ValueMember = "gorev_id";
+      this.gorevlerBindingSource.DataMember = "gorevler";
+      this.gorevlerBindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.unvanCB.DataBindings.Add(new Binding("SelectedValue", (object) this.kullaniciBS, "unvan_id", true));
+      this.unvanCB.DataSource = (object) this.unvanlarBindingSource;
+      this.unvanCB.DisplayMember = "unvan_adi";
+      this.unvanCB.FormattingEnabled = true;
+      this.unvanCB.Location = new Point(110, 124);
+      this.unvanCB.Margin = new Padding(3, 4, 3, 4);
+      this.unvanCB.Name = "unvanCB";
+      this.unvanCB.Size = new Size(140, 24);
+      this.unvanCB.TabIndex = 7;
+      this.unvanCB.ValueMember = "unvan_id";
+      this.unvanlarBindingSource.DataMember = "unvanlar";
+      this.unvanlarBindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.soyadTB.DataBindings.Add(new Binding("Text", (object) this.kullaniciBS, "soyad", true));
+      this.soyadTB.Location = new Point(110, 92);
+      this.soyadTB.Margin = new Padding(3, 4, 3, 4);
+      this.soyadTB.Name = "soyadTB";
+      this.soyadTB.Size = new Size(140, 23);
+      this.soyadTB.TabIndex = 6;
+      this.kuladTB.DataBindings.Add(new Binding("Text", (object) this.kullaniciBS, "kullanici_adi", true));
+      this.kuladTB.Enabled = false;
+      this.kuladTB.Location = new Point(110, 26);
+      this.kuladTB.Margin = new Padding(3, 4, 3, 4);
+      this.kuladTB.Name = "kuladTB";
+      this.kuladTB.Size = new Size(140, 23);
+      this.kuladTB.TabIndex = 4;
+      this.adTB.DataBindings.Add(new Binding("Text", (object) this.kullaniciBS, "ad", true));
+      this.adTB.Location = new Point(110, 59);
+      this.adTB.Margin = new Padding(3, 4, 3, 4);
+      this.adTB.Name = "adTB";
+      this.adTB.Size = new Size(140, 23);
+      this.adTB.TabIndex = 5;
+      this.label9.AutoSize = true;
+      this.label9.Location = new Point(23, 194);
+      this.label9.Name = "label9";
+      this.label9.Size = new Size(37, 17);
+      this.label9.TabIndex = 20;
+      this.label9.Text = "Yetki";
+      this.label8.AutoSize = true;
+      this.label8.Location = new Point(22, 161);
+      this.label8.Name = "label8";
+      this.label8.Size = new Size(47, 17);
+      this.label8.TabIndex = 19;
+      this.label8.Text = "Görevi";
+      this.label7.AutoSize = true;
+      this.label7.Location = new Point(23, 124);
+      this.label7.Name = "label7";
+      this.label7.Size = new Size(50, 17);
+      this.label7.TabIndex = 18;
+      this.label7.Text = "Unvanı";
+      this.label6.AutoSize = true;
+      this.label6.Location = new Point(23, 96);
+      this.label6.Name = "label6";
+      this.label6.Size = new Size(49, 17);
+      this.label6.TabIndex = 17;
+      this.label6.Text = "Soyadı";
+      this.label4.AutoSize = true;
+      this.label4.Location = new Point(22, 63);
+      this.label4.Name = "label4";
+      this.label4.Size = new Size(26, 17);
+      this.label4.TabIndex = 16;
+      this.label4.Text = "Adı";
+      this.label3.AutoSize = true;
+      this.label3.Location = new Point(23, 30);
+      this.label3.Name = "label3";
+      this.label3.Size = new Size(76, 17);
+      this.label3.TabIndex = 15;
+      this.label3.Text = "Kullanıcı Adı";
+      this.tabPage3.Controls.Add((Control) this.label17);
+      this.tabPage3.Controls.Add((Control) this.ksifreTekrarTB);
+      this.tabPage3.Controls.Add((Control) this.ksifreTB);
+      this.tabPage3.Controls.Add((Control) this.label16);
+      this.tabPage3.Controls.Add((Control) this.yeniBT);
+      this.tabPage3.Controls.Add((Control) this.kaktifCB);
+      this.tabPage3.Controls.Add((Control) this.kyetkiCB);
+      this.tabPage3.Controls.Add((Control) this.kgorevCB);
+      this.tabPage3.Controls.Add((Control) this.kunvanCB);
+      this.tabPage3.Controls.Add((Control) this.ksoyadiTB);
+      this.tabPage3.Controls.Add((Control) this.kkuladiTB);
+      this.tabPage3.Controls.Add((Control) this.kadiTB);
+      this.tabPage3.Controls.Add((Control) this.label10);
+      this.tabPage3.Controls.Add((Control) this.label11);
+      this.tabPage3.Controls.Add((Control) this.label12);
+      this.tabPage3.Controls.Add((Control) this.label13);
+      this.tabPage3.Controls.Add((Control) this.label14);
+      this.tabPage3.Controls.Add((Control) this.label15);
+      this.tabPage3.Location = new Point(4, 25);
+      this.tabPage3.Margin = new Padding(3, 4, 3, 4);
+      this.tabPage3.Name = "tabPage3";
+      this.tabPage3.Size = new Size(370, 322);
+      this.tabPage3.TabIndex = 2;
+      this.tabPage3.Text = "Yeni Kullanıcı";
+      this.tabPage3.UseVisualStyleBackColor = true;
+      this.label17.AutoSize = true;
+      this.label17.Location = new Point(171, 231);
+      this.label17.Name = "label17";
+      this.label17.Size = new Size(87, 17);
+      this.label17.TabIndex = 27;
+      this.label17.Text = "Şifre (Tekrar)";
+      this.ksifreTekrarTB.Location = new Point(259, 228);
+      this.ksifreTekrarTB.Margin = new Padding(3, 4, 3, 4);
+      this.ksifreTekrarTB.Name = "ksifreTekrarTB";
+      this.ksifreTekrarTB.PasswordChar = '*';
+      this.ksifreTekrarTB.Size = new Size(95, 23);
+      this.ksifreTekrarTB.TabIndex = 26;
+      this.ksifreTB.Location = new Point(64, 228);
+      this.ksifreTB.Margin = new Padding(3, 4, 3, 4);
+      this.ksifreTB.Name = "ksifreTB";
+      this.ksifreTB.PasswordChar = '*';
+      this.ksifreTB.Size = new Size(95, 23);
+      this.ksifreTB.TabIndex = 24;
+      this.label16.AutoSize = true;
+      this.label16.Location = new Point(23, 231);
+      this.label16.Name = "label16";
+      this.label16.Size = new Size(34, 17);
+      this.label16.TabIndex = 25;
+      this.label16.Text = "Şifre";
+      this.yeniBT.Location = new Point(27, 284);
+      this.yeniBT.Margin = new Padding(3, 4, 3, 4);
+      this.yeniBT.Name = "yeniBT";
+      this.yeniBT.Size = new Size(225, 28);
+      this.yeniBT.TabIndex = 18;
+      this.yeniBT.Text = "Kaydet";
+      this.yeniBT.UseVisualStyleBackColor = true;
+      this.yeniBT.Click += new EventHandler(this.yeniBT_Click);
+      this.kaktifCB.AutoSize = true;
+      this.kaktifCB.Checked = true;
+      this.kaktifCB.CheckState = CheckState.Checked;
+      this.kaktifCB.Location = new Point(111, 256);
+      this.kaktifCB.Margin = new Padding(3, 4, 3, 4);
+      this.kaktifCB.Name = "kaktifCB";
+      this.kaktifCB.Size = new Size(106, 21);
+      this.kaktifCB.TabIndex = 17;
+      this.kaktifCB.Text = "Aktif Kullanıcı";
+      this.kaktifCB.UseVisualStyleBackColor = true;
+      this.kyetkiCB.DataSource = (object) this.yetkilerBindingSource;
+      this.kyetkiCB.DisplayMember = "yetki_adi";
+      this.kyetkiCB.FormattingEnabled = true;
+      this.kyetkiCB.Location = new Point(111, 193);
+      this.kyetkiCB.Margin = new Padding(3, 4, 3, 4);
+      this.kyetkiCB.Name = "kyetkiCB";
+      this.kyetkiCB.Size = new Size(140, 24);
+      this.kyetkiCB.TabIndex = 16;
+      this.kyetkiCB.ValueMember = "yetki_id";
+      this.kgorevCB.DataSource = (object) this.gorevlerBindingSource;
+      this.kgorevCB.DisplayMember = "gorev_adi";
+      this.kgorevCB.FormattingEnabled = true;
+      this.kgorevCB.Location = new Point(111, 159);
+      this.kgorevCB.Margin = new Padding(3, 4, 3, 4);
+      this.kgorevCB.Name = "kgorevCB";
+      this.kgorevCB.Size = new Size(140, 24);
+      this.kgorevCB.TabIndex = 15;
+      this.kgorevCB.ValueMember = "gorev_id";
+      this.kunvanCB.DataSource = (object) this.unvanlarBindingSource;
+      this.kunvanCB.DisplayMember = "unvan_adi";
+      this.kunvanCB.FormattingEnabled = true;
+      this.kunvanCB.Location = new Point(111, 126);
+      this.kunvanCB.Margin = new Padding(3, 4, 3, 4);
+      this.kunvanCB.Name = "kunvanCB";
+      this.kunvanCB.Size = new Size(140, 24);
+      this.kunvanCB.TabIndex = 14;
+      this.kunvanCB.ValueMember = "unvan_id";
+      this.ksoyadiTB.Location = new Point(111, 92);
+      this.ksoyadiTB.Margin = new Padding(3, 4, 3, 4);
+      this.ksoyadiTB.Name = "ksoyadiTB";
+      this.ksoyadiTB.Size = new Size(140, 23);
+      this.ksoyadiTB.TabIndex = 13;
+      this.kkuladiTB.Location = new Point(111, 26);
+      this.kkuladiTB.Margin = new Padding(3, 4, 3, 4);
+      this.kkuladiTB.Name = "kkuladiTB";
+      this.kkuladiTB.Size = new Size(140, 23);
+      this.kkuladiTB.TabIndex = 11;
+      this.kadiTB.Location = new Point(111, 59);
+      this.kadiTB.Margin = new Padding(3, 4, 3, 4);
+      this.kadiTB.Name = "kadiTB";
+      this.kadiTB.Size = new Size(140, 23);
+      this.kadiTB.TabIndex = 12;
+      this.label10.AutoSize = true;
+      this.label10.Location = new Point(24, 197);
+      this.label10.Name = "label10";
+      this.label10.Size = new Size(37, 17);
+      this.label10.TabIndex = 20;
+      this.label10.Text = "Yetki";
+      this.label11.AutoSize = true;
+      this.label11.Location = new Point(23, 164);
+      this.label11.Name = "label11";
+      this.label11.Size = new Size(47, 17);
+      this.label11.TabIndex = 19;
+      this.label11.Text = "Görevi";
+      this.label12.AutoSize = true;
+      this.label12.Location = new Point(24, (int) sbyte.MaxValue);
+      this.label12.Name = "label12";
+      this.label12.Size = new Size(50, 17);
+      this.label12.TabIndex = 18;
+      this.label12.Text = "Unvanı";
+      this.label13.AutoSize = true;
+      this.label13.Location = new Point(24, 96);
+      this.label13.Name = "label13";
+      this.label13.Size = new Size(49, 17);
+      this.label13.TabIndex = 17;
+      this.label13.Text = "Soyadı";
+      this.label14.AutoSize = true;
+      this.label14.Location = new Point(23, 63);
+      this.label14.Name = "label14";
+      this.label14.Size = new Size(26, 17);
+      this.label14.TabIndex = 16;
+      this.label14.Text = "Adı";
+      this.label15.AutoSize = true;
+      this.label15.Location = new Point(24, 30);
+      this.label15.Name = "label15";
+      this.label15.Size = new Size(76, 17);
+      this.label15.TabIndex = 15;
+      this.label15.Text = "Kullanıcı Adı";
+      this.tabPage4.Controls.Add((Control) this.KullanicisilBTN);
+      this.tabPage4.Controls.Add((Control) this.dataGridView1);
+      this.tabPage4.Controls.Add((Control) this.silkuladTB);
+      this.tabPage4.Location = new Point(4, 25);
+      this.tabPage4.Margin = new Padding(3, 4, 3, 4);
+      this.tabPage4.Name = "tabPage4";
+      this.tabPage4.Padding = new Padding(3, 4, 3, 4);
+      this.tabPage4.Size = new Size(370, 322);
+      this.tabPage4.TabIndex = 3;
+      this.tabPage4.Text = "Kullanıcı Listesi";
+      this.tabPage4.UseVisualStyleBackColor = true;
+      this.KullanicisilBTN.Location = new Point(87, 244);
+      this.KullanicisilBTN.Margin = new Padding(3, 4, 3, 4);
+      this.KullanicisilBTN.Name = "KullanicisilBTN";
+      this.KullanicisilBTN.Size = new Size(153, 49);
+      this.KullanicisilBTN.TabIndex = 1;
+      this.KullanicisilBTN.Text = "KULLANICI SİL";
+      this.KullanicisilBTN.UseVisualStyleBackColor = true;
+      this.KullanicisilBTN.Click += new EventHandler(this.KullanicisilBTN_Click);
+      this.dataGridView1.AutoGenerateColumns = false;
+      this.dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dataGridView1.Columns.AddRange((DataGridViewColumn) this.kullaniciidDataGridViewTextBoxColumn, (DataGridViewColumn) this.kullaniciadiDataGridViewTextBoxColumn, (DataGridViewColumn) this.adDataGridViewTextBoxColumn, (DataGridViewColumn) this.soyadDataGridViewTextBoxColumn, (DataGridViewColumn) this.gorevDataGridViewTextBoxColumn, (DataGridViewColumn) this.sifreDataGridViewTextBoxColumn, (DataGridViewColumn) this.yetkiDataGridViewTextBoxColumn, (DataGridViewColumn) this.unvanidDataGridViewTextBoxColumn, (DataGridViewColumn) this.aktifDataGridViewCheckBoxColumn);
+      this.dataGridView1.DataSource = (object) this.kullaniciBindingSource;
+      this.dataGridView1.Location = new Point(7, 7);
+      this.dataGridView1.Margin = new Padding(3, 4, 3, 4);
+      this.dataGridView1.Name = "dataGridView1";
+      this.dataGridView1.Size = new Size(350, 217);
+      this.dataGridView1.TabIndex = 0;
+      this.kullaniciidDataGridViewTextBoxColumn.DataPropertyName = "kullanici_id";
+      this.kullaniciidDataGridViewTextBoxColumn.HeaderText = "kullanici_id";
+      this.kullaniciidDataGridViewTextBoxColumn.Name = "kullaniciidDataGridViewTextBoxColumn";
+      this.kullaniciidDataGridViewTextBoxColumn.ReadOnly = true;
+      this.kullaniciadiDataGridViewTextBoxColumn.DataPropertyName = "kullanici_adi";
+      this.kullaniciadiDataGridViewTextBoxColumn.HeaderText = "kullanici_adi";
+      this.kullaniciadiDataGridViewTextBoxColumn.Name = "kullaniciadiDataGridViewTextBoxColumn";
+      this.adDataGridViewTextBoxColumn.DataPropertyName = "ad";
+      this.adDataGridViewTextBoxColumn.HeaderText = "ad";
+      this.adDataGridViewTextBoxColumn.Name = "adDataGridViewTextBoxColumn";
+      this.soyadDataGridViewTextBoxColumn.DataPropertyName = "soyad";
+      this.soyadDataGridViewTextBoxColumn.HeaderText = "soyad";
+      this.soyadDataGridViewTextBoxColumn.Name = "soyadDataGridViewTextBoxColumn";
+      this.gorevDataGridViewTextBoxColumn.DataPropertyName = "gorev";
+      this.gorevDataGridViewTextBoxColumn.HeaderText = "gorev";
+      this.gorevDataGridViewTextBoxColumn.Name = "gorevDataGridViewTextBoxColumn";
+      this.sifreDataGridViewTextBoxColumn.DataPropertyName = "sifre";
+      this.sifreDataGridViewTextBoxColumn.HeaderText = "sifre";
+      this.sifreDataGridViewTextBoxColumn.Name = "sifreDataGridViewTextBoxColumn";
+      this.yetkiDataGridViewTextBoxColumn.DataPropertyName = "yetki";
+      this.yetkiDataGridViewTextBoxColumn.HeaderText = "yetki";
+      this.yetkiDataGridViewTextBoxColumn.Name = "yetkiDataGridViewTextBoxColumn";
+      this.unvanidDataGridViewTextBoxColumn.DataPropertyName = "unvan_id";
+      this.unvanidDataGridViewTextBoxColumn.HeaderText = "unvan_id";
+      this.unvanidDataGridViewTextBoxColumn.Name = "unvanidDataGridViewTextBoxColumn";
+      this.aktifDataGridViewCheckBoxColumn.DataPropertyName = "aktif";
+      this.aktifDataGridViewCheckBoxColumn.HeaderText = "aktif";
+      this.aktifDataGridViewCheckBoxColumn.Name = "aktifDataGridViewCheckBoxColumn";
+      this.kullaniciBindingSource.DataMember = "kullanici";
+      this.kullaniciBindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.silkuladTB.DataBindings.Add(new Binding("Text", (object) this.kullaniciBindingSource, "kullanici_adi", true));
+      this.silkuladTB.Location = new Point(225, 135);
+      this.silkuladTB.Margin = new Padding(3, 4, 3, 4);
+      this.silkuladTB.Name = "silkuladTB";
+      this.silkuladTB.Size = new Size(116, 23);
+      this.silkuladTB.TabIndex = 2;
+      this.kullaniciTableAdapter.ClearBeforeFill = true;
+      this.unvanlarTableAdapter.ClearBeforeFill = true;
+      this.gorevlerTableAdapter.ClearBeforeFill = true;
+      this.yetkilerTableAdapter.ClearBeforeFill = true;
+      this.kullaniciTableAdapter1.ClearBeforeFill = true;
+      this.Appearance.BackColor = Color.DarkOliveGreen;
+      this.Appearance.Options.UseBackColor = true;
+      ((ContainerControl) this).AutoScaleDimensions = new SizeF(7f, 16f);
+      ((ContainerControl) this).AutoScaleMode = AutoScaleMode.Font;
+      ((Form) this).ClientSize = new Size(378, 352);
+      ((Control) this).Controls.Add((Control) this.tabControl1);
+      ((Form) this).Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      ((Form) this).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this).Name = nameof (sifre_degistirmeFrm);
+      ((Control) this).Text = "Kullanıcı İşlemleri";
+      ((Form) this).Load += new EventHandler(this.sifre_degistirmeFrm_Load);
+      this.tabControl1.ResumeLayout(false);
+      this.tabPage1.ResumeLayout(false);
+      this.tabPage1.PerformLayout();
+      this.tabPage2.ResumeLayout(false);
+      this.tabPage2.PerformLayout();
+      ((ISupportInitialize) this.kullaniciBS).EndInit();
+      this.prometheus_projesiDataSet1.EndInit();
+      ((ISupportInitialize) this.yetkilerBindingSource).EndInit();
+      this.prometheus_projesiDataSet.EndInit();
+      ((ISupportInitialize) this.gorevlerBindingSource).EndInit();
+      ((ISupportInitialize) this.unvanlarBindingSource).EndInit();
+      this.tabPage3.ResumeLayout(false);
+      this.tabPage3.PerformLayout();
+      this.tabPage4.ResumeLayout(false);
+      this.tabPage4.PerformLayout();
+      ((ISupportInitialize) this.dataGridView1).EndInit();
+      ((ISupportInitialize) this.kullaniciBindingSource).EndInit();
+      this.ResumeLayout(false);
+    }
+  }
+}
