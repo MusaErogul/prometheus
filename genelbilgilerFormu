@@ -1,0 +1,313 @@
+// Decompiled with JetBrains decompiler
+// Type: promethues_projesi.genelbilgilerFrm
+// Assembly: promethues_projesi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: B9C4A65B-B397-4621-A7E0-7BC7D8FEFDBA
+// Assembly location: C:\Users\Belediye\AppData\Local\Temp\Gutadis\09e50f9ba5\promethues_projesi.exe
+
+using DevExpress.XtraEditors;
+using promethues_projesi.prometheus_projesiDataSetTableAdapters;
+using System;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace promethues_projesi
+{
+  public class genelbilgilerFrm : XtraForm
+  {
+    private IContainer components = (IContainer) null;
+    private prometheus_projesiDataSet prometheus_projesiDataSet;
+    private BindingSource genel_bilgilerBindingSource;
+    private genel_bilgilerTableAdapter genel_bilgilerTableAdapter;
+    private TableAdapterManager tableAdapterManager;
+    private TextEdit universite_adiTextEdit;
+    private TextEdit koordinator_adiTextEdit;
+    private TextEdit telTextEdit;
+    private TextEdit universite_adi_enTextEdit;
+    private TextEdit kodTextEdit;
+    private TextBox adresTB;
+    private TextBox adresEnTB;
+    private SimpleButton kaydetBT;
+    private TextEdit txtIban;
+    private TextEdit txtBanka;
+    private TextEdit txtSube;
+    private TextEdit txtHesapNo;
+
+    public genelbilgilerFrm() => this.InitializeComponent();
+
+    private void genel_bilgilerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+    {
+      ((ContainerControl) this).Validate();
+      this.genel_bilgilerBindingSource.EndEdit();
+      this.tableAdapterManager.UpdateAll(this.prometheus_projesiDataSet);
+    }
+
+    private void genelbilgilerFrm_Load(object sender, EventArgs e) => this.genel_bilgilerTableAdapter.Fill(this.prometheus_projesiDataSet.genel_bilgiler);
+
+    private void kaydetBT_Click(object sender, EventArgs e)
+    {
+      this.genel_bilgilerBindingSource.EndEdit();
+      this.genel_bilgilerTableAdapter.Update(this.prometheus_projesiDataSet.genel_bilgiler);
+      this.prometheus_projesiDataSet.AcceptChanges();
+      int num = (int) MessageBox.Show("Bilgiler Güncellendi");
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      this.components = (IContainer) new Container();
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (genelbilgilerFrm));
+      this.prometheus_projesiDataSet = new prometheus_projesiDataSet();
+      this.genel_bilgilerBindingSource = new BindingSource(this.components);
+      this.genel_bilgilerTableAdapter = new genel_bilgilerTableAdapter();
+      this.tableAdapterManager = new TableAdapterManager();
+      this.universite_adiTextEdit = new TextEdit();
+      this.koordinator_adiTextEdit = new TextEdit();
+      this.telTextEdit = new TextEdit();
+      this.universite_adi_enTextEdit = new TextEdit();
+      this.kodTextEdit = new TextEdit();
+      this.adresTB = new TextBox();
+      this.adresEnTB = new TextBox();
+      this.kaydetBT = new SimpleButton();
+      this.txtIban = new TextEdit();
+      this.txtBanka = new TextEdit();
+      this.txtSube = new TextEdit();
+      this.txtHesapNo = new TextEdit();
+      Label label1 = new Label();
+      Label label2 = new Label();
+      Label label3 = new Label();
+      Label label4 = new Label();
+      Label label5 = new Label();
+      Label label6 = new Label();
+      Label label7 = new Label();
+      Label label8 = new Label();
+      Label label9 = new Label();
+      Label label10 = new Label();
+      Label label11 = new Label();
+      this.prometheus_projesiDataSet.BeginInit();
+      ((ISupportInitialize) this.genel_bilgilerBindingSource).BeginInit();
+      ((ISupportInitialize) this.universite_adiTextEdit.Properties).BeginInit();
+      ((ISupportInitialize) this.koordinator_adiTextEdit.Properties).BeginInit();
+      ((ISupportInitialize) this.telTextEdit.Properties).BeginInit();
+      ((ISupportInitialize) this.universite_adi_enTextEdit.Properties).BeginInit();
+      ((ISupportInitialize) this.kodTextEdit.Properties).BeginInit();
+      ((ISupportInitialize) this.txtIban.Properties).BeginInit();
+      ((ISupportInitialize) this.txtBanka.Properties).BeginInit();
+      ((ISupportInitialize) this.txtSube.Properties).BeginInit();
+      ((ISupportInitialize) this.txtHesapNo.Properties).BeginInit();
+      this.SuspendLayout();
+      label1.AutoSize = true;
+      label1.Location = new Point(67, 39);
+      label1.Name = "universite_adiLabel";
+      label1.Size = new Size(107, 17);
+      label1.TabIndex = 0;
+      label1.Text = "Üniversitenin Adı";
+      label2.AutoSize = true;
+      label2.Location = new Point(94, 206);
+      label2.Name = "koordinator_adiLabel";
+      label2.Size = new Size(80, 17);
+      label2.TabIndex = 2;
+      label2.Text = "Koordinatör";
+      label3.AutoSize = true;
+      label3.Location = new Point(120, 95);
+      label3.Name = "telLabel";
+      label3.Size = new Size(52, 17);
+      label3.TabIndex = 4;
+      label3.Text = "Telefon";
+      label4.AutoSize = true;
+      label4.Location = new Point(126, 123);
+      label4.Name = "adresLabel";
+      label4.Size = new Size(42, 17);
+      label4.TabIndex = 6;
+      label4.Text = "Adres";
+      label5.AutoSize = true;
+      label5.Location = new Point(479, 125);
+      label5.Name = "adres_enLabel";
+      label5.Size = new Size(102, 17);
+      label5.TabIndex = 8;
+      label5.Text = "Adres (İngilizce)";
+      label6.AutoSize = true;
+      label6.Location = new Point(29, 67);
+      label6.Name = "universite_adi_enLabel";
+      label6.Size = new Size(149, 17);
+      label6.TabIndex = 10;
+      label6.Text = "Üniversite Adı (İngilizce)";
+      label7.AutoSize = true;
+      label7.Location = new Point(479, 95);
+      label7.Name = "kodLabel";
+      label7.Size = new Size(103, 17);
+      label7.TabIndex = 12;
+      label7.Text = "Üniversite Kodu";
+      label8.AutoSize = true;
+      label8.Location = new Point(131, 281);
+      label8.Name = "label1";
+      label8.Size = new Size(37, 17);
+      label8.TabIndex = 14;
+      label8.Text = "IBAN";
+      label9.AutoSize = true;
+      label9.Location = new Point(105, 253);
+      label9.Name = "label2";
+      label9.Size = new Size(67, 17);
+      label9.TabIndex = 16;
+      label9.Text = "Banka Adı";
+      label10.AutoSize = true;
+      label10.Location = new Point(520, 251);
+      label10.Name = "label3";
+      label10.Size = new Size(61, 17);
+      label10.TabIndex = 18;
+      label10.Text = "Şube Adı";
+      label11.AutoSize = true;
+      label11.Location = new Point(515, 281);
+      label11.Name = "label4";
+      label11.Size = new Size(66, 17);
+      label11.TabIndex = 20;
+      label11.Text = "Hesap No";
+      this.prometheus_projesiDataSet.DataSetName = "prometheus_projesiDataSet";
+      this.prometheus_projesiDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+      this.genel_bilgilerBindingSource.DataMember = "genel_bilgiler";
+      this.genel_bilgilerBindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.genel_bilgilerTableAdapter.ClearBeforeFill = true;
+      this.tableAdapterManager.anlasmali_bolumlerTableAdapter = (anlasmali_bolumlerTableAdapter) null;
+      this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+      this.tableAdapterManager.birimlerTableAdapter = (birimlerTableAdapter) null;
+      this.tableAdapterManager.bolumlerTableAdapter = (bolumlerTableAdapter) null;
+      this.tableAdapterManager.butce_dagilimiTableAdapter = (butce_dagilimiTableAdapter) null;
+      this.tableAdapterManager.butce_kalemleri1TableAdapter = (butce_kalemleri1TableAdapter) null;
+      this.tableAdapterManager.butce_kalemleriTableAdapter = (butce_kalemleriTableAdapter) null;
+      this.tableAdapterManager.donemTableAdapter = (donemTableAdapter) null;
+      this.tableAdapterManager.etkinlikTableAdapter = (etkinlikTableAdapter) null;
+      this.tableAdapterManager.genel_bilgilerTableAdapter = this.genel_bilgilerTableAdapter;
+      this.tableAdapterManager.gorevlerTableAdapter = (gorevlerTableAdapter) null;
+      this.tableAdapterManager.HareketlilikTableAdapter = (HareketlilikTableAdapter) null;
+      this.tableAdapterManager.kullaniciTableAdapter = (kullaniciTableAdapter) null;
+      this.tableAdapterManager.odemelerAvansTableAdapter = (odemelerAvansTableAdapter) null;
+      this.tableAdapterManager.odemelerSonTableAdapter = (odemelerSonTableAdapter) null;
+      this.tableAdapterManager.ogrenci_sinavTableAdapter = (ogrenci_sinavTableAdapter) null;
+      this.tableAdapterManager.personelTableAdapter = (personelTableAdapter) null;
+      this.tableAdapterManager.sinavlarTableAdapter = (sinavlarTableAdapter) null;
+      this.tableAdapterManager.toplam_butce1TableAdapter = (toplam_butce1TableAdapter) null;
+      this.tableAdapterManager.toplam_butceTableAdapter = (toplam_butceTableAdapter) null;
+      this.tableAdapterManager.ulkelerTableAdapter = (ulkelerTableAdapter) null;
+      this.tableAdapterManager.universiteTableAdapter = (universiteTableAdapter) null;
+      this.tableAdapterManager.unvanlarTableAdapter = (unvanlarTableAdapter) null;
+      this.tableAdapterManager.UpdateOrder = TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+      this.tableAdapterManager.yetkilerTableAdapter = (yetkilerTableAdapter) null;
+      ((Control) this.universite_adiTextEdit).DataBindings.Add(new Binding("EditValue", (object) this.genel_bilgilerBindingSource, "universite_adi", true));
+      ((Control) this.universite_adiTextEdit).Location = new Point(180, 36);
+      ((Control) this.universite_adiTextEdit).Name = "universite_adiTextEdit";
+      ((Control) this.universite_adiTextEdit).Size = new Size(727, 22);
+      ((Control) this.universite_adiTextEdit).TabIndex = 1;
+      ((Control) this.koordinator_adiTextEdit).DataBindings.Add(new Binding("EditValue", (object) this.genel_bilgilerBindingSource, "koordinator_adi", true));
+      ((Control) this.koordinator_adiTextEdit).Location = new Point(180, 203);
+      ((Control) this.koordinator_adiTextEdit).Name = "koordinator_adiTextEdit";
+      ((Control) this.koordinator_adiTextEdit).Size = new Size(282, 22);
+      ((Control) this.koordinator_adiTextEdit).TabIndex = 7;
+      ((Control) this.telTextEdit).DataBindings.Add(new Binding("EditValue", (object) this.genel_bilgilerBindingSource, "tel", true));
+      ((Control) this.telTextEdit).Location = new Point(180, 92);
+      ((Control) this.telTextEdit).Name = "telTextEdit";
+      ((Control) this.telTextEdit).Size = new Size(282, 22);
+      ((Control) this.telTextEdit).TabIndex = 3;
+      ((Control) this.universite_adi_enTextEdit).DataBindings.Add(new Binding("EditValue", (object) this.genel_bilgilerBindingSource, "universite_adi_en", true));
+      ((Control) this.universite_adi_enTextEdit).Location = new Point(180, 64);
+      ((Control) this.universite_adi_enTextEdit).Name = "universite_adi_enTextEdit";
+      ((Control) this.universite_adi_enTextEdit).Size = new Size(727, 22);
+      ((Control) this.universite_adi_enTextEdit).TabIndex = 2;
+      ((Control) this.kodTextEdit).DataBindings.Add(new Binding("EditValue", (object) this.genel_bilgilerBindingSource, "kod", true));
+      ((Control) this.kodTextEdit).Location = new Point(591, 92);
+      ((Control) this.kodTextEdit).Name = "kodTextEdit";
+      ((Control) this.kodTextEdit).Size = new Size(316, 22);
+      ((Control) this.kodTextEdit).TabIndex = 4;
+      this.adresTB.DataBindings.Add(new Binding("Text", (object) this.genel_bilgilerBindingSource, "adres", true));
+      this.adresTB.Location = new Point(180, 125);
+      this.adresTB.Multiline = true;
+      this.adresTB.Name = "adresTB";
+      this.adresTB.Size = new Size(282, 70);
+      this.adresTB.TabIndex = 5;
+      this.adresEnTB.DataBindings.Add(new Binding("Text", (object) this.genel_bilgilerBindingSource, "adres_en", true));
+      this.adresEnTB.Location = new Point(591, 125);
+      this.adresEnTB.Multiline = true;
+      this.adresEnTB.Name = "adresEnTB";
+      this.adresEnTB.Size = new Size(316, 70);
+      this.adresEnTB.TabIndex = 6;
+      this.kaydetBT.Image = (Image) componentResourceManager.GetObject("kaydetBT.Image");
+      ((Control) this.kaydetBT).Location = new Point(335, 326);
+      ((Control) this.kaydetBT).Name = "kaydetBT";
+      ((Control) this.kaydetBT).Size = new Size(316, 59);
+      ((Control) this.kaydetBT).TabIndex = 13;
+      ((Control) this.kaydetBT).Text = "Bilgileri Kaydet";
+      ((Control) this.kaydetBT).Click += new EventHandler(this.kaydetBT_Click);
+      ((Control) this.txtIban).DataBindings.Add(new Binding("EditValue", (object) this.genel_bilgilerBindingSource, "IBAN", true));
+      ((Control) this.txtIban).Location = new Point(179, 278);
+      ((Control) this.txtIban).Name = "txtIban";
+      ((Control) this.txtIban).Size = new Size(283, 22);
+      ((Control) this.txtIban).TabIndex = 15;
+      ((Control) this.txtBanka).DataBindings.Add(new Binding("EditValue", (object) this.genel_bilgilerBindingSource, "agri_banka_adi", true));
+      ((Control) this.txtBanka).Location = new Point(180, 250);
+      ((Control) this.txtBanka).Name = "txtBanka";
+      ((Control) this.txtBanka).Size = new Size(283, 22);
+      ((Control) this.txtBanka).TabIndex = 17;
+      ((Control) this.txtSube).DataBindings.Add(new Binding("EditValue", (object) this.genel_bilgilerBindingSource, "agri_sube_adi", true));
+      ((Control) this.txtSube).Location = new Point(591, 250);
+      ((Control) this.txtSube).Name = "txtSube";
+      ((Control) this.txtSube).Size = new Size(316, 22);
+      ((Control) this.txtSube).TabIndex = 19;
+      ((Control) this.txtHesapNo).DataBindings.Add(new Binding("EditValue", (object) this.genel_bilgilerBindingSource, "agri_hesap_no", true));
+      ((Control) this.txtHesapNo).Location = new Point(591, 278);
+      ((Control) this.txtHesapNo).Name = "txtHesapNo";
+      ((Control) this.txtHesapNo).Size = new Size(316, 22);
+      ((Control) this.txtHesapNo).TabIndex = 21;
+      this.Appearance.BackColor = Color.AliceBlue;
+      this.Appearance.Options.UseBackColor = true;
+      ((ContainerControl) this).AutoScaleDimensions = new SizeF(7f, 16f);
+      ((ContainerControl) this).AutoScaleMode = AutoScaleMode.Font;
+      ((Form) this).ClientSize = new Size(968, 420);
+      ((Control) this).Controls.Add((Control) label11);
+      ((Control) this).Controls.Add((Control) this.txtHesapNo);
+      ((Control) this).Controls.Add((Control) label10);
+      ((Control) this).Controls.Add((Control) this.txtSube);
+      ((Control) this).Controls.Add((Control) label9);
+      ((Control) this).Controls.Add((Control) this.txtBanka);
+      ((Control) this).Controls.Add((Control) label8);
+      ((Control) this).Controls.Add((Control) this.txtIban);
+      ((Control) this).Controls.Add((Control) this.kaydetBT);
+      ((Control) this).Controls.Add((Control) this.adresEnTB);
+      ((Control) this).Controls.Add((Control) this.adresTB);
+      ((Control) this).Controls.Add((Control) label7);
+      ((Control) this).Controls.Add((Control) this.kodTextEdit);
+      ((Control) this).Controls.Add((Control) label6);
+      ((Control) this).Controls.Add((Control) this.universite_adi_enTextEdit);
+      ((Control) this).Controls.Add((Control) label5);
+      ((Control) this).Controls.Add((Control) label4);
+      ((Control) this).Controls.Add((Control) label3);
+      ((Control) this).Controls.Add((Control) this.telTextEdit);
+      ((Control) this).Controls.Add((Control) label2);
+      ((Control) this).Controls.Add((Control) this.koordinator_adiTextEdit);
+      ((Control) this).Controls.Add((Control) label1);
+      ((Control) this).Controls.Add((Control) this.universite_adiTextEdit);
+      ((Form) this).Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      ((Control) this).Name = nameof (genelbilgilerFrm);
+      ((Control) this).Text = "Üniversite Bilgileri";
+      ((Form) this).Load += new EventHandler(this.genelbilgilerFrm_Load);
+      this.prometheus_projesiDataSet.EndInit();
+      ((ISupportInitialize) this.genel_bilgilerBindingSource).EndInit();
+      ((ISupportInitialize) this.universite_adiTextEdit.Properties).EndInit();
+      ((ISupportInitialize) this.koordinator_adiTextEdit.Properties).EndInit();
+      ((ISupportInitialize) this.telTextEdit.Properties).EndInit();
+      ((ISupportInitialize) this.universite_adi_enTextEdit.Properties).EndInit();
+      ((ISupportInitialize) this.kodTextEdit.Properties).EndInit();
+      ((ISupportInitialize) this.txtIban.Properties).EndInit();
+      ((ISupportInitialize) this.txtBanka.Properties).EndInit();
+      ((ISupportInitialize) this.txtSube.Properties).EndInit();
+      ((ISupportInitialize) this.txtHesapNo.Properties).EndInit();
+      this.ResumeLayout(false);
+      ((Control) this).PerformLayout();
+    }
+  }
+}
