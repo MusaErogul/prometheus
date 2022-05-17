@@ -1,0 +1,272 @@
+// Decompiled with JetBrains decompiler
+// Type: promethues_projesi.etkinlik
+// Assembly: promethues_projesi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: B9C4A65B-B397-4621-A7E0-7BC7D8FEFDBA
+// Assembly location: C:\Users\Belediye\AppData\Local\Temp\Gutadis\09e50f9ba5\promethues_projesi.exe
+
+using DevExpress.XtraEditors;
+using promethues_projesi.prometheus_projesiDataSetTableAdapters;
+using System;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace promethues_projesi
+{
+  public class etkinlik : XtraForm
+  {
+    private IContainer components = (IContainer) null;
+    private TextBox etkinlikadiTB;
+    private Label label1;
+    private Label label2;
+    private TextBox etkinlikadresTB;
+    private Label label3;
+    private TextBox aciklamaTB;
+    private Label label4;
+    private TextBox etkinlikmaliyetTB;
+    private Label label5;
+    private DateTimePicker etkinlikDTP;
+    private DataGridView dataGridView1;
+    private prometheus_projesiDataSet prometheus_projesiDataSet;
+    private BindingSource etkinlikBindingSource;
+    private etkinlikTableAdapter etkinlikTableAdapter;
+    private DataGridViewTextBoxColumn etkinlikidDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn etkinlikadiDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn etkinlikadresiDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn aciklamaDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn maliyetDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn tarihsaatDataGridViewTextBoxColumn;
+    private Button yeniTB;
+    private Button ekleTB;
+    private Button guncelleTB;
+    private Button silTB;
+    private TextBox etkinlikİD;
+
+    public etkinlik() => this.InitializeComponent();
+
+    private void etkinlik_Load(object sender, EventArgs e)
+    {
+      this.etkinlikTableAdapter.Fill(this.prometheus_projesiDataSet.etkinlik);
+      this.etkinlikTableAdapter.Fill(this.prometheus_projesiDataSet.etkinlik);
+    }
+
+    private void yeniTB_Click(object sender, EventArgs e) => this.etkinlikBindingSource.AddNew();
+
+    private void ekleTB_Click(object sender, EventArgs e)
+    {
+    }
+
+    private void guncelleTB_Click(object sender, EventArgs e)
+    {
+    }
+
+    private void silTB_Click(object sender, EventArgs e)
+    {
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      this.components = (IContainer) new Container();
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (etkinlik));
+      this.etkinlikadiTB = new TextBox();
+      this.etkinlikBindingSource = new BindingSource(this.components);
+      this.prometheus_projesiDataSet = new prometheus_projesiDataSet();
+      this.label1 = new Label();
+      this.label2 = new Label();
+      this.etkinlikadresTB = new TextBox();
+      this.label3 = new Label();
+      this.aciklamaTB = new TextBox();
+      this.label4 = new Label();
+      this.etkinlikmaliyetTB = new TextBox();
+      this.label5 = new Label();
+      this.etkinlikDTP = new DateTimePicker();
+      this.dataGridView1 = new DataGridView();
+      this.etkinlikidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.etkinlikadiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.etkinlikadresiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.aciklamaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.maliyetDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.tarihsaatDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.yeniTB = new Button();
+      this.ekleTB = new Button();
+      this.guncelleTB = new Button();
+      this.silTB = new Button();
+      this.etkinlikTableAdapter = new etkinlikTableAdapter();
+      this.etkinlikİD = new TextBox();
+      ((ISupportInitialize) this.etkinlikBindingSource).BeginInit();
+      this.prometheus_projesiDataSet.BeginInit();
+      ((ISupportInitialize) this.dataGridView1).BeginInit();
+      this.SuspendLayout();
+      this.etkinlikadiTB.DataBindings.Add(new Binding("Text", (object) this.etkinlikBindingSource, "etkinlik_adi", true));
+      this.etkinlikadiTB.Location = new Point(91, 55);
+      this.etkinlikadiTB.Margin = new Padding(3, 4, 3, 4);
+      this.etkinlikadiTB.Name = "etkinlikadiTB";
+      this.etkinlikadiTB.Size = new Size(116, 23);
+      this.etkinlikadiTB.TabIndex = 1;
+      this.etkinlikBindingSource.DataMember = nameof (etkinlik);
+      this.etkinlikBindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.prometheus_projesiDataSet.DataSetName = "prometheus_projesiDataSet";
+      this.prometheus_projesiDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+      this.label1.AutoSize = true;
+      this.label1.Location = new Point(104, 36);
+      this.label1.Name = "label1";
+      this.label1.Size = new Size(90, 17);
+      this.label1.TabIndex = 1;
+      this.label1.Text = "ETKİNLİK ADI";
+      this.label2.AutoSize = true;
+      this.label2.Location = new Point(247, 36);
+      this.label2.Name = "label2";
+      this.label2.Size = new Size(115, 17);
+      this.label2.TabIndex = 3;
+      this.label2.Text = "ETKİNLİK ADRESİ";
+      this.etkinlikadresTB.DataBindings.Add(new Binding("Text", (object) this.etkinlikBindingSource, "etkinlik_adresi", true));
+      this.etkinlikadresTB.Location = new Point(237, 55);
+      this.etkinlikadresTB.Margin = new Padding(3, 4, 3, 4);
+      this.etkinlikadresTB.Name = "etkinlikadresTB";
+      this.etkinlikadresTB.Size = new Size(116, 23);
+      this.etkinlikadresTB.TabIndex = 2;
+      this.label3.AutoSize = true;
+      this.label3.Location = new Point(1028, 36);
+      this.label3.Name = "label3";
+      this.label3.Size = new Size(70, 17);
+      this.label3.TabIndex = 5;
+      this.label3.Text = "AÇIKLAMA";
+      this.aciklamaTB.DataBindings.Add(new Binding("Text", (object) this.etkinlikBindingSource, "aciklama", true));
+      this.aciklamaTB.Location = new Point(860, 55);
+      this.aciklamaTB.Margin = new Padding(3, 4, 3, 4);
+      this.aciklamaTB.Name = "aciklamaTB";
+      this.aciklamaTB.Size = new Size(457, 23);
+      this.aciklamaTB.TabIndex = 5;
+      this.label4.AutoSize = true;
+      this.label4.Location = new Point(399, 36);
+      this.label4.Name = "label4";
+      this.label4.Size = new Size(125, 17);
+      this.label4.TabIndex = 7;
+      this.label4.Text = "ETKİNLİK MALİYETİ";
+      this.etkinlikmaliyetTB.DataBindings.Add(new Binding("Text", (object) this.etkinlikBindingSource, "maliyet", true));
+      this.etkinlikmaliyetTB.Location = new Point(390, 55);
+      this.etkinlikmaliyetTB.Margin = new Padding(3, 4, 3, 4);
+      this.etkinlikmaliyetTB.Name = "etkinlikmaliyetTB";
+      this.etkinlikmaliyetTB.Size = new Size(165, 23);
+      this.etkinlikmaliyetTB.TabIndex = 3;
+      this.label5.AutoSize = true;
+      this.label5.Location = new Point(653, 36);
+      this.label5.Name = "label5";
+      this.label5.Size = new Size(114, 17);
+      this.label5.TabIndex = 9;
+      this.label5.Text = "ETKİNLİK TARİHİ ";
+      this.etkinlikDTP.DataBindings.Add(new Binding("Text", (object) this.etkinlikBindingSource, "tarih_saat", true));
+      this.etkinlikDTP.Location = new Point(597, 55);
+      this.etkinlikDTP.Margin = new Padding(3, 4, 3, 4);
+      this.etkinlikDTP.Name = "etkinlikDTP";
+      this.etkinlikDTP.Size = new Size(233, 23);
+      this.etkinlikDTP.TabIndex = 4;
+      this.dataGridView1.AutoGenerateColumns = false;
+      this.dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dataGridView1.Columns.AddRange((DataGridViewColumn) this.etkinlikidDataGridViewTextBoxColumn, (DataGridViewColumn) this.etkinlikadiDataGridViewTextBoxColumn, (DataGridViewColumn) this.etkinlikadresiDataGridViewTextBoxColumn, (DataGridViewColumn) this.aciklamaDataGridViewTextBoxColumn, (DataGridViewColumn) this.maliyetDataGridViewTextBoxColumn, (DataGridViewColumn) this.tarihsaatDataGridViewTextBoxColumn);
+      this.dataGridView1.DataSource = (object) this.etkinlikBindingSource;
+      this.dataGridView1.Location = new Point(237, 117);
+      this.dataGridView1.Margin = new Padding(3, 4, 3, 4);
+      this.dataGridView1.Name = "dataGridView1";
+      this.dataGridView1.Size = new Size(754, 226);
+      this.dataGridView1.TabIndex = 11;
+      this.etkinlikidDataGridViewTextBoxColumn.DataPropertyName = "etkinlik_id";
+      this.etkinlikidDataGridViewTextBoxColumn.HeaderText = "etkinlik_id";
+      this.etkinlikidDataGridViewTextBoxColumn.Name = "etkinlikidDataGridViewTextBoxColumn";
+      this.etkinlikidDataGridViewTextBoxColumn.ReadOnly = true;
+      this.etkinlikadiDataGridViewTextBoxColumn.DataPropertyName = "etkinlik_adi";
+      this.etkinlikadiDataGridViewTextBoxColumn.HeaderText = "etkinlik_adi";
+      this.etkinlikadiDataGridViewTextBoxColumn.Name = "etkinlikadiDataGridViewTextBoxColumn";
+      this.etkinlikadresiDataGridViewTextBoxColumn.DataPropertyName = "etkinlik_adresi";
+      this.etkinlikadresiDataGridViewTextBoxColumn.HeaderText = "etkinlik_adresi";
+      this.etkinlikadresiDataGridViewTextBoxColumn.Name = "etkinlikadresiDataGridViewTextBoxColumn";
+      this.aciklamaDataGridViewTextBoxColumn.DataPropertyName = "aciklama";
+      this.aciklamaDataGridViewTextBoxColumn.HeaderText = "aciklama";
+      this.aciklamaDataGridViewTextBoxColumn.Name = "aciklamaDataGridViewTextBoxColumn";
+      this.maliyetDataGridViewTextBoxColumn.DataPropertyName = "maliyet";
+      this.maliyetDataGridViewTextBoxColumn.HeaderText = "maliyet";
+      this.maliyetDataGridViewTextBoxColumn.Name = "maliyetDataGridViewTextBoxColumn";
+      this.tarihsaatDataGridViewTextBoxColumn.DataPropertyName = "tarih_saat";
+      this.tarihsaatDataGridViewTextBoxColumn.HeaderText = "tarih_saat";
+      this.tarihsaatDataGridViewTextBoxColumn.Name = "tarihsaatDataGridViewTextBoxColumn";
+      this.yeniTB.Location = new Point(237, 379);
+      this.yeniTB.Margin = new Padding(3, 4, 3, 4);
+      this.yeniTB.Name = "yeniTB";
+      this.yeniTB.Size = new Size(117, 44);
+      this.yeniTB.TabIndex = 12;
+      this.yeniTB.Text = "YENİ";
+      this.yeniTB.UseVisualStyleBackColor = true;
+      this.yeniTB.Click += new EventHandler(this.yeniTB_Click);
+      this.ekleTB.Location = new Point(439, 379);
+      this.ekleTB.Margin = new Padding(3, 4, 3, 4);
+      this.ekleTB.Name = "ekleTB";
+      this.ekleTB.Size = new Size(117, 44);
+      this.ekleTB.TabIndex = 13;
+      this.ekleTB.Text = "EKLE";
+      this.ekleTB.UseVisualStyleBackColor = true;
+      this.ekleTB.Click += new EventHandler(this.ekleTB_Click);
+      this.guncelleTB.Location = new Point(644, 379);
+      this.guncelleTB.Margin = new Padding(3, 4, 3, 4);
+      this.guncelleTB.Name = "guncelleTB";
+      this.guncelleTB.Size = new Size(117, 44);
+      this.guncelleTB.TabIndex = 14;
+      this.guncelleTB.Text = "GÜNCELLE";
+      this.guncelleTB.UseVisualStyleBackColor = true;
+      this.guncelleTB.Click += new EventHandler(this.guncelleTB_Click);
+      this.silTB.Location = new Point(860, 379);
+      this.silTB.Margin = new Padding(3, 4, 3, 4);
+      this.silTB.Name = "silTB";
+      this.silTB.Size = new Size(117, 44);
+      this.silTB.TabIndex = 15;
+      this.silTB.Text = "SİL";
+      this.silTB.UseVisualStyleBackColor = true;
+      this.silTB.Click += new EventHandler(this.silTB_Click);
+      this.etkinlikTableAdapter.ClearBeforeFill = true;
+      this.etkinlikİD.DataBindings.Add(new Binding("Text", (object) this.etkinlikBindingSource, "etkinlik_adi", true));
+      this.etkinlikİD.Location = new Point(301, 226);
+      this.etkinlikİD.Margin = new Padding(3, 4, 3, 4);
+      this.etkinlikİD.Name = "etkinlikİD";
+      this.etkinlikİD.Size = new Size(116, 23);
+      this.etkinlikİD.TabIndex = 16;
+      this.Appearance.BackColor = Color.Aqua;
+      this.Appearance.Options.UseBackColor = true;
+      ((ContainerControl) this).AutoScaleDimensions = new SizeF(7f, 16f);
+      ((ContainerControl) this).AutoScaleMode = AutoScaleMode.Font;
+      ((Form) this).ClientSize = new Size(1353, 537);
+      ((Control) this).Controls.Add((Control) this.silTB);
+      ((Control) this).Controls.Add((Control) this.guncelleTB);
+      ((Control) this).Controls.Add((Control) this.ekleTB);
+      ((Control) this).Controls.Add((Control) this.yeniTB);
+      ((Control) this).Controls.Add((Control) this.dataGridView1);
+      ((Control) this).Controls.Add((Control) this.etkinlikDTP);
+      ((Control) this).Controls.Add((Control) this.label5);
+      ((Control) this).Controls.Add((Control) this.label4);
+      ((Control) this).Controls.Add((Control) this.etkinlikmaliyetTB);
+      ((Control) this).Controls.Add((Control) this.label3);
+      ((Control) this).Controls.Add((Control) this.aciklamaTB);
+      ((Control) this).Controls.Add((Control) this.label2);
+      ((Control) this).Controls.Add((Control) this.etkinlikadresTB);
+      ((Control) this).Controls.Add((Control) this.label1);
+      ((Control) this).Controls.Add((Control) this.etkinlikadiTB);
+      ((Control) this).Controls.Add((Control) this.etkinlikİD);
+      ((Form) this).Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      ((Form) this).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this).Name = nameof (etkinlik);
+      ((Control) this).Text = "ETKİNLİK";
+      ((Form) this).Load += new EventHandler(this.etkinlik_Load);
+      ((ISupportInitialize) this.etkinlikBindingSource).EndInit();
+      this.prometheus_projesiDataSet.EndInit();
+      ((ISupportInitialize) this.dataGridView1).EndInit();
+      this.ResumeLayout(false);
+      ((Control) this).PerformLayout();
+    }
+  }
+}
