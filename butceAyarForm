@@ -1,0 +1,350 @@
+// Decompiled with JetBrains decompiler
+// Type: promethues_projesi.butceAyarFrm
+// Assembly: promethues_projesi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: B9C4A65B-B397-4621-A7E0-7BC7D8FEFDBA
+// Assembly location: C:\Users\Belediye\AppData\Local\Temp\Gutadis\09e50f9ba5\promethues_projesi.exe
+
+using DevExpress.XtraEditors;
+using promethues_projesi.prometheus_projesiDataSetTableAdapters;
+using System;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace promethues_projesi
+{
+  public class butceAyarFrm : XtraForm
+  {
+    private IContainer components = (IContainer) null;
+    private GroupBox altKalemlerGB;
+    private Button altKalemSilBT;
+    private Button yeniAltKalemBT;
+    private Button altKalemKaydetBT;
+    private Button altKalemGuncelleBT;
+    private Label label2;
+    private TextBox altKalemAdiTB;
+    private DataGridView altKalemlerGV;
+    private TextBox altKalemIdTB;
+    private GroupBox groupBox2;
+    private Button anaKalemSilBT;
+    private Button yeniAnaKalemBT;
+    private Button anaKalemKaydetBT;
+    private Button anaKalemGuncelleBT;
+    private Label label1;
+    private TextBox anaKalemAdiTB;
+    private DataGridView anaKalemlerGV;
+    private TextBox kalem_idTB;
+    private butce_kalemleriTableAdapter butce_kalemleriTableAdapter;
+    private BindingSource butcekalemleriBindingSource;
+    private prometheus_projesiDataSet prometheus_projesiDataSet;
+    private BindingSource butcekalemleri1BindingSource;
+    private butce_kalemleri1TableAdapter butce_kalemleri1TableAdapter;
+    private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+    private DataGridViewTextBoxColumn kalemadiDataGridViewTextBoxColumn1;
+    private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn kalemadiDataGridViewTextBoxColumn;
+
+    public butceAyarFrm() => this.InitializeComponent();
+
+    private void butceAyarFrm_Load(object sender, EventArgs e) => this.butce_kalemleriTableAdapter.Fill(this.prometheus_projesiDataSet.butce_kalemleri);
+
+    private void anaKalemlerGV_SelectionChanged(object sender, EventArgs e)
+    {
+      try
+      {
+        this.butce_kalemleri1TableAdapter.Fill(this.prometheus_projesiDataSet.butce_kalemleri1, new int?(Convert.ToInt32(this.kalem_idTB.Text)));
+      }
+      catch
+      {
+      }
+    }
+
+    private void yeniAnaKalemBT_Click(object sender, EventArgs e) => this.butcekalemleriBindingSource.AddNew();
+
+    private void anaKalemKaydetBT_Click(object sender, EventArgs e)
+    {
+      this.butce_kalemleriTableAdapter.Insert(this.anaKalemAdiTB.Text.Trim(), new int?(0));
+      this.butce_kalemleriTableAdapter.Fill(this.prometheus_projesiDataSet.butce_kalemleri);
+      this.butce_kalemleri1TableAdapter.Fill(this.prometheus_projesiDataSet.butce_kalemleri1, new int?(Convert.ToInt32(this.kalem_idTB.Text)));
+    }
+
+    private void anaKalemGuncelleBT_Click(object sender, EventArgs e)
+    {
+      this.butce_kalemleriTableAdapter.Update(this.anaKalemAdiTB.Text.Trim(), new int?(0), Convert.ToInt32(this.kalem_idTB.Text));
+      this.butce_kalemleriTableAdapter.Fill(this.prometheus_projesiDataSet.butce_kalemleri);
+      this.butce_kalemleri1TableAdapter.Fill(this.prometheus_projesiDataSet.butce_kalemleri1, new int?(Convert.ToInt32(this.kalem_idTB.Text)));
+    }
+
+    private void anaKalemSilBT_Click(object sender, EventArgs e)
+    {
+      this.butce_kalemleriTableAdapter.Delete(Convert.ToInt32(this.kalem_idTB.Text));
+      this.butce_kalemleriTableAdapter.Fill(this.prometheus_projesiDataSet.butce_kalemleri);
+      this.butce_kalemleri1TableAdapter.Fill(this.prometheus_projesiDataSet.butce_kalemleri1, new int?(Convert.ToInt32(this.kalem_idTB.Text)));
+    }
+
+    private void yeniAltKalemBT_Click(object sender, EventArgs e) => this.butcekalemleri1BindingSource.AddNew();
+
+    private void altKalemKaydetBT_Click(object sender, EventArgs e)
+    {
+      this.butce_kalemleri1TableAdapter.Insert(this.altKalemAdiTB.Text.Trim(), new int?(Convert.ToInt32(this.kalem_idTB.Text)));
+      this.butce_kalemleriTableAdapter.Fill(this.prometheus_projesiDataSet.butce_kalemleri);
+      this.butce_kalemleri1TableAdapter.Fill(this.prometheus_projesiDataSet.butce_kalemleri1, new int?(Convert.ToInt32(this.kalem_idTB.Text)));
+    }
+
+    private void altKalemGuncelleBT_Click(object sender, EventArgs e)
+    {
+      this.butce_kalemleri1TableAdapter.Update(this.altKalemAdiTB.Text.Trim(), new int?(Convert.ToInt32(this.kalem_idTB.Text)), Convert.ToInt32(this.altKalemIdTB.Text));
+      this.butce_kalemleriTableAdapter.Fill(this.prometheus_projesiDataSet.butce_kalemleri);
+      this.butce_kalemleri1TableAdapter.Fill(this.prometheus_projesiDataSet.butce_kalemleri1, new int?(Convert.ToInt32(this.kalem_idTB.Text)));
+    }
+
+    private void altKalemSilBT_Click(object sender, EventArgs e)
+    {
+      this.butce_kalemleri1TableAdapter.Delete(Convert.ToInt32(this.altKalemIdTB.Text));
+      this.butce_kalemleriTableAdapter.Fill(this.prometheus_projesiDataSet.butce_kalemleri);
+      this.butce_kalemleri1TableAdapter.Fill(this.prometheus_projesiDataSet.butce_kalemleri1, new int?(Convert.ToInt32(this.kalem_idTB.Text)));
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      this.components = (IContainer) new Container();
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (butceAyarFrm));
+      this.altKalemlerGB = new GroupBox();
+      this.altKalemSilBT = new Button();
+      this.yeniAltKalemBT = new Button();
+      this.altKalemKaydetBT = new Button();
+      this.altKalemGuncelleBT = new Button();
+      this.label2 = new Label();
+      this.altKalemAdiTB = new TextBox();
+      this.butcekalemleri1BindingSource = new BindingSource(this.components);
+      this.prometheus_projesiDataSet = new prometheus_projesiDataSet();
+      this.altKalemlerGV = new DataGridView();
+      this.idDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+      this.kalemadiDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+      this.altKalemIdTB = new TextBox();
+      this.groupBox2 = new GroupBox();
+      this.anaKalemSilBT = new Button();
+      this.yeniAnaKalemBT = new Button();
+      this.anaKalemKaydetBT = new Button();
+      this.anaKalemGuncelleBT = new Button();
+      this.label1 = new Label();
+      this.anaKalemAdiTB = new TextBox();
+      this.butcekalemleriBindingSource = new BindingSource(this.components);
+      this.anaKalemlerGV = new DataGridView();
+      this.idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.kalemadiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.kalem_idTB = new TextBox();
+      this.butce_kalemleriTableAdapter = new butce_kalemleriTableAdapter();
+      this.butce_kalemleri1TableAdapter = new butce_kalemleri1TableAdapter();
+      this.altKalemlerGB.SuspendLayout();
+      ((ISupportInitialize) this.butcekalemleri1BindingSource).BeginInit();
+      this.prometheus_projesiDataSet.BeginInit();
+      ((ISupportInitialize) this.altKalemlerGV).BeginInit();
+      this.groupBox2.SuspendLayout();
+      ((ISupportInitialize) this.butcekalemleriBindingSource).BeginInit();
+      ((ISupportInitialize) this.anaKalemlerGV).BeginInit();
+      this.SuspendLayout();
+      this.altKalemlerGB.Controls.Add((Control) this.altKalemSilBT);
+      this.altKalemlerGB.Controls.Add((Control) this.yeniAltKalemBT);
+      this.altKalemlerGB.Controls.Add((Control) this.altKalemKaydetBT);
+      this.altKalemlerGB.Controls.Add((Control) this.altKalemGuncelleBT);
+      this.altKalemlerGB.Controls.Add((Control) this.label2);
+      this.altKalemlerGB.Controls.Add((Control) this.altKalemAdiTB);
+      this.altKalemlerGB.Controls.Add((Control) this.altKalemlerGV);
+      this.altKalemlerGB.Controls.Add((Control) this.altKalemIdTB);
+      this.altKalemlerGB.Location = new Point(390, 15);
+      this.altKalemlerGB.Margin = new Padding(3, 4, 3, 4);
+      this.altKalemlerGB.Name = "altKalemlerGB";
+      this.altKalemlerGB.Padding = new Padding(3, 4, 3, 4);
+      this.altKalemlerGB.Size = new Size(341, 277);
+      this.altKalemlerGB.TabIndex = 0;
+      this.altKalemlerGB.TabStop = false;
+      this.altKalemlerGB.Text = "Alt Kalemler";
+      this.altKalemSilBT.Location = new Point(220, 241);
+      this.altKalemSilBT.Margin = new Padding(3, 4, 3, 4);
+      this.altKalemSilBT.Name = "altKalemSilBT";
+      this.altKalemSilBT.Size = new Size(64, 28);
+      this.altKalemSilBT.TabIndex = 10;
+      this.altKalemSilBT.Text = "Sil";
+      this.altKalemSilBT.UseVisualStyleBackColor = true;
+      this.altKalemSilBT.Click += new EventHandler(this.altKalemSilBT_Click);
+      this.yeniAltKalemBT.Location = new Point(7, 241);
+      this.yeniAltKalemBT.Margin = new Padding(3, 4, 3, 4);
+      this.yeniAltKalemBT.Name = "yeniAltKalemBT";
+      this.yeniAltKalemBT.Size = new Size(64, 28);
+      this.yeniAltKalemBT.TabIndex = 7;
+      this.yeniAltKalemBT.Text = "Yeni";
+      this.yeniAltKalemBT.UseVisualStyleBackColor = true;
+      this.yeniAltKalemBT.Click += new EventHandler(this.yeniAltKalemBT_Click);
+      this.altKalemKaydetBT.Location = new Point(78, 241);
+      this.altKalemKaydetBT.Margin = new Padding(3, 4, 3, 4);
+      this.altKalemKaydetBT.Name = "altKalemKaydetBT";
+      this.altKalemKaydetBT.Size = new Size(64, 28);
+      this.altKalemKaydetBT.TabIndex = 8;
+      this.altKalemKaydetBT.Text = "Kaydet";
+      this.altKalemKaydetBT.UseVisualStyleBackColor = true;
+      this.altKalemKaydetBT.Click += new EventHandler(this.altKalemKaydetBT_Click);
+      this.altKalemGuncelleBT.Location = new Point(149, 241);
+      this.altKalemGuncelleBT.Margin = new Padding(3, 4, 3, 4);
+      this.altKalemGuncelleBT.Name = "altKalemGuncelleBT";
+      this.altKalemGuncelleBT.Size = new Size(64, 28);
+      this.altKalemGuncelleBT.TabIndex = 9;
+      this.altKalemGuncelleBT.Text = "Güncelle";
+      this.altKalemGuncelleBT.UseVisualStyleBackColor = true;
+      this.altKalemGuncelleBT.Click += new EventHandler(this.altKalemGuncelleBT_Click);
+      this.label2.AutoSize = true;
+      this.label2.Location = new Point(6, 203);
+      this.label2.Name = "label2";
+      this.label2.Size = new Size(85, 17);
+      this.label2.TabIndex = 6;
+      this.label2.Text = "Alt Kalem Adı";
+      this.altKalemAdiTB.DataBindings.Add(new Binding("Text", (object) this.butcekalemleri1BindingSource, "kalem_adi", true));
+      this.altKalemAdiTB.Location = new Point(93, 199);
+      this.altKalemAdiTB.Margin = new Padding(3, 4, 3, 4);
+      this.altKalemAdiTB.Name = "altKalemAdiTB";
+      this.altKalemAdiTB.Size = new Size(212, 23);
+      this.altKalemAdiTB.TabIndex = 5;
+      this.butcekalemleri1BindingSource.DataMember = "butce_kalemleri1";
+      this.butcekalemleri1BindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.prometheus_projesiDataSet.DataSetName = "prometheus_projesiDataSet";
+      this.prometheus_projesiDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+      this.altKalemlerGV.AutoGenerateColumns = false;
+      this.altKalemlerGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.altKalemlerGV.Columns.AddRange((DataGridViewColumn) this.idDataGridViewTextBoxColumn1, (DataGridViewColumn) this.kalemadiDataGridViewTextBoxColumn1);
+      this.altKalemlerGV.DataSource = (object) this.butcekalemleri1BindingSource;
+      this.altKalemlerGV.Location = new Point(10, 25);
+      this.altKalemlerGV.Margin = new Padding(3, 4, 3, 4);
+      this.altKalemlerGV.Name = "altKalemlerGV";
+      this.altKalemlerGV.Size = new Size(296, 170);
+      this.altKalemlerGV.TabIndex = 1;
+      this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
+      this.idDataGridViewTextBoxColumn1.HeaderText = "ID";
+      this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+      this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+      this.kalemadiDataGridViewTextBoxColumn1.DataPropertyName = "kalem_adi";
+      this.kalemadiDataGridViewTextBoxColumn1.HeaderText = "Alt Kalem ID";
+      this.kalemadiDataGridViewTextBoxColumn1.Name = "kalemadiDataGridViewTextBoxColumn1";
+      this.altKalemIdTB.DataBindings.Add(new Binding("Text", (object) this.butcekalemleri1BindingSource, "id", true));
+      this.altKalemIdTB.Location = new Point(93, 98);
+      this.altKalemIdTB.Margin = new Padding(3, 4, 3, 4);
+      this.altKalemIdTB.Name = "altKalemIdTB";
+      this.altKalemIdTB.Size = new Size(116, 23);
+      this.altKalemIdTB.TabIndex = 11;
+      this.groupBox2.Controls.Add((Control) this.anaKalemSilBT);
+      this.groupBox2.Controls.Add((Control) this.yeniAnaKalemBT);
+      this.groupBox2.Controls.Add((Control) this.anaKalemKaydetBT);
+      this.groupBox2.Controls.Add((Control) this.anaKalemGuncelleBT);
+      this.groupBox2.Controls.Add((Control) this.label1);
+      this.groupBox2.Controls.Add((Control) this.anaKalemAdiTB);
+      this.groupBox2.Controls.Add((Control) this.anaKalemlerGV);
+      this.groupBox2.Controls.Add((Control) this.kalem_idTB);
+      this.groupBox2.Location = new Point(14, 15);
+      this.groupBox2.Margin = new Padding(3, 4, 3, 4);
+      this.groupBox2.Name = "groupBox2";
+      this.groupBox2.Padding = new Padding(3, 4, 3, 4);
+      this.groupBox2.Size = new Size(346, 277);
+      this.groupBox2.TabIndex = 5;
+      this.groupBox2.TabStop = false;
+      this.groupBox2.Text = "Ana Kalemler";
+      this.anaKalemSilBT.Location = new Point(213, 241);
+      this.anaKalemSilBT.Margin = new Padding(3, 4, 3, 4);
+      this.anaKalemSilBT.Name = "anaKalemSilBT";
+      this.anaKalemSilBT.Size = new Size(64, 28);
+      this.anaKalemSilBT.TabIndex = 5;
+      this.anaKalemSilBT.Text = "Sil";
+      this.anaKalemSilBT.UseVisualStyleBackColor = true;
+      this.anaKalemSilBT.Click += new EventHandler(this.anaKalemSilBT_Click);
+      this.yeniAnaKalemBT.Location = new Point(0, 241);
+      this.yeniAnaKalemBT.Margin = new Padding(3, 4, 3, 4);
+      this.yeniAnaKalemBT.Name = "yeniAnaKalemBT";
+      this.yeniAnaKalemBT.Size = new Size(64, 28);
+      this.yeniAnaKalemBT.TabIndex = 1;
+      this.yeniAnaKalemBT.Text = "Yeni";
+      this.yeniAnaKalemBT.UseVisualStyleBackColor = true;
+      this.yeniAnaKalemBT.Click += new EventHandler(this.yeniAnaKalemBT_Click);
+      this.anaKalemKaydetBT.Location = new Point(71, 241);
+      this.anaKalemKaydetBT.Margin = new Padding(3, 4, 3, 4);
+      this.anaKalemKaydetBT.Name = "anaKalemKaydetBT";
+      this.anaKalemKaydetBT.Size = new Size(64, 28);
+      this.anaKalemKaydetBT.TabIndex = 2;
+      this.anaKalemKaydetBT.Text = "Kaydet";
+      this.anaKalemKaydetBT.UseVisualStyleBackColor = true;
+      this.anaKalemKaydetBT.Click += new EventHandler(this.anaKalemKaydetBT_Click);
+      this.anaKalemGuncelleBT.Location = new Point(142, 241);
+      this.anaKalemGuncelleBT.Margin = new Padding(3, 4, 3, 4);
+      this.anaKalemGuncelleBT.Name = "anaKalemGuncelleBT";
+      this.anaKalemGuncelleBT.Size = new Size(64, 28);
+      this.anaKalemGuncelleBT.TabIndex = 3;
+      this.anaKalemGuncelleBT.Text = "Güncelle";
+      this.anaKalemGuncelleBT.UseVisualStyleBackColor = true;
+      this.anaKalemGuncelleBT.Click += new EventHandler(this.anaKalemGuncelleBT_Click);
+      this.label1.AutoSize = true;
+      this.label1.Location = new Point(6, 203);
+      this.label1.Name = "label1";
+      this.label1.Size = new Size(66, 17);
+      this.label1.TabIndex = 4;
+      this.label1.Text = "Kalem Adı";
+      this.anaKalemAdiTB.DataBindings.Add(new Binding("Text", (object) this.butcekalemleriBindingSource, "kalem_adi", true));
+      this.anaKalemAdiTB.Location = new Point(75, 199);
+      this.anaKalemAdiTB.Margin = new Padding(3, 4, 3, 4);
+      this.anaKalemAdiTB.Name = "anaKalemAdiTB";
+      this.anaKalemAdiTB.Size = new Size(231, 23);
+      this.anaKalemAdiTB.TabIndex = 3;
+      this.butcekalemleriBindingSource.DataMember = "butce_kalemleri";
+      this.butcekalemleriBindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.anaKalemlerGV.AutoGenerateColumns = false;
+      this.anaKalemlerGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.anaKalemlerGV.Columns.AddRange((DataGridViewColumn) this.idDataGridViewTextBoxColumn, (DataGridViewColumn) this.kalemadiDataGridViewTextBoxColumn);
+      this.anaKalemlerGV.DataSource = (object) this.butcekalemleriBindingSource;
+      this.anaKalemlerGV.Location = new Point(7, 25);
+      this.anaKalemlerGV.Margin = new Padding(3, 4, 3, 4);
+      this.anaKalemlerGV.Name = "anaKalemlerGV";
+      this.anaKalemlerGV.Size = new Size(299, 165);
+      this.anaKalemlerGV.TabIndex = 1;
+      this.anaKalemlerGV.SelectionChanged += new EventHandler(this.anaKalemlerGV_SelectionChanged);
+      this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+      this.idDataGridViewTextBoxColumn.HeaderText = "ID";
+      this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+      this.idDataGridViewTextBoxColumn.ReadOnly = true;
+      this.kalemadiDataGridViewTextBoxColumn.DataPropertyName = "kalem_adi";
+      this.kalemadiDataGridViewTextBoxColumn.HeaderText = "Ana Kalem Adı";
+      this.kalemadiDataGridViewTextBoxColumn.Name = "kalemadiDataGridViewTextBoxColumn";
+      this.kalem_idTB.DataBindings.Add(new Binding("Text", (object) this.butcekalemleriBindingSource, "id", true));
+      this.kalem_idTB.Location = new Point(45, 58);
+      this.kalem_idTB.Margin = new Padding(3, 4, 3, 4);
+      this.kalem_idTB.Name = "kalem_idTB";
+      this.kalem_idTB.Size = new Size(116, 23);
+      this.kalem_idTB.TabIndex = 2;
+      this.butce_kalemleriTableAdapter.ClearBeforeFill = true;
+      this.butce_kalemleri1TableAdapter.ClearBeforeFill = true;
+      ((ContainerControl) this).AutoScaleDimensions = new SizeF(7f, 16f);
+      ((ContainerControl) this).AutoScaleMode = AutoScaleMode.Font;
+      ((Form) this).ClientSize = new Size(792, 322);
+      ((Control) this).Controls.Add((Control) this.altKalemlerGB);
+      ((Control) this).Controls.Add((Control) this.groupBox2);
+      ((Form) this).Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      ((Form) this).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this).Name = nameof (butceAyarFrm);
+      ((Control) this).Text = "Bütçe Ayarları";
+      ((Form) this).Load += new EventHandler(this.butceAyarFrm_Load);
+      this.altKalemlerGB.ResumeLayout(false);
+      this.altKalemlerGB.PerformLayout();
+      ((ISupportInitialize) this.butcekalemleri1BindingSource).EndInit();
+      this.prometheus_projesiDataSet.EndInit();
+      ((ISupportInitialize) this.altKalemlerGV).EndInit();
+      this.groupBox2.ResumeLayout(false);
+      this.groupBox2.PerformLayout();
+      ((ISupportInitialize) this.butcekalemleriBindingSource).EndInit();
+      ((ISupportInitialize) this.anaKalemlerGV).EndInit();
+      this.ResumeLayout(false);
+    }
+  }
+}
