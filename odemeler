@@ -1,0 +1,117 @@
+// Decompiled with JetBrains decompiler
+// Type: promethues_projesi.odemeler
+// Assembly: promethues_projesi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: B9C4A65B-B397-4621-A7E0-7BC7D8FEFDBA
+// Assembly location: C:\Users\Belediye\AppData\Local\Temp\Gutadis\09e50f9ba5\promethues_projesi.exe
+
+using DevExpress.XtraEditors;
+using promethues_projesi.prometheus_projesiDataSetTableAdapters;
+using System;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace promethues_projesi
+{
+  public class odemeler : XtraForm
+  {
+    private IContainer components = (IContainer) null;
+    private prometheus_projesiDataSet prometheus_projesiDataSet;
+    private BindingSource prometheusprojesiDataSetBindingSource;
+    private BindingSource ulkelerBindingSource;
+    private ulkelerTableAdapter ulkelerTableAdapter;
+    private ComboBox kisi_turCB;
+    private ComboBox hareketlilikTuruCB;
+    private Label label1;
+    private Label label2;
+    private DataGridView dataGridView1;
+
+    public odemeler() => this.InitializeComponent();
+
+    private void button1_Click(object sender, EventArgs e)
+    {
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      this.components = (IContainer) new Container();
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (odemeler));
+      this.prometheus_projesiDataSet = new prometheus_projesiDataSet();
+      this.prometheusprojesiDataSetBindingSource = new BindingSource(this.components);
+      this.ulkelerBindingSource = new BindingSource(this.components);
+      this.ulkelerTableAdapter = new ulkelerTableAdapter();
+      this.kisi_turCB = new ComboBox();
+      this.hareketlilikTuruCB = new ComboBox();
+      this.label1 = new Label();
+      this.label2 = new Label();
+      this.dataGridView1 = new DataGridView();
+      this.prometheus_projesiDataSet.BeginInit();
+      ((ISupportInitialize) this.prometheusprojesiDataSetBindingSource).BeginInit();
+      ((ISupportInitialize) this.ulkelerBindingSource).BeginInit();
+      ((ISupportInitialize) this.dataGridView1).BeginInit();
+      this.SuspendLayout();
+      this.prometheus_projesiDataSet.DataSetName = "prometheus_projesiDataSet";
+      this.prometheus_projesiDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+      this.prometheusprojesiDataSetBindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.prometheusprojesiDataSetBindingSource.Position = 0;
+      this.ulkelerBindingSource.DataMember = "ulkeler";
+      this.ulkelerBindingSource.DataSource = (object) this.prometheusprojesiDataSetBindingSource;
+      this.ulkelerTableAdapter.ClearBeforeFill = true;
+      this.kisi_turCB.FormattingEnabled = true;
+      this.kisi_turCB.Location = new Point(12, 30);
+      this.kisi_turCB.Name = "kisi_turCB";
+      this.kisi_turCB.Size = new Size(121, 21);
+      this.kisi_turCB.TabIndex = 0;
+      this.hareketlilikTuruCB.FormattingEnabled = true;
+      this.hareketlilikTuruCB.Location = new Point(139, 30);
+      this.hareketlilikTuruCB.Name = "hareketlilikTuruCB";
+      this.hareketlilikTuruCB.Size = new Size(121, 21);
+      this.hareketlilikTuruCB.TabIndex = 1;
+      this.label1.AutoSize = true;
+      this.label1.Location = new Point(12, 14);
+      this.label1.Name = "label1";
+      this.label1.Size = new Size(35, 13);
+      this.label1.TabIndex = 2;
+      this.label1.Text = "label1";
+      this.label2.AutoSize = true;
+      this.label2.Location = new Point(139, 14);
+      this.label2.Name = "label2";
+      this.label2.Size = new Size(35, 13);
+      this.label2.TabIndex = 3;
+      this.label2.Text = "label2";
+      this.dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dataGridView1.Location = new Point(12, 74);
+      this.dataGridView1.Name = "dataGridView1";
+      this.dataGridView1.Size = new Size(754, 150);
+      this.dataGridView1.TabIndex = 4;
+      this.Appearance.BackColor = Color.DarkCyan;
+      this.Appearance.Options.UseBackColor = true;
+      ((ContainerControl) this).AutoScaleDimensions = new SizeF(6f, 13f);
+      ((ContainerControl) this).AutoScaleMode = AutoScaleMode.Font;
+      ((Form) this).ClientSize = new Size(853, 449);
+      ((Control) this).Controls.Add((Control) this.dataGridView1);
+      ((Control) this).Controls.Add((Control) this.label2);
+      ((Control) this).Controls.Add((Control) this.label1);
+      ((Control) this).Controls.Add((Control) this.hareketlilikTuruCB);
+      ((Control) this).Controls.Add((Control) this.kisi_turCB);
+      ((Form) this).Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      this.InactiveGlowColor = Color.FromArgb(192, 0, 0);
+      ((Control) this).Name = nameof (odemeler);
+      ((Control) this).Text = "ÖĞRENCİ-PERSONEL HİBE HESAPLAMA";
+      this.prometheus_projesiDataSet.EndInit();
+      ((ISupportInitialize) this.prometheusprojesiDataSetBindingSource).EndInit();
+      ((ISupportInitialize) this.ulkelerBindingSource).EndInit();
+      ((ISupportInitialize) this.dataGridView1).EndInit();
+      this.ResumeLayout(false);
+      ((Control) this).PerformLayout();
+    }
+  }
+}
