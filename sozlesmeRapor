@@ -1,0 +1,82 @@
+// Decompiled with JetBrains decompiler
+// Type: promethues_projesi.sozlesme_rapor
+// Assembly: promethues_projesi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: B9C4A65B-B397-4621-A7E0-7BC7D8FEFDBA
+// Assembly location: C:\Users\Belediye\AppData\Local\Temp\Gutadis\09e50f9ba5\promethues_projesi.exe
+
+using Microsoft.Reporting.WinForms;
+using promethues_projesi.prometheus_projesiDataSetTableAdapters;
+using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace promethues_projesi
+{
+  public class sozlesme_rapor : Form
+  {
+    private IContainer components = (IContainer) null;
+    private BindingSource rapor1BindingSource;
+    private prometheus_projesiDataSet prometheus_projesiDataSet;
+    private rapor1TableAdapter rapor1TableAdapter;
+    private ReportViewer reportViewer1;
+
+    public sozlesme_rapor() => this.InitializeComponent();
+
+    private void sozlesme_rapor_Load(object sender, EventArgs e)
+    {
+      this.rapor1TableAdapter.Fill(this.prometheus_projesiDataSet.rapor1);
+      this.reportViewer1.RefreshReport();
+      this.reportViewer1.RefreshReport();
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      this.components = (IContainer) new Container();
+      ReportDataSource reportDataSource = new ReportDataSource();
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (sozlesme_rapor));
+      this.rapor1BindingSource = new BindingSource(this.components);
+      this.prometheus_projesiDataSet = new prometheus_projesiDataSet();
+      this.rapor1TableAdapter = new rapor1TableAdapter();
+      this.reportViewer1 = new ReportViewer();
+      ((ISupportInitialize) this.rapor1BindingSource).BeginInit();
+      this.prometheus_projesiDataSet.BeginInit();
+      this.SuspendLayout();
+      this.rapor1BindingSource.DataMember = "rapor1";
+      this.rapor1BindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.prometheus_projesiDataSet.DataSetName = "prometheus_projesiDataSet";
+      this.prometheus_projesiDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+      this.rapor1TableAdapter.ClearBeforeFill = true;
+      reportDataSource.Name = "prometheus_projesiDataSet";
+      reportDataSource.Value = (object) this.rapor1BindingSource;
+      ((Collection<ReportDataSource>) this.reportViewer1.LocalReport.DataSources).Add(reportDataSource);
+      this.reportViewer1.LocalReport.ReportEmbeddedResource = "promethues_projesi.sozlesme1.rdlc";
+      ((Control) this.reportViewer1).Location = new Point(0, 15);
+      ((Control) this.reportViewer1).Margin = new Padding(4, 4, 4, 4);
+      ((Control) this.reportViewer1).Name = "reportViewer1";
+      ((Control) this.reportViewer1).Size = new Size(1227, 515);
+      ((Control) this.reportViewer1).TabIndex = 0;
+      this.AutoScaleDimensions = new SizeF(8f, 16f);
+      this.AutoScaleMode = AutoScaleMode.Font;
+      this.ClientSize = new Size(1228, 530);
+      this.Controls.Add((Control) this.reportViewer1);
+      this.Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      this.Margin = new Padding(4, 4, 4, 4);
+      this.Name = nameof (sozlesme_rapor);
+      this.Text = "Sözleşme Metni";
+      this.Load += new EventHandler(this.sozlesme_rapor_Load);
+      ((ISupportInitialize) this.rapor1BindingSource).EndInit();
+      this.prometheus_projesiDataSet.EndInit();
+      this.ResumeLayout(false);
+    }
+  }
+}
