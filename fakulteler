@@ -1,0 +1,477 @@
+// Decompiled with JetBrains decompiler
+// Type: promethues_projesi.fakulteler
+// Assembly: promethues_projesi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: B9C4A65B-B397-4621-A7E0-7BC7D8FEFDBA
+// Assembly location: C:\Users\Belediye\AppData\Local\Temp\Gutadis\09e50f9ba5\promethues_projesi.exe
+
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
+using promethues_projesi.prometheus_projesiDataSetTableAdapters;
+using System;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace promethues_projesi
+{
+  public class fakulteler : XtraForm
+  {
+    private IContainer components = (IContainer) null;
+    private DataGridViewTextBoxColumn birimidDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn birimadiDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn birimadiingilizceDataGridViewTextBoxColumn;
+    private BindingSource bolumlerBindingSource;
+    private prometheus_projesiDataSet prometheus_projesiDataSet;
+    private BindingSource birimlerBindingSource;
+    private birimlerTableAdapter birimlerTableAdapter;
+    private BindingSource birimlerbolumlerBindingSource;
+    private bolumlerTableAdapter bolumlerTableAdapter;
+    private GroupBox groupBox1;
+    private DataNavigator dataNavigator1;
+    private DataGridView dataGridView1;
+    private DataGridViewTextBoxColumn birim_id;
+    private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+    private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+    private DataGridViewTextBoxColumn birimadiorjinalDataGridViewTextBoxColumn;
+    private LabelControl labelControl8;
+    private TextBox birimkodu1TB;
+    private LabelControl labelControl3;
+    private TextEdit birimAdiEnTB;
+    private SimpleButton birimSilBT;
+    private SimpleButton birimGuncelleBT;
+    private SimpleButton birimEkleBT;
+    private LabelControl labelControl1;
+    private TextEdit birimAdiTB;
+    private SimpleButton yeniBirimBT;
+    private GroupBox groupBox2;
+    private DataNavigator dataNavigator2;
+    private DataGridView dataGridView2;
+    private DataGridViewTextBoxColumn bolumidDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn bolumadiDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn birimkoduDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn bolumadiingilizceDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn bolumadiorjinalDataGridViewTextBoxColumn;
+    private LabelControl labelControl6;
+    private TextBox birimkodu2TB;
+    private LabelControl labelControl4;
+    private TextEdit bolumAdiENTB;
+    private SimpleButton silBTN;
+    private SimpleButton guncelleBTN;
+    private SimpleButton ekleBTN;
+    private LabelControl labelControl2;
+    private TextEdit bolumAdiTB;
+    private SimpleButton yeniBTN;
+
+    public fakulteler() => this.InitializeComponent();
+
+    private void fakulteler_Load(object sender, EventArgs e)
+    {
+      this.bolumlerTableAdapter.Fill(this.prometheus_projesiDataSet.bolumler);
+      this.birimlerTableAdapter.Fill(this.prometheus_projesiDataSet.birimler);
+    }
+
+    private void guncelleBTN_Click(object sender, EventArgs e)
+    {
+      this.bolumlerTableAdapter.guncelle(((Control) this.bolumAdiTB).Text, new int?(Convert.ToInt32(this.birimkodu1TB.Text)), ((Control) this.bolumAdiENTB).Text, Convert.ToInt32(this.birimkodu2TB.Text));
+      this.bolumlerTableAdapter.Fill(this.prometheus_projesiDataSet.bolumler);
+      int num = (int) MessageBox.Show("Bölüm Güncellendi");
+    }
+
+    private void yeniBirimBT_Click(object sender, EventArgs e)
+    {
+      this.birimlerBindingSource.AddNew();
+      ((Control) this.yeniBirimBT).Enabled = false;
+      ((Control) this.birimEkleBT).Enabled = true;
+    }
+
+    private void birimEkleBT_Click(object sender, EventArgs e)
+    {
+      this.birimlerTableAdapter.ekle(((Control) this.birimAdiTB).Text, ((Control) this.birimAdiEnTB).Text);
+      this.birimlerTableAdapter.Fill(this.prometheus_projesiDataSet.birimler);
+      int num = (int) MessageBox.Show("Birim Başarıyla Kaydedildi");
+      ((Control) this.yeniBirimBT).Enabled = true;
+      ((Control) this.birimEkleBT).Enabled = false;
+    }
+
+    private void birimGuncelleBT_Click(object sender, EventArgs e)
+    {
+      this.birimlerTableAdapter.guncelle2(((Control) this.birimAdiTB).Text, ((Control) this.birimAdiEnTB).Text, Convert.ToInt32(this.birimkodu1TB.Text));
+      this.birimlerTableAdapter.Fill(this.prometheus_projesiDataSet.birimler);
+      int num = (int) MessageBox.Show("Birim Başarıyla Güncellendi");
+    }
+
+    private void birimSilBT_Click(object sender, EventArgs e)
+    {
+      if (MessageBox.Show("Seçili Birimi Silmek İstediğinizden Emin misiniz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) != DialogResult.Yes)
+        return;
+      this.birimlerTableAdapter.sil(Convert.ToInt32(this.birimkodu1TB.Text));
+      this.birimlerTableAdapter.Fill(this.prometheus_projesiDataSet.birimler);
+      int num = (int) MessageBox.Show("Birim Silindi");
+    }
+
+    private void yeniBTN_Click(object sender, EventArgs e)
+    {
+      this.birimlerbolumlerBindingSource.AddNew();
+      ((Control) this.ekleBTN).Enabled = true;
+      ((Control) this.yeniBTN).Enabled = false;
+    }
+
+    private void ekleBTN_Click(object sender, EventArgs e)
+    {
+      this.bolumlerTableAdapter.ekle(((Control) this.bolumAdiTB).Text, new int?(Convert.ToInt32(this.birimkodu1TB.Text)), ((Control) this.bolumAdiENTB).Text);
+      this.bolumlerTableAdapter.Fill(this.prometheus_projesiDataSet.bolumler);
+      int num = (int) MessageBox.Show("Bölüm Eklendi");
+      ((Control) this.ekleBTN).Enabled = false;
+      ((Control) this.yeniBTN).Enabled = true;
+    }
+
+    private void silBTN_Click(object sender, EventArgs e)
+    {
+      if (MessageBox.Show("Seçili Bölümü Silmek İstediğinizden Emin misiniz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) != DialogResult.Yes)
+        return;
+      this.bolumlerTableAdapter.sil(Convert.ToInt32(this.birimkodu2TB.Text));
+      this.bolumlerTableAdapter.Fill(this.prometheus_projesiDataSet.bolumler);
+      int num = (int) MessageBox.Show("Bölüm Silindi");
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (fakulteler));
+      this.birimlerbolumlerBindingSource = new BindingSource();
+      this.bolumlerBindingSource = new BindingSource();
+      this.groupBox1 = new GroupBox();
+      this.dataNavigator1 = new DataNavigator();
+      this.dataGridView1 = new DataGridView();
+      this.birim_id = new DataGridViewTextBoxColumn();
+      this.labelControl8 = new LabelControl();
+      this.birimkodu1TB = new TextBox();
+      this.labelControl3 = new LabelControl();
+      this.birimAdiEnTB = new TextEdit();
+      this.birimSilBT = new SimpleButton();
+      this.birimGuncelleBT = new SimpleButton();
+      this.birimEkleBT = new SimpleButton();
+      this.labelControl1 = new LabelControl();
+      this.birimAdiTB = new TextEdit();
+      this.yeniBirimBT = new SimpleButton();
+      this.groupBox2 = new GroupBox();
+      this.dataNavigator2 = new DataNavigator();
+      this.dataGridView2 = new DataGridView();
+      this.labelControl6 = new LabelControl();
+      this.birimkodu2TB = new TextBox();
+      this.labelControl4 = new LabelControl();
+      this.bolumAdiENTB = new TextEdit();
+      this.silBTN = new SimpleButton();
+      this.guncelleBTN = new SimpleButton();
+      this.ekleBTN = new SimpleButton();
+      this.labelControl2 = new LabelControl();
+      this.bolumAdiTB = new TextEdit();
+      this.yeniBTN = new SimpleButton();
+      this.birimlerBindingSource = new BindingSource();
+      this.prometheus_projesiDataSet = new prometheus_projesiDataSet();
+      this.bolumidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.bolumadiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.birimkoduDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.bolumadiingilizceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+      this.birimlerTableAdapter = new birimlerTableAdapter();
+      this.bolumlerTableAdapter = new bolumlerTableAdapter();
+      ((ISupportInitialize) this.birimlerbolumlerBindingSource).BeginInit();
+      ((ISupportInitialize) this.bolumlerBindingSource).BeginInit();
+      this.groupBox1.SuspendLayout();
+      ((ISupportInitialize) this.dataGridView1).BeginInit();
+      ((ISupportInitialize) this.birimAdiEnTB.Properties).BeginInit();
+      ((ISupportInitialize) this.birimAdiTB.Properties).BeginInit();
+      this.groupBox2.SuspendLayout();
+      ((ISupportInitialize) this.dataGridView2).BeginInit();
+      ((ISupportInitialize) this.bolumAdiENTB.Properties).BeginInit();
+      ((ISupportInitialize) this.bolumAdiTB.Properties).BeginInit();
+      ((ISupportInitialize) this.birimlerBindingSource).BeginInit();
+      this.prometheus_projesiDataSet.BeginInit();
+      this.SuspendLayout();
+      this.birimlerbolumlerBindingSource.DataMember = "birimler_bolumler";
+      this.birimlerbolumlerBindingSource.DataSource = (object) this.birimlerBindingSource;
+      this.groupBox1.Controls.Add((Control) this.dataNavigator1);
+      this.groupBox1.Controls.Add((Control) this.dataGridView1);
+      this.groupBox1.Controls.Add((Control) this.labelControl8);
+      this.groupBox1.Controls.Add((Control) this.birimkodu1TB);
+      this.groupBox1.Controls.Add((Control) this.labelControl3);
+      this.groupBox1.Controls.Add((Control) this.birimAdiEnTB);
+      this.groupBox1.Controls.Add((Control) this.birimSilBT);
+      this.groupBox1.Controls.Add((Control) this.birimGuncelleBT);
+      this.groupBox1.Controls.Add((Control) this.birimEkleBT);
+      this.groupBox1.Controls.Add((Control) this.labelControl1);
+      this.groupBox1.Controls.Add((Control) this.birimAdiTB);
+      this.groupBox1.Controls.Add((Control) this.yeniBirimBT);
+      this.groupBox1.Location = new Point(12, 12);
+      this.groupBox1.Name = "groupBox1";
+      this.groupBox1.Size = new Size(1233, 392);
+      this.groupBox1.TabIndex = 77;
+      this.groupBox1.TabStop = false;
+      this.groupBox1.Text = "BİRİMLER";
+      ((NavigatorButtonBase) this.dataNavigator1.Buttons.Append).Visible = false;
+      ((NavigatorButtonBase) this.dataNavigator1.Buttons.CancelEdit).Visible = false;
+      ((NavigatorButtonBase) this.dataNavigator1.Buttons.EndEdit).Visible = false;
+      ((NavigatorButtonBase) this.dataNavigator1.Buttons.Remove).Visible = false;
+      ((NavigatorBase) this.dataNavigator1).ButtonStyle = (BorderStyles) 1;
+      this.dataNavigator1.DataSource = (object) this.birimlerBindingSource;
+      ((Control) this.dataNavigator1).Location = new Point(390, 321);
+      ((Control) this.dataNavigator1).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.dataNavigator1).Name = "dataNavigator1";
+      ((Control) this.dataNavigator1).Size = new Size(469, 52);
+      ((Control) this.dataNavigator1).TabIndex = 89;
+      ((Control) this.dataNavigator1).Text = "dataNavigator1";
+      this.dataGridView1.AutoGenerateColumns = false;
+      this.dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dataGridView1.Columns.AddRange((DataGridViewColumn) this.birim_id, (DataGridViewColumn) this.dataGridViewTextBoxColumn2, (DataGridViewColumn) this.dataGridViewTextBoxColumn3);
+      this.dataGridView1.DataSource = (object) this.birimlerBindingSource;
+      this.dataGridView1.Location = new Point(73, 75);
+      this.dataGridView1.Margin = new Padding(3, 4, 3, 4);
+      this.dataGridView1.Name = "dataGridView1";
+      this.dataGridView1.ReadOnly = true;
+      this.dataGridView1.Size = new Size(1081, 239);
+      this.dataGridView1.TabIndex = 88;
+      this.birim_id.DataPropertyName = "birim_id";
+      this.birim_id.HeaderText = "BİRİM İD";
+      this.birim_id.Name = "birim_id";
+      this.birim_id.ReadOnly = true;
+      ((Control) this.labelControl8).Location = new Point(74, 20);
+      ((Control) this.labelControl8).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.labelControl8).Name = "labelControl8";
+      ((Control) this.labelControl8).Size = new Size(66, 16);
+      ((Control) this.labelControl8).TabIndex = 87;
+      ((Control) this.labelControl8).Text = "Birim Kodu:";
+      this.birimkodu1TB.DataBindings.Add(new Binding("Text", (object) this.birimlerBindingSource, "birim_id", true));
+      this.birimkodu1TB.Enabled = false;
+      this.birimkodu1TB.Location = new Point(73, 44);
+      this.birimkodu1TB.Margin = new Padding(3, 4, 3, 4);
+      this.birimkodu1TB.Name = "birimkodu1TB";
+      this.birimkodu1TB.Size = new Size(116, 23);
+      this.birimkodu1TB.TabIndex = 76;
+      ((Control) this.labelControl3).Location = new Point(517, 21);
+      ((Control) this.labelControl3).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.labelControl3).Name = "labelControl3";
+      ((Control) this.labelControl3).Size = new Size(84, 16);
+      ((Control) this.labelControl3).TabIndex = 85;
+      ((Control) this.labelControl3).Text = "Birim Adı (En):";
+      ((Control) this.birimAdiEnTB).DataBindings.Add(new Binding("Text", (object) this.birimlerBindingSource, "birim_adi_ingilizce", true));
+      ((Control) this.birimAdiEnTB).Location = new Point(517, 44);
+      ((Control) this.birimAdiEnTB).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.birimAdiEnTB).Name = "birimAdiEnTB";
+      ((Control) this.birimAdiEnTB).Size = new Size(306, 22);
+      ((Control) this.birimAdiEnTB).TabIndex = 80;
+      ((Control) this.birimSilBT).Location = new Point(1082, 322);
+      ((Control) this.birimSilBT).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.birimSilBT).Name = "birimSilBT";
+      ((Control) this.birimSilBT).Size = new Size(72, 51);
+      ((Control) this.birimSilBT).TabIndex = 84;
+      ((Control) this.birimSilBT).Text = "SİL";
+      ((Control) this.birimSilBT).Click += new EventHandler(this.birimSilBT_Click);
+      ((Control) this.birimGuncelleBT).Location = new Point(1010, 322);
+      ((Control) this.birimGuncelleBT).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.birimGuncelleBT).Name = "birimGuncelleBT";
+      ((Control) this.birimGuncelleBT).Size = new Size(72, 51);
+      ((Control) this.birimGuncelleBT).TabIndex = 83;
+      ((Control) this.birimGuncelleBT).Text = "GÜNCELLE";
+      ((Control) this.birimGuncelleBT).Click += new EventHandler(this.birimGuncelleBT_Click);
+      ((Control) this.birimEkleBT).Enabled = false;
+      ((Control) this.birimEkleBT).Location = new Point(938, 322);
+      ((Control) this.birimEkleBT).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.birimEkleBT).Name = "birimEkleBT";
+      ((Control) this.birimEkleBT).Size = new Size(72, 51);
+      ((Control) this.birimEkleBT).TabIndex = 82;
+      ((Control) this.birimEkleBT).Text = "EKLE";
+      ((Control) this.birimEkleBT).Click += new EventHandler(this.birimEkleBT_Click);
+      ((Control) this.labelControl1).Location = new Point(204, 21);
+      ((Control) this.labelControl1).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.labelControl1).Name = "labelControl1";
+      ((Control) this.labelControl1).Size = new Size(56, 16);
+      ((Control) this.labelControl1).TabIndex = 78;
+      ((Control) this.labelControl1).Text = "Birim Adı:";
+      ((Control) this.birimAdiTB).DataBindings.Add(new Binding("Text", (object) this.birimlerBindingSource, "birim_adi", true));
+      ((Control) this.birimAdiTB).Location = new Point(204, 44);
+      ((Control) this.birimAdiTB).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.birimAdiTB).Name = "birimAdiTB";
+      ((Control) this.birimAdiTB).Size = new Size(306, 22);
+      ((Control) this.birimAdiTB).TabIndex = 79;
+      ((Control) this.yeniBirimBT).Location = new Point(865, 322);
+      ((Control) this.yeniBirimBT).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.yeniBirimBT).Name = "yeniBirimBT";
+      ((Control) this.yeniBirimBT).Size = new Size(72, 51);
+      ((Control) this.yeniBirimBT).TabIndex = 81;
+      ((Control) this.yeniBirimBT).Text = "YENİ";
+      ((Control) this.yeniBirimBT).Click += new EventHandler(this.yeniBirimBT_Click);
+      this.groupBox2.Controls.Add((Control) this.dataNavigator2);
+      this.groupBox2.Controls.Add((Control) this.dataGridView2);
+      this.groupBox2.Controls.Add((Control) this.labelControl6);
+      this.groupBox2.Controls.Add((Control) this.birimkodu2TB);
+      this.groupBox2.Controls.Add((Control) this.labelControl4);
+      this.groupBox2.Controls.Add((Control) this.bolumAdiENTB);
+      this.groupBox2.Controls.Add((Control) this.silBTN);
+      this.groupBox2.Controls.Add((Control) this.guncelleBTN);
+      this.groupBox2.Controls.Add((Control) this.ekleBTN);
+      this.groupBox2.Controls.Add((Control) this.labelControl2);
+      this.groupBox2.Controls.Add((Control) this.bolumAdiTB);
+      this.groupBox2.Controls.Add((Control) this.yeniBTN);
+      this.groupBox2.Location = new Point(12, 410);
+      this.groupBox2.Name = "groupBox2";
+      this.groupBox2.Size = new Size(1233, 416);
+      this.groupBox2.TabIndex = 78;
+      this.groupBox2.TabStop = false;
+      this.groupBox2.Text = "BÖLÜMLER";
+      ((NavigatorButtonBase) this.dataNavigator2.Buttons.Append).Visible = false;
+      ((NavigatorButtonBase) this.dataNavigator2.Buttons.CancelEdit).Visible = false;
+      ((NavigatorButtonBase) this.dataNavigator2.Buttons.EndEdit).Visible = false;
+      ((NavigatorButtonBase) this.dataNavigator2.Buttons.Remove).Visible = false;
+      ((NavigatorBase) this.dataNavigator2).ButtonStyle = (BorderStyles) 1;
+      this.dataNavigator2.DataSource = (object) this.birimlerbolumlerBindingSource;
+      ((Control) this.dataNavigator2).Location = new Point(392, 345);
+      ((Control) this.dataNavigator2).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.dataNavigator2).Name = "dataNavigator2";
+      ((Control) this.dataNavigator2).Size = new Size(469, 52);
+      ((Control) this.dataNavigator2).TabIndex = 90;
+      ((Control) this.dataNavigator2).Text = "dataNavigator2";
+      this.dataGridView2.AllowUserToDeleteRows = false;
+      this.dataGridView2.AutoGenerateColumns = false;
+      this.dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dataGridView2.Columns.AddRange((DataGridViewColumn) this.bolumidDataGridViewTextBoxColumn, (DataGridViewColumn) this.bolumadiDataGridViewTextBoxColumn, (DataGridViewColumn) this.birimkoduDataGridViewTextBoxColumn, (DataGridViewColumn) this.bolumadiingilizceDataGridViewTextBoxColumn);
+      this.dataGridView2.DataSource = (object) this.birimlerbolumlerBindingSource;
+      this.dataGridView2.Location = new Point(68, 85);
+      this.dataGridView2.Margin = new Padding(3, 4, 3, 4);
+      this.dataGridView2.Name = "dataGridView2";
+      this.dataGridView2.Size = new Size(1085, 241);
+      this.dataGridView2.TabIndex = 89;
+      ((Control) this.labelControl6).Location = new Point(68, 32);
+      ((Control) this.labelControl6).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.labelControl6).Name = "labelControl6";
+      ((Control) this.labelControl6).Size = new Size(72, 16);
+      ((Control) this.labelControl6).TabIndex = 88;
+      ((Control) this.labelControl6).Text = "Bölüm Kodu:";
+      this.birimkodu2TB.DataBindings.Add(new Binding("Text", (object) this.birimlerbolumlerBindingSource, "bolum_id", true));
+      this.birimkodu2TB.Enabled = false;
+      this.birimkodu2TB.Location = new Point(69, 54);
+      this.birimkodu2TB.Margin = new Padding(3, 4, 3, 4);
+      this.birimkodu2TB.Name = "birimkodu2TB";
+      this.birimkodu2TB.Size = new Size(116, 23);
+      this.birimkodu2TB.TabIndex = 77;
+      ((Control) this.labelControl4).Location = new Point(517, 30);
+      ((Control) this.labelControl4).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.labelControl4).Name = "labelControl4";
+      ((Control) this.labelControl4).Size = new Size(82, 16);
+      ((Control) this.labelControl4).TabIndex = 86;
+      ((Control) this.labelControl4).Text = "Bölüm Adı(EN)";
+      ((Control) this.bolumAdiENTB).DataBindings.Add(new Binding("Text", (object) this.birimlerbolumlerBindingSource, "bolum_adi_ingilizce", true));
+      ((Control) this.bolumAdiENTB).Location = new Point(517, 54);
+      ((Control) this.bolumAdiENTB).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.bolumAdiENTB).Name = "bolumAdiENTB";
+      ((Control) this.bolumAdiENTB).Size = new Size(306, 22);
+      ((Control) this.bolumAdiENTB).TabIndex = 81;
+      ((Control) this.silBTN).Location = new Point(1081, 345);
+      ((Control) this.silBTN).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.silBTN).Name = "silBTN";
+      ((Control) this.silBTN).Size = new Size(72, 54);
+      ((Control) this.silBTN).TabIndex = 85;
+      ((Control) this.silBTN).Text = "SİL";
+      ((Control) this.silBTN).Click += new EventHandler(this.silBTN_Click);
+      ((Control) this.guncelleBTN).Location = new Point(1012, 345);
+      ((Control) this.guncelleBTN).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.guncelleBTN).Name = "guncelleBTN";
+      ((Control) this.guncelleBTN).Size = new Size(72, 54);
+      ((Control) this.guncelleBTN).TabIndex = 84;
+      ((Control) this.guncelleBTN).Text = "GÜNCELLE";
+      ((Control) this.guncelleBTN).Click += new EventHandler(this.guncelleBTN_Click);
+      ((Control) this.ekleBTN).Enabled = false;
+      ((Control) this.ekleBTN).Location = new Point(939, 345);
+      ((Control) this.ekleBTN).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.ekleBTN).Name = "ekleBTN";
+      ((Control) this.ekleBTN).Size = new Size(72, 54);
+      ((Control) this.ekleBTN).TabIndex = 83;
+      ((Control) this.ekleBTN).Text = "EKLE";
+      ((Control) this.ekleBTN).Click += new EventHandler(this.ekleBTN_Click);
+      ((Control) this.labelControl2).Location = new Point(204, 32);
+      ((Control) this.labelControl2).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.labelControl2).Name = "labelControl2";
+      ((Control) this.labelControl2).Size = new Size(62, 16);
+      ((Control) this.labelControl2).TabIndex = 79;
+      ((Control) this.labelControl2).Text = "Bölüm Adı:";
+      ((Control) this.bolumAdiTB).DataBindings.Add(new Binding("Text", (object) this.birimlerbolumlerBindingSource, "bolum_adi", true));
+      ((Control) this.bolumAdiTB).Location = new Point(204, 55);
+      ((Control) this.bolumAdiTB).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.bolumAdiTB).Name = "bolumAdiTB";
+      ((Control) this.bolumAdiTB).Size = new Size(306, 22);
+      ((Control) this.bolumAdiTB).TabIndex = 80;
+      ((Control) this.yeniBTN).Location = new Point(867, 345);
+      ((Control) this.yeniBTN).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.yeniBTN).Name = "yeniBTN";
+      ((Control) this.yeniBTN).Size = new Size(72, 54);
+      ((Control) this.yeniBTN).TabIndex = 82;
+      ((Control) this.yeniBTN).Text = "YENİ";
+      ((Control) this.yeniBTN).Click += new EventHandler(this.yeniBTN_Click);
+      this.birimlerBindingSource.DataMember = "birimler";
+      this.birimlerBindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.prometheus_projesiDataSet.DataSetName = "prometheus_projesiDataSet";
+      this.prometheus_projesiDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+      this.bolumidDataGridViewTextBoxColumn.DataPropertyName = "bolum_id";
+      this.bolumidDataGridViewTextBoxColumn.HeaderText = "BÖLÜM İD";
+      this.bolumidDataGridViewTextBoxColumn.Name = "bolumidDataGridViewTextBoxColumn";
+      this.bolumidDataGridViewTextBoxColumn.ReadOnly = true;
+      this.bolumadiDataGridViewTextBoxColumn.DataPropertyName = "bolum_adi";
+      this.bolumadiDataGridViewTextBoxColumn.HeaderText = "BÖLÜM ADİ";
+      this.bolumadiDataGridViewTextBoxColumn.Name = "bolumadiDataGridViewTextBoxColumn";
+      this.bolumadiDataGridViewTextBoxColumn.Width = 280;
+      this.birimkoduDataGridViewTextBoxColumn.DataPropertyName = "birim_kodu";
+      this.birimkoduDataGridViewTextBoxColumn.HeaderText = "BİRİM KODU";
+      this.birimkoduDataGridViewTextBoxColumn.Name = "birimkoduDataGridViewTextBoxColumn";
+      this.bolumadiingilizceDataGridViewTextBoxColumn.DataPropertyName = "bolum_adi_ingilizce";
+      this.bolumadiingilizceDataGridViewTextBoxColumn.HeaderText = "BÖLÜM ADI İNGİLİZCE";
+      this.bolumadiingilizceDataGridViewTextBoxColumn.Name = "bolumadiingilizceDataGridViewTextBoxColumn";
+      this.bolumadiingilizceDataGridViewTextBoxColumn.Width = 280;
+      this.dataGridViewTextBoxColumn2.DataPropertyName = "birim_adi";
+      this.dataGridViewTextBoxColumn2.HeaderText = "BİRİM ADİ";
+      this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+      this.dataGridViewTextBoxColumn2.ReadOnly = true;
+      this.dataGridViewTextBoxColumn2.Width = 300;
+      this.dataGridViewTextBoxColumn3.DataPropertyName = "birim_adi_ingilizce";
+      this.dataGridViewTextBoxColumn3.HeaderText = "BİRİM ADI İNGİLİZCE";
+      this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+      this.dataGridViewTextBoxColumn3.ReadOnly = true;
+      this.dataGridViewTextBoxColumn3.Width = 300;
+      this.birimlerTableAdapter.ClearBeforeFill = true;
+      this.bolumlerTableAdapter.ClearBeforeFill = true;
+      ((ContainerControl) this).AutoScaleDimensions = new SizeF(7f, 16f);
+      ((ContainerControl) this).AutoScaleMode = AutoScaleMode.Font;
+      ((Form) this).ClientSize = new Size(1257, 1045);
+      ((Control) this).Controls.Add((Control) this.groupBox2);
+      ((Control) this).Controls.Add((Control) this.groupBox1);
+      ((Form) this).Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      ((Form) this).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this).Name = nameof (fakulteler);
+      ((Form) this).StartPosition = FormStartPosition.CenterScreen;
+      ((Control) this).Text = "BİRİM-BÖLÜM İŞLEMLERİ";
+      ((Form) this).Load += new EventHandler(this.fakulteler_Load);
+      ((ISupportInitialize) this.birimlerbolumlerBindingSource).EndInit();
+      ((ISupportInitialize) this.bolumlerBindingSource).EndInit();
+      this.groupBox1.ResumeLayout(false);
+      this.groupBox1.PerformLayout();
+      ((ISupportInitialize) this.dataGridView1).EndInit();
+      ((ISupportInitialize) this.birimAdiEnTB.Properties).EndInit();
+      ((ISupportInitialize) this.birimAdiTB.Properties).EndInit();
+      this.groupBox2.ResumeLayout(false);
+      this.groupBox2.PerformLayout();
+      ((ISupportInitialize) this.dataGridView2).EndInit();
+      ((ISupportInitialize) this.bolumAdiENTB.Properties).EndInit();
+      ((ISupportInitialize) this.bolumAdiTB.Properties).EndInit();
+      ((ISupportInitialize) this.birimlerBindingSource).EndInit();
+      this.prometheus_projesiDataSet.EndInit();
+      this.ResumeLayout(false);
+    }
+  }
+}
