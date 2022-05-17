@@ -1,0 +1,82 @@
+// Decompiled with JetBrains decompiler
+// Type: promethues_projesi.konsoloslukEnFrm
+// Assembly: promethues_projesi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: B9C4A65B-B397-4621-A7E0-7BC7D8FEFDBA
+// Assembly location: C:\Users\Belediye\AppData\Local\Temp\Gutadis\09e50f9ba5\promethues_projesi.exe
+
+using DevExpress.XtraEditors;
+using Microsoft.Reporting.WinForms;
+using promethues_projesi.prometheus_projesiDataSetTableAdapters;
+using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace promethues_projesi
+{
+  public class konsoloslukEnFrm : XtraForm
+  {
+    private IContainer components = (IContainer) null;
+    private ReportViewer reportViewer1;
+    private BindingSource rapor1BindingSource;
+    private prometheus_projesiDataSet prometheus_projesiDataSet;
+    private rapor1TableAdapter rapor1TableAdapter;
+
+    public konsoloslukEnFrm() => this.InitializeComponent();
+
+    private void konsoloslukEnFrm_Load(object sender, EventArgs e)
+    {
+      this.rapor1TableAdapter.Fill(this.prometheus_projesiDataSet.rapor1);
+      this.reportViewer1.RefreshReport();
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      this.components = (IContainer) new Container();
+      ReportDataSource reportDataSource = new ReportDataSource();
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (konsoloslukEnFrm));
+      this.rapor1BindingSource = new BindingSource(this.components);
+      this.prometheus_projesiDataSet = new prometheus_projesiDataSet();
+      this.reportViewer1 = new ReportViewer();
+      this.rapor1TableAdapter = new rapor1TableAdapter();
+      ((ISupportInitialize) this.rapor1BindingSource).BeginInit();
+      this.prometheus_projesiDataSet.BeginInit();
+      this.SuspendLayout();
+      this.rapor1BindingSource.DataMember = "rapor1";
+      this.rapor1BindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.prometheus_projesiDataSet.DataSetName = "prometheus_projesiDataSet";
+      this.prometheus_projesiDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+      reportDataSource.Name = "vize1";
+      reportDataSource.Value = (object) this.rapor1BindingSource;
+      ((Collection<ReportDataSource>) this.reportViewer1.LocalReport.DataSources).Add(reportDataSource);
+      this.reportViewer1.LocalReport.ReportEmbeddedResource = "promethues_projesi.konsoloslukEn.rdlc";
+      ((Control) this.reportViewer1).Location = new Point(0, 0);
+      ((Control) this.reportViewer1).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.reportViewer1).Name = "reportViewer1";
+      ((Control) this.reportViewer1).Size = new Size(1395, 573);
+      ((Control) this.reportViewer1).TabIndex = 0;
+      this.rapor1TableAdapter.ClearBeforeFill = true;
+      ((ContainerControl) this).AutoScaleDimensions = new SizeF(7f, 16f);
+      ((ContainerControl) this).AutoScaleMode = AutoScaleMode.Font;
+      ((Form) this).ClientSize = new Size(1409, 588);
+      ((Control) this).Controls.Add((Control) this.reportViewer1);
+      ((Form) this).Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      ((Form) this).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this).Name = nameof (konsoloslukEnFrm);
+      ((Control) this).Text = "Konsolosluk Yazısı (İngilizce)";
+      ((Form) this).Load += new EventHandler(this.konsoloslukEnFrm_Load);
+      ((ISupportInitialize) this.rapor1BindingSource).EndInit();
+      this.prometheus_projesiDataSet.EndInit();
+      this.ResumeLayout(false);
+    }
+  }
+}
