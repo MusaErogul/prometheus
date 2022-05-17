@@ -1,0 +1,2238 @@
+// Decompiled with JetBrains decompiler
+// Type: promethues_projesi.ogrenci_hareketlilik
+// Assembly: promethues_projesi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: B9C4A65B-B397-4621-A7E0-7BC7D8FEFDBA
+// Assembly location: C:\Users\Belediye\AppData\Local\Temp\Gutadis\09e50f9ba5\promethues_projesi.exe
+
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
+using promethues_projesi.prometheus_projesiDataSetTableAdapters;
+using Spire.Xls;
+using System;
+using System.ComponentModel;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace promethues_projesi
+{
+  public class ogrenci_hareketlilik : XtraForm
+  {
+    private IContainer components = (IContainer) null;
+    private TextBox araTB;
+    private Label label1;
+    private TextBox adTB;
+    private TextBox soyadTB;
+    private TextBox birimTB;
+    private TextBox textBox5;
+    private ComboBox UlkelerCB;
+    private ComboBox UniveristelerCB;
+    private ComboBox BolumlerCB;
+    private Label label2;
+    private Label label3;
+    private Label label4;
+    private GroupBox groupBox1;
+    private Label label7;
+    private Label label6;
+    private Label label5;
+    private ComboBox GidisYilCB;
+    private ComboBox GidisAyCB;
+    private ComboBox GidisGunCB;
+    private Label label10;
+    private ComboBox donusYilCB;
+    private ComboBox donusAyCB;
+    private ComboBox donusGunCB;
+    private ComboBox StajDersCB;
+    private Label label11;
+    private Button kydtBTN;
+    private Label label12;
+    private Label label13;
+    private Label label14;
+    private Label label15;
+    private Button yazdiravansBTN;
+    private Button button1;
+    private Label label9;
+    private GroupBox bolumTB;
+    private GroupBox groupBox3;
+    private Button tumuBT;
+    private DataGridView dataGridView2;
+    private prometheus_projesiDataSet prometheus_projesiDataSet;
+    private BindingSource vwogrencihareketlilikBindingSource;
+    private vw_ogrenci_hareketlilikTableAdapter vw_ogrenci_hareketlilikTableAdapter;
+    private DataGridViewTextBoxColumn ogrenciidDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn adDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn soyadDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn tcDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn bolumDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn dogumtarihiDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn telefonDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn ogrencinoDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn bolumidDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn bolumadiDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn birimkoduDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn bolumadiingilizceDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn oGRBOLUMDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn birimidDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn birimadiDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn birimadiingilizceDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn birimadiorjinalDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn ogrenciSWIFTDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn ogrenciIBANDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn ogrencihesapnoDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn subeadresiDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn subeadikoduDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn bankaadiDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn ogrenciadresDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn ogrenimkademesiDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn uyruguDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn sinifDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn ıSCEDFkoduDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn ogrencicinsiyetDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn hareketlilikidDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn gidisTarihDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn gidilecekDonemDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn kalinacakGunDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn donusTarihiDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn harcamaMiktariDataGridViewTextBoxColumn;
+    private DataGridViewCheckBoxColumn personelmiDataGridViewCheckBoxColumn;
+    private DataGridViewTextBoxColumn gidecekkisikimliknoDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn gidilecekDonemenDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn gidilecekogretimyiliDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn stajdersDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn uLKEADIDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn uNIADIDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn bolumadiorjinalDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn gIDILECEKULKEIDDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn gIDILECEKBOLUMIDDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn gIDILECEKUNIIDDataGridViewTextBoxColumn;
+    private prometheus_projesiDataSet prometheus_projesiDataSet1;
+    private BindingSource ulkelerBindingSource;
+    private ulkelerTableAdapter ulkelerTableAdapter;
+    private BindingSource ulkeleruniversiteBindingSource;
+    private universiteTableAdapter universiteTableAdapter;
+    private BindingSource universiteanlasmalibolumlerBindingSource;
+    private anlasmali_bolumlerTableAdapter anlasmali_bolumlerTableAdapter;
+    private Button button2;
+    private HareketlilikTableAdapter hareketlilikTableAdapter1;
+    private Label label8;
+    private Label label16;
+    private TextBox ogrNoTB;
+    private TextBox kimlikNoTB;
+    private Label label17;
+    private ComboBox donemCB;
+    private Label label18;
+    private ComboBox ogretimYiliCB;
+    private TextBox donus_tarihiTB;
+    private TextBox gidisTarihiTB;
+    private GroupBox groupBox2;
+    private Label label20;
+    private Label label19;
+    private CheckBox sonOdemeOnayCB;
+    private TextBox avansYuzdeTB;
+    private TextBox sonOdemeYuzdeTB;
+    private CheckBox avansOnayCB;
+    private Label label22;
+    private TextBox sonOdemeTB;
+    private Label label21;
+    private TextBox avansMiktarTB;
+    private Button avansKaydetBT;
+    private TextBox hareketlilikIdTB;
+    private Button sonOdemeKaydetBT;
+    private TextBox sonOdenenTB;
+    private Label label24;
+    private Label label23;
+    private TextBox odenenAvansTB;
+    private BindingSource odemelerSonBindingSource;
+    private BindingSource odemelerAvansBindingSource;
+    private odemelerAvansTableAdapter odemelerAvansTableAdapter;
+    private odemelerSonTableAdapter odemelerSonTableAdapter;
+    private prometheus_projesiDataSet prometheus_projesiDataSet2;
+    private GroupBox groupBox4;
+    private TextBox avansOIDTB;
+    private TextBox sonOdemeOIDTB;
+    private ComboBox odemeDonemCB;
+    private Label label25;
+    private BindingSource toplambutce1BindingSource;
+    private toplam_butce1TableAdapter toplam_butce1TableAdapter;
+    private Button yazdirsonBTN;
+    private DataNavigator dataNavigator1;
+
+    public ogrenci_hareketlilik() => this.InitializeComponent();
+
+    private void ogrenci_hareketlilik_Load(object sender, EventArgs e)
+    {
+      this.vw_ogrenci_hareketlilikTableAdapter.Fill(this.prometheus_projesiDataSet.vw_ogrenci_hareketlilik);
+      this.toplam_butce1TableAdapter.Fill(this.prometheus_projesiDataSet.toplam_butce1);
+      this.anlasmali_bolumlerTableAdapter.Fill(this.prometheus_projesiDataSet1.anlasmali_bolumler);
+      this.universiteTableAdapter.Fill(this.prometheus_projesiDataSet1.universite);
+      this.ulkelerTableAdapter.Fill(this.prometheus_projesiDataSet1.ulkeler);
+      this.ulkelerTableAdapter.Fill(this.prometheus_projesiDataSet.ulkeler);
+    }
+
+    private void kydtBTN_Click(object sender, EventArgs e)
+    {
+      DateTime dateTime1 = new DateTime();
+      DateTime dateTime2 = new DateTime();
+      DateTime dateTime3 = Convert.ToDateTime(this.GidisGunCB.Text + "." + this.GidisAyCB.Text + "." + this.GidisYilCB.Text);
+      DateTime dateTime4 = Convert.ToDateTime(this.donusGunCB.Text + "." + this.donusAyCB.Text + "." + this.donusYilCB.Text);
+      if (dateTime3 >= dateTime4)
+      {
+        int num1 = (int) MessageBox.Show("Gidiş tarihi dönüş tarihinden daha büyük olamaz.");
+      }
+      else
+      {
+        string donem_en = "";
+        if (this.donemCB.Text == "BAHAR")
+          donem_en = "SPRING";
+        else if (this.donemCB.Text == "GÜZ")
+          donem_en = "FALL";
+        else if (this.donemCB.Text == "YAZ")
+          donem_en = "SUMMER";
+        int days = dateTime4.Subtract(dateTime3).Days;
+        if (MessageBox.Show("Bilgiler Kaydedilsin mi?", "Hareketlilik Kaydı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+          return;
+        this.hareketlilikTableAdapter1.sp_hareketlilik_islemleri(this.kimlikNoTB.Text, new DateTime?(dateTime3), this.donemCB.Text, new int?(Convert.ToInt32(this.BolumlerCB.SelectedValue)), new int?(kullanici_girisi.kullanici_id), new DateTime?(dateTime4), new bool?(false), donem_en, this.ogretimYiliCB.Text, this.StajDersCB.Text);
+        this.vw_ogrenci_hareketlilikTableAdapter.Fill(this.prometheus_projesiDataSet.vw_ogrenci_hareketlilik);
+        int num2 = (int) MessageBox.Show("Kayıt Yapıldı");
+      }
+    }
+
+    private int ay_sira_bul(string ay_ismi)
+    {
+      switch (ay_ismi)
+      {
+        case "Ocak":
+          return 1;
+        case "Şubat":
+          return 2;
+        case "Mart":
+          return 3;
+        case "Nisan":
+          return 4;
+        case "Mayıs":
+          return 5;
+        case "Haziran":
+          return 6;
+        case "Temmuz":
+          return 7;
+        case "Ağustos":
+          return 8;
+        case "Eylül":
+          return 9;
+        case "Ekim":
+          return 10;
+        case "Kasım":
+          return 11;
+        case "Aralık":
+          return 12;
+        default:
+          return 0;
+      }
+    }
+
+    private void tumuBT_Click(object sender, EventArgs e) => this.vw_ogrenci_hareketlilikTableAdapter.Fill(this.prometheus_projesiDataSet.vw_ogrenci_hareketlilik);
+
+    private void button1_Click(object sender, EventArgs e) => this.vw_ogrenci_hareketlilikTableAdapter.Fillara(this.prometheus_projesiDataSet.vw_ogrenci_hareketlilik, this.araTB.Text.Trim());
+
+    private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    {
+    }
+
+    private string ay_isim_bul(int sira)
+    {
+      switch (sira)
+      {
+        case 1:
+          return "Ocak";
+        case 2:
+          return "Şubat";
+        case 3:
+          return "Mart";
+        case 4:
+          return "Nisan";
+        case 5:
+          return "Mayıs";
+        case 6:
+          return "Haziran";
+        case 7:
+          return "Temmuz";
+        case 8:
+          return "Ağustos";
+        case 9:
+          return "Eylül";
+        case 10:
+          return "Ekim";
+        case 11:
+          return "Kasım";
+        case 12:
+          return "Aralık";
+        default:
+          return "";
+      }
+    }
+
+    private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+    {
+      try
+      {
+        string str1 = this.gidisTarihiTB.Text.Trim().Replace('/', '.').Replace(' ', '.').Replace('-', '.');
+        string str2 = str1.Substring(0, str1.IndexOf('.'));
+        string str3 = str1.Substring(str1.IndexOf('.') + 1, str1.Length - str1.IndexOf('.') - 1);
+        string str4 = str3.Substring(0, str3.IndexOf('.'));
+        string str5 = str3.Substring(str3.IndexOf('.') + 1, str3.Length - str3.IndexOf('.') - 1);
+        string str6 = this.donus_tarihiTB.Text.Trim().Replace('/', '.').Replace(' ', '.').Replace('-', '.');
+        string str7 = str6.Substring(0, str6.IndexOf('.'));
+        string str8 = str6.Substring(str6.IndexOf('.') + 1, str6.Length - str6.IndexOf('.') - 1);
+        string str9 = str8.Substring(0, str8.IndexOf('.'));
+        string str10 = str8.Substring(str8.IndexOf('.') + 1, str8.Length - str8.IndexOf('.') - 1);
+        this.GidisGunCB.Text = str2;
+        this.GidisAyCB.Text = this.ay_isim_bul(Convert.ToInt32(str4));
+        this.GidisYilCB.Text = str5;
+        this.donusGunCB.Text = str7;
+        this.donusAyCB.Text = this.ay_isim_bul(Convert.ToInt32(str9));
+        this.donusYilCB.Text = str10;
+      }
+      catch
+      {
+        this.GidisGunCB.Text = "";
+        this.GidisAyCB.Text = "";
+        this.GidisYilCB.Text = "";
+        this.donusGunCB.Text = "";
+        this.donusAyCB.Text = "";
+        this.donusYilCB.Text = "";
+      }
+      this.hesapla();
+    }
+
+    private void button2_Click(object sender, EventArgs e)
+    {
+      if (MessageBox.Show("Bilgiler Silinsin mi?", "Hareketlilik Silme", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) != DialogResult.Yes)
+        return;
+      this.hareketlilikTableAdapter1.sil(this.kimlikNoTB.Text);
+      this.vw_ogrenci_hareketlilikTableAdapter.Fill(this.prometheus_projesiDataSet.vw_ogrenci_hareketlilik);
+      int num = (int) MessageBox.Show("Hareketlilik Kaydı Silindi");
+    }
+
+    private void yuzdeseksenTB_TextChanged(object sender, EventArgs e)
+    {
+    }
+
+    private void avansYuzdeTB_TextChanged(object sender, EventArgs e)
+    {
+      try
+      {
+        this.sonOdemeYuzdeTB.Text = (100.0 - Convert.ToDouble(this.avansYuzdeTB.Text)).ToString();
+        if (Convert.ToDouble(this.avansYuzdeTB.Text) > 100.0)
+          this.avansYuzdeTB.Text = "80";
+        if (Convert.ToDouble(this.avansYuzdeTB.Text) < 0.0)
+          this.avansYuzdeTB.Text = "20";
+      }
+      catch
+      {
+        this.sonOdemeYuzdeTB.Text = "20";
+        this.avansYuzdeTB.Text = "100";
+      }
+      this.hesapla();
+    }
+
+    private void hesapla()
+    {
+      try
+      {
+        SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["promethues_projesi.Properties.Settings.prometheus_projesiConnectionString"].ConnectionString);
+        SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+        DataTable dataTable = new DataTable();
+        SqlCommand sqlCommand = new SqlCommand("select  dbo.fn_ogrenci_odeme_hesapla(@hareketlilik_id) as Odeme");
+        sqlCommand.Connection = sqlConnection;
+        sqlDataAdapter.SelectCommand = sqlCommand;
+        sqlCommand.Parameters.AddWithValue("hareketlilik_id", (object) Convert.ToInt32(this.hareketlilikIdTB.Text.Trim()));
+        try
+        {
+          sqlConnection.Open();
+          sqlDataAdapter.Fill(dataTable);
+          sqlConnection.Close();
+        }
+        catch (Exception ex)
+        {
+          int num = (int) MessageBox.Show(ex.Message);
+          return;
+        }
+        if (dataTable.Rows.Count > 0)
+        {
+          TextBox avansMiktarTb = this.avansMiktarTB;
+          double num = Convert.ToDouble(this.avansYuzdeTB.Text) * Convert.ToDouble(dataTable.Rows[0]["Odeme"].ToString()) / 100.0;
+          string str1 = num.ToString();
+          avansMiktarTb.Text = str1;
+          TextBox sonOdemeTb = this.sonOdemeTB;
+          num = Convert.ToDouble(this.sonOdemeYuzdeTB.Text) * Convert.ToDouble(dataTable.Rows[0]["Odeme"].ToString()) / 100.0;
+          string str2 = num.ToString();
+          sonOdemeTb.Text = str2;
+          this.odemelerAvansTableAdapter.Fill(this.prometheus_projesiDataSet.odemelerAvans, new int?(Convert.ToInt32(this.hareketlilikIdTB.Text)));
+          this.odemelerSonTableAdapter.Fill(this.prometheus_projesiDataSet.odemelerSon, new int?(Convert.ToInt32(this.hareketlilikIdTB.Text)));
+        }
+      }
+      catch
+      {
+        this.avansMiktarTB.Text = "0";
+        this.sonOdemeTB.Text = "0";
+      }
+    }
+
+    private void sonOdemeYuzdeTB_TextChanged(object sender, EventArgs e)
+    {
+    }
+
+    private void avansMiktarTB_TextChanged(object sender, EventArgs e)
+    {
+    }
+
+    private void sonOdemeTB_TextChanged(object sender, EventArgs e)
+    {
+    }
+
+    private void sonOdemeKaydetBT_Click(object sender, EventArgs e)
+    {
+      int num1 = this.StajDersCB.Text == "STAJ" ? 7 : 4;
+      int num2 = 0;
+      try
+      {
+        num2 = Convert.ToInt32(this.sonOdemeOIDTB.Text);
+      }
+      catch
+      {
+      }
+      if (this.odemelerSonTableAdapter.Insert(new int?(num2), new int?(Convert.ToInt32(this.hareketlilikIdTB.Text)), new int?(kullanici_girisi.kullanici_id), new int?(Convert.ToInt32(this.odemeDonemCB.SelectedValue.ToString())), new double?(0.0), new double?(Convert.ToDouble(this.sonOdenenTB.Text)), new DateTime?(DateTime.Today), new bool?(false), new bool?(this.sonOdemeOnayCB.Checked), new int?(num1), new double?(Convert.ToDouble(this.sonOdemeYuzdeTB.Text))) > 0)
+      {
+        int num3 = (int) MessageBox.Show("Ödeme Kaydedildi");
+        this.odemelerSonTableAdapter.Fill(this.prometheus_projesiDataSet.odemelerSon, new int?(Convert.ToInt32(this.hareketlilikIdTB.Text)));
+      }
+      else
+      {
+        int num4 = (int) MessageBox.Show("Bir Hata Oluştu");
+      }
+    }
+
+    private void avansKaydetBT_Click(object sender, EventArgs e)
+    {
+      int num1 = this.StajDersCB.Text == "STAJ" ? 7 : 4;
+      int num2 = 0;
+      try
+      {
+        num2 = Convert.ToInt32(this.avansOIDTB.Text);
+      }
+      catch
+      {
+      }
+      if (this.odemelerAvansTableAdapter.Insert(new int?(num2), new int?(Convert.ToInt32(this.hareketlilikIdTB.Text)), new int?(kullanici_girisi.kullanici_id), new int?(Convert.ToInt32(this.odemeDonemCB.SelectedValue.ToString())), new double?(0.0), new double?(Convert.ToDouble(this.odenenAvansTB.Text)), new DateTime?(DateTime.Today), new bool?(true), new bool?(this.avansOnayCB.Checked), new int?(num1), new double?(Convert.ToDouble(this.avansYuzdeTB.Text))) > 0)
+      {
+        this.odemelerAvansTableAdapter.Fill(this.prometheus_projesiDataSet.odemelerAvans, new int?(Convert.ToInt32(this.hareketlilikIdTB.Text)));
+        int num3 = (int) MessageBox.Show("Ödeme Kaydedildi");
+      }
+      else
+      {
+        int num4 = (int) MessageBox.Show("Bir Hata Oluştu");
+      }
+    }
+
+    private void yzdrBTN_Click(object sender, EventArgs e)
+    {
+      this.muhasebe_islem_fisi_yazdir((float) Convert.ToDouble(this.avansYuzdeTB.Text));
+      this.harcama_talimati_yazdir((float) Convert.ToDouble(this.avansYuzdeTB.Text));
+    }
+
+    private void muhasebe_islem_fisi_yazdir(float yuzde)
+    {
+      SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["promethues_projesi.Properties.Settings.prometheus_projesiConnectionString"].ConnectionString);
+      SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+      DataTable dataTable = new DataTable();
+      SqlCommand sqlCommand = new SqlCommand("select * from odeme_fisi_avans where avansmi=1 and hareketlilik_id=@hareketlilik_id");
+      sqlCommand.Connection = sqlConnection;
+      sqlDataAdapter.SelectCommand = sqlCommand;
+      sqlCommand.Parameters.AddWithValue("hareketlilik_id", (object) Convert.ToInt32(this.hareketlilikIdTB.Text.Trim()));
+      try
+      {
+        sqlConnection.Open();
+        sqlDataAdapter.Fill(dataTable);
+        sqlConnection.Close();
+      }
+      catch (Exception ex)
+      {
+        int num = (int) MessageBox.Show(ex.Message);
+        return;
+      }
+      if (dataTable.Rows.Count <= 0)
+        return;
+      Workbook workbook1 = new Workbook();
+      Worksheet worksheet = workbook1.Worksheets[0];
+      workbook1.Version = ExcelVersion.Version2013;
+      worksheet.Range["A1:A58"].ColumnWidth = 1.0;
+      worksheet.Range["B1:X1"].Merge();
+      worksheet.Range["B1:X1"].Text = "MUHASEBE İŞLEM FİŞİ";
+      worksheet.Range["B1:X1"].Style.HorizontalAlignment = HorizontalAlignType.Center;
+      worksheet.Range["B1:X58"].Style.Font.FontName = "Tahoma";
+      worksheet.Range["B1:X1"].Style.Font.IsBold = true;
+      worksheet.Range["B1:X1"].Style.Font.Size = 16.0;
+      worksheet.Range["B2:X58"].Style.Font.Size = 11.0;
+      worksheet.Range["B1:X1"].ColumnWidth = 5.0;
+      worksheet.Range["B1"].ColumnWidth = 6.0;
+      worksheet.Range["C1"].ColumnWidth = 13.86;
+      worksheet.Range["D1:K1"].ColumnWidth = 4.0;
+      worksheet.Range["L1"].ColumnWidth = 1.57;
+      worksheet.Range["M1:Q1"].ColumnWidth = 4.14;
+      worksheet.Range["R1"].ColumnWidth = 0.4;
+      worksheet.Range["S1"].ColumnWidth = 19.14;
+      worksheet.Range["T1"].ColumnWidth = 7.29;
+      worksheet.Range["U1"].ColumnWidth = 10.0;
+      worksheet.Range["V1"].ColumnWidth = 7.71;
+      worksheet.Range["W1"].ColumnWidth = 4.57;
+      worksheet.Range["X1"].ColumnWidth = 29.71;
+      worksheet.Range["B2:C2"].Merge();
+      worksheet.Range["B2:C13"].Style.Font.IsBold = true;
+      worksheet.Range["B2"].Text = "Muhasebe Birimi Kodu";
+      worksheet.Range["D2:M2"].Merge();
+      worksheet.Range["D2"].Text = "4704";
+      worksheet.Range["B3:C3"].Merge();
+      worksheet.Range["B3"].Text = "Muhasebe Birimi Adı";
+      worksheet.Range["D3:M3"].Merge();
+      worksheet.Range["D3"].Text = "Ağrı İbrahim Çeçen Üniveritesi";
+      worksheet.Range["N3:P3"].Merge();
+      worksheet.Range["N3"].Text = "Bütce Yılı";
+      worksheet.Range["N3:P3"].Style.Font.IsBold = true;
+      worksheet.Range["q3:s3"].Merge();
+      worksheet.Range["q3"].Text = DateTime.Today.Year.ToString();
+      worksheet.Range["T3:T7"].Merge();
+      worksheet.Range["T3"].Text = "İlgilinin";
+      worksheet.Range["T3"].Style.Rotation = 90;
+      worksheet.Range["T3"].VerticalAlignment = VerticalAlignType.Center;
+      worksheet.Range["T3:X7"].Style.Font.IsBold = true;
+      worksheet.Range["U3:W3"].Merge();
+      worksheet.Range["U3"].Text = "Adı, Soyadı/Ünvanı";
+      worksheet.Range["U4:W4"].Merge();
+      worksheet.Range["U4"].Text = "T.C./ Vergi Kimlik No";
+      worksheet.Range["U5:W5"].Merge();
+      worksheet.Range["U5"].Text = "Banka Şube Adı";
+      worksheet.Range["U6:W6"].Merge();
+      worksheet.Range["U6"].Text = "Banka Hesap No";
+      worksheet.Range["U7:W7"].Merge();
+      worksheet.Range["U7"].Text = "Bağlı Olduğu Ver. Dai.";
+      worksheet.Range["x3"].Text = dataTable.Rows[0]["ad"].ToString() + " " + dataTable.Rows[0]["soyad"].ToString();
+      worksheet.Range["x4"].Text = dataTable.Rows[0]["KimlikNO"].ToString();
+      worksheet.Range["x5"].Text = dataTable.Rows[0]["banka_adi"].ToString() + " " + dataTable.Rows[0]["sube_adi_kodu"].ToString();
+      worksheet.Range["x6"].Text = dataTable.Rows[0]["ogrenci_IBAN"].ToString();
+      worksheet.Range["x7"].Text = "Ağrı";
+      worksheet.Range["B4:C5"].Merge();
+      worksheet.Range["B4"].Text = "Kurum-Birim Kodu";
+      worksheet.Range["D4"].Text = "1";
+      worksheet.Range["E4"].Text = "2";
+      worksheet.Range["f4:g4"].Merge();
+      worksheet.Range["F4"].Text = "Birim";
+      worksheet.Range["D5"].Text = "38";
+      worksheet.Range["E5"].Text = "71";
+      worksheet.Range["f5:g5"].Merge();
+      worksheet.Range["F5"].Text = "901";
+      worksheet.Range["H4:M5"].Merge();
+      worksheet.Range["H4"].Text = "Yevmiyenin";
+      worksheet.Range["N4:P4"].Merge();
+      worksheet.Range["N4"].Text = "Tarihi";
+      worksheet.Range["q4:s4"].Merge();
+      CellRange cellRange1 = worksheet.Range["q4"];
+      DateTime dateTime = DateTime.Today;
+      string shortDateString1 = dateTime.ToShortDateString();
+      cellRange1.Text = shortDateString1;
+      worksheet.Range["N5:P5"].Merge();
+      worksheet.Range["N5"].Text = "No.su";
+      worksheet.Range["q5:s5"].Merge();
+      worksheet.Range["q5"].Text = "0";
+      worksheet.Range["B6:C6"].Merge();
+      worksheet.Range["B6"].Text = "Kurum Adı";
+      worksheet.Range["d6:s6"].Merge();
+      worksheet.Range["D6"].Text = "AĞRI İBRAHİM ÇEÇEN ÜNİVERSİTESİ";
+      worksheet.Range["B7:C7"].Merge();
+      worksheet.Range["B7"].Text = "Birim Adı";
+      worksheet.Range["d7:s7"].Merge();
+      worksheet.Range["D7"].Text = "Özel Kalem (Rektörlük) ";
+      worksheet.Range["B8:X57"].Style.HorizontalAlignment = HorizontalAlignType.Center;
+      worksheet.Range["B8:X11"].Style.Font.IsBold = true;
+      worksheet.Range["B8:C11"].Merge();
+      worksheet.Range["B8"].Text = "Hesap No";
+      worksheet.Range["D8:G9"].Merge();
+      worksheet.Range["D8"].Text = "Kurumsal Kod";
+      worksheet.Range["H8:K9"].Merge();
+      worksheet.Range["H8"].Text = "Fonksiyonel Kod";
+      worksheet.Range["L8:M9"].Merge();
+      worksheet.Range["L8"].Text = "Finans Kodu";
+      worksheet.Range["L8"].Style.WrapText = true;
+      worksheet.Range["N8:R9"].Merge();
+      worksheet.Range["N8"].Text = "Ekonomik/Y.Hesap Kodu";
+      worksheet.Range["N8"].Style.WrapText = true;
+      worksheet.Range["S8:W8"].Merge();
+      worksheet.Range["S8"].Text = "Tutar";
+      worksheet.Range["X8:X11"].Merge();
+      worksheet.Range["X8"].Text = "Hesap / Ayrıntı Adı";
+      worksheet.Range["X8"].Style.WrapText = true;
+      worksheet.Range["S9:T9"].Merge();
+      worksheet.Range["S9"].Text = "Borç";
+      worksheet.Range["U9:W9"].Merge();
+      worksheet.Range["U9"].Text = "Alacak";
+      worksheet.Range["S10:S11"].Merge();
+      worksheet.Range["S10"].Text = "TL";
+      worksheet.Range["T10:T11"].Merge();
+      worksheet.Range["T10"].Text = "Kr";
+      worksheet.Range["U10:V11"].Merge();
+      worksheet.Range["U10"].Text = "TL";
+      worksheet.Range["W10:W11"].Merge();
+      worksheet.Range["W10"].Text = "Kr";
+      worksheet.Range["B12:C12"].Merge();
+      worksheet.Range["B12"].Text = "162";
+      worksheet.Range["D10:D11"].Merge();
+      worksheet.Range["D10"].Text = "1";
+      worksheet.Range["e10:e11"].Merge();
+      worksheet.Range["E10"].Text = "2";
+      worksheet.Range["f10:f11"].Merge();
+      worksheet.Range["F10"].Text = "3";
+      worksheet.Range["g10:g11"].Merge();
+      worksheet.Range["G10"].Text = "4";
+      worksheet.Range["h10:h11"].Merge();
+      worksheet.Range["H10"].Text = "1";
+      worksheet.Range["I10:I11"].Merge();
+      worksheet.Range["I10"].Text = "2";
+      worksheet.Range["j10:j11"].Merge();
+      worksheet.Range["J10"].Text = "3";
+      worksheet.Range["k10:k11"].Merge();
+      worksheet.Range["K10"].Text = "4";
+      worksheet.Range["l10:m11"].Merge();
+      worksheet.Range["L10"].Text = "1";
+      worksheet.Range["n10:n11"].Merge();
+      worksheet.Range["N10"].Text = "1";
+      worksheet.Range["o10:o11"].Merge();
+      worksheet.Range["O10"].Text = "2";
+      worksheet.Range["p10:p11"].Merge();
+      worksheet.Range["P10"].Text = "3";
+      worksheet.Range["q10:q11"].Merge();
+      worksheet.Range["Q10"].Text = "4";
+      worksheet.Range["D12"].Text = "38";
+      worksheet.Range["E12"].Text = "71";
+      worksheet.Range["F12"].Text = "00";
+      worksheet.Range["G12"].Text = "1";
+      worksheet.Range["H12"].Text = "9";
+      worksheet.Range["I12"].Text = "9";
+      worksheet.Range["J12"].Text = "9";
+      worksheet.Range["K12"].Text = "0";
+      worksheet.Range["L12:M12"].Merge();
+      worksheet.Range["L14:M14"].Merge();
+      worksheet.Range["L12"].Text = "2";
+      worksheet.Range["N12"].Text = "8";
+      worksheet.Range["O12"].Text = "9";
+      worksheet.Range["P12"].Text = "0";
+      worksheet.Range["Q12"].Text = "0";
+      worksheet.Range["U12:V12"].Merge();
+      worksheet.Range["X12"].Text = "Diğer Hibelerden Verilen Avanslar";
+      worksheet.Range["B13:C13"].Merge();
+      worksheet.Range["B13"].Text = "106";
+      worksheet.Range["L13:M13"].Merge();
+      worksheet.Range["N13"].Text = "0";
+      worksheet.Range["O13"].Text = "0";
+      worksheet.Range["P13"].Text = "0";
+      worksheet.Range["Q13"].Text = "0";
+      worksheet.Range["U13:V13"].Merge();
+      worksheet.Range["X13"].Text = "Döviz Gönderme Emirleri Hesabı";
+      worksheet.Range["B14:C14"].Merge();
+      worksheet.Range["U14:V14"].Merge();
+      worksheet.Range["B15:C15"].Merge();
+      worksheet.Range["L15:M15"].Merge();
+      worksheet.Range["U15:V15"].Merge();
+      worksheet.Range["B16:C16"].Merge();
+      worksheet.Range["L16:M16"].Merge();
+      worksheet.Range["U16:V16"].Merge();
+      worksheet.Range["B17:C17"].Merge();
+      worksheet.Range["L17:M17"].Merge();
+      worksheet.Range["U17:V17"].Merge();
+      worksheet.Range["B18:C18"].Merge();
+      worksheet.Range["L18:M18"].Merge();
+      worksheet.Range["U18:V18"].Merge();
+      worksheet.Range["B19:C19"].Merge();
+      worksheet.Range["L19:M19"].Merge();
+      worksheet.Range["U19:V19"].Merge();
+      worksheet.Range["B20:C20"].Merge();
+      worksheet.Range["L20:M20"].Merge();
+      worksheet.Range["U20:V20"].Merge();
+      worksheet.Range["B21:C21"].Merge();
+      worksheet.Range["L21:M21"].Merge();
+      worksheet.Range["U21:V21"].Merge();
+      worksheet.Range["B22:C22"].Merge();
+      worksheet.Range["L22:M22"].Merge();
+      worksheet.Range["U22:V22"].Merge();
+      worksheet.Range["B23:C23"].Merge();
+      worksheet.Range["L23:M23"].Merge();
+      worksheet.Range["U23:V23"].Merge();
+      worksheet.Range["B24:C24"].Merge();
+      worksheet.Range["L24:M24"].Merge();
+      worksheet.Range["U24:V24"].Merge();
+      worksheet.Range["B25:C25"].Merge();
+      worksheet.Range["L25:M25"].Merge();
+      worksheet.Range["U25:V25"].Merge();
+      worksheet.Range["B26:C26"].Merge();
+      worksheet.Range["L26:M26"].Merge();
+      worksheet.Range["U26:V26"].Merge();
+      worksheet.Range["B27:C27"].Merge();
+      worksheet.Range["L27:M27"].Merge();
+      worksheet.Range["U27:V27"].Merge();
+      worksheet.Range["B28:C28"].Merge();
+      worksheet.Range["L28:M28"].Merge();
+      worksheet.Range["U28:V28"].Merge();
+      worksheet.Range["B29:C29"].Merge();
+      worksheet.Range["L29:M29"].Merge();
+      worksheet.Range["U29:V29"].Merge();
+      worksheet.Range["B30:C30"].Merge();
+      worksheet.Range["L30:M30"].Merge();
+      worksheet.Range["U30:V30"].Merge();
+      worksheet.Range["B31:C31"].Merge();
+      worksheet.Range["L31:M31"].Merge();
+      worksheet.Range["U31:V31"].Merge();
+      worksheet.Range["B32:C32"].Merge();
+      worksheet.Range["L32:M32"].Merge();
+      worksheet.Range["U32:V32"].Merge();
+      worksheet.Range["B33:C33"].Merge();
+      worksheet.Range["L33:M33"].Merge();
+      worksheet.Range["U33:V33"].Merge();
+      worksheet.Range["B34:C34"].Merge();
+      worksheet.Range["L34:M34"].Merge();
+      worksheet.Range["U34:V34"].Merge();
+      worksheet.Range["B35:Q35"].Merge();
+      worksheet.Range["B35"].Text = "TOPLAM:";
+      worksheet.Range["B35:X43"].Style.Font.IsBold = true;
+      worksheet.Range["B35"].Style.HorizontalAlignment = HorizontalAlignType.Right;
+      worksheet.Range["S35:T35"].Merge();
+      worksheet.Range["S35"].Text = " ";
+      worksheet.Range["U35:W35"].Merge();
+      worksheet.Range["U35"].Text = " ";
+      worksheet.Range["B36:X36"].Merge();
+      worksheet.Range["B36"].Text = " ";
+      worksheet.Range["B37:X37"].Merge();
+      worksheet.Range["B37"].Text = "MUHASEBE BİRİMLERİ ARASI İŞLEMLERDE";
+      worksheet.Range["B38:K38"].Merge();
+      worksheet.Range["B38"].Text = "MUHASEBE BİRİMİNİN";
+      worksheet.Range["L38:X38"].Merge();
+      worksheet.Range["L38"].Text = "KARŞI MUHASEBE BİRİMİNİN";
+      worksheet.Range["B39:E39"].Merge();
+      worksheet.Range["B39"].Text = "Nakit Hareket Cetveli Dönem Tarihi";
+      worksheet.Range["F39:K39"].Merge();
+      worksheet.Range["F39"].Text = "Vergilendirme  Dönemi";
+      worksheet.Range["L39:Q39"].Merge();
+      worksheet.Range["L39"].Text = "Kodu";
+      worksheet.Range["S39:U39"].Merge();
+      worksheet.Range["S39"].Text = "ADI";
+      worksheet.Range["V39"].Text = "Yev.Tar.";
+      worksheet.Range["X39"].Text = "Yevmiye Numarası";
+      worksheet.Range["B40:E40"].Merge();
+      worksheet.Range["B40"].Text = " ";
+      worksheet.Range["F40:K40"].Merge();
+      worksheet.Range["F40"].Text = " ";
+      worksheet.Range["L40:Q40"].Merge();
+      worksheet.Range["L40"].Text = " ";
+      worksheet.Range["S40:U40"].Merge();
+      worksheet.Range["S40"].Text = " ";
+      worksheet.Range["V40:W40"].Merge();
+      worksheet.Range["X40"].Merge();
+      worksheet.Range["X40"].Text = " ";
+      worksheet.Range["B41:V41"].Merge();
+      worksheet.Range["B41"].Text = "TAHSİLAT - ÖDEME - RET VE İADELERDE";
+      worksheet.Range["W41:X42"].Merge();
+      worksheet.Range["W41"].Text = "AÇIKLAMA VE EKLER (BELGE DÜZENLEME NEDENİ) ";
+      worksheet.Range["W41:X42"].IsWrapText = true;
+      worksheet.Range["W43:X51"].Merge();
+      worksheet.Range["W43"].Text = dataTable.Rows[0]["ad"].ToString() + " " + dataTable.Rows[0]["soyad"].ToString() + "'a ait, Erasmus+Öğrenci Öğrenim Hareketliliği  ilk ödeme (%" + yuzde.ToString() + " kapsamında " + dataTable.Rows[0]["donem_adi"].ToString() + " hesabından\tToplam Ödemesi: " + dataTable.Rows[0]["odenen"].ToString() + "€";
+      worksheet.Range["W43:X51"].IsWrapText = true;
+      worksheet.Range["W43"].Style.Font.IsBold = false;
+      worksheet.Range["W43"].Style.VerticalAlignment = VerticalAlignType.Top;
+      worksheet.Range["B42:F43"].Merge();
+      worksheet.Range["B42"].Text = "Alındı No.";
+      worksheet.Range["G42:M43"].Merge();
+      worksheet.Range["G42"].Text = "Çek No / Gönderme Emri No";
+      worksheet.Range["N42:V42"].Merge();
+      worksheet.Range["N42"].Text = "Düzeltme Fişi/Düzeltme ve İade Belgesinin ";
+      worksheet.Range["N43:S43"].Merge();
+      worksheet.Range["N40"].Text = "Tarihi";
+      worksheet.Range["T43:V43"].Merge();
+      worksheet.Range["T43"].Text = "Numarası";
+      worksheet.Range["B44:F44"].Merge();
+      worksheet.Range["G44:M44"].Merge();
+      worksheet.Range["N44:S44"].Merge();
+      worksheet.Range["T44:V44"].Merge();
+      worksheet.Range["B45:V45"].Merge();
+      worksheet.Range["B45"].Text = "İADE OLUNAN EMANETLERDE";
+      worksheet.Range["B46:H46"].Merge();
+      worksheet.Range["B46"].Text = "Hesaba Alındığı Tarih";
+      worksheet.Range["I46:P46"].Merge();
+      worksheet.Range["I46"].Text = "Yevmiye Numarası";
+      worksheet.Range["Q46:V46"].Merge();
+      worksheet.Range["Q46"].Text = "Kimin Adına Kayıtlı Olduğu";
+      worksheet.Range["B47:H47"].Merge();
+      worksheet.Range["I47:P47"].Merge();
+      worksheet.Range["Q47:V47"].Merge();
+      worksheet.Range["B48:V48"].Merge();
+      worksheet.Range["B48"].Text = "ÖN ÖDEMELERDE ";
+      worksheet.Range["B49:H50"].Merge();
+      worksheet.Range["B49"].Text = "Avans ve Kredinin Verildiği Tarih ";
+      worksheet.Range["I49:P50"].Merge();
+      worksheet.Range["I49"].Text = "Yevmiye Numarası ";
+      worksheet.Range["Q49:V49"].Merge();
+      worksheet.Range["Q49"].Text = "İlgilinin Üzerindeki Avans Tutarı ";
+      worksheet.Range["Q50:T50"].Merge();
+      worksheet.Range["Q50"].Text = "TL";
+      worksheet.Range["U50:V50"].Merge();
+      worksheet.Range["U50"].Text = "Kr";
+      worksheet.Range["B51:H51"].Merge();
+      worksheet.Range["I51:P51"].Merge();
+      worksheet.Range["Q51:T51"].Merge();
+      worksheet.Range["u51:v51"].Merge();
+      worksheet.Range["B52:B52"].Merge();
+      worksheet.Range["H52:L52"].Merge();
+      worksheet.Range["M52:S52"].Merge();
+      worksheet.Range["M52"].Text = "Uygundur";
+      worksheet.Range["T52:W52"].Merge();
+      worksheet.Range["T51"].Text = "Ödeyiniz / Mahsup Ediniz";
+      worksheet.Range["X52"].Merge();
+      worksheet.Range["X52"].Text = "Tahsil Edilmiştir / Ödenmiştir";
+      worksheet.Range["B53:G53"].Merge();
+      CellRange cellRange2 = worksheet.Range["B53"];
+      dateTime = DateTime.Today;
+      string shortDateString2 = dateTime.ToShortDateString();
+      cellRange2.Text = shortDateString2;
+      worksheet.Range["H53:L53"].Merge();
+      worksheet.Range["H53"].Text = "..... / ..... / 20 .....";
+      worksheet.Range["M53:S53"].Merge();
+      CellRange cellRange3 = worksheet.Range["M53"];
+      dateTime = DateTime.Today;
+      string shortDateString3 = dateTime.ToShortDateString();
+      cellRange3.Text = shortDateString3;
+      worksheet.Range["T53:W53"].Merge();
+      worksheet.Range["T53"].Text = "  ";
+      worksheet.Range["X53"].Text = " ...../...../20..... ";
+      worksheet.Range["B54:G54"].Merge();
+      worksheet.Range["B54"].Text = " Düzenleyen ";
+      worksheet.Range["H54:L54"].Merge();
+      worksheet.Range["M54:S54"].Merge();
+      worksheet.Range["M54"].Text = "Harcama Yetkilisi  ";
+      worksheet.Range["T54:W54"].Merge();
+      worksheet.Range["T54"].Text = "Muhasebe Yetkilisi  ";
+      worksheet.Range["X54"].Text = "Veznedar";
+      worksheet.Range["B55:G55"].Merge();
+      worksheet.Range["B55"].Text = "Adı, Soyadı";
+      worksheet.Range["H55:L55"].Merge();
+      worksheet.Range["M55:S55"].Merge();
+      worksheet.Range["M55"].Text = "Adı, Soyadı";
+      worksheet.Range["T55:W55"].Merge();
+      worksheet.Range["B56:G56"].Merge();
+      worksheet.Range["A56:X56"].RowHeight = 122.25;
+      worksheet.Range["A56:X56"].SetRowHeight(122.25, true);
+      worksheet.Range["H56:L56"].Merge();
+      worksheet.Range["M56:S56"].Merge();
+      worksheet.Range["T56:W56"].Merge();
+      worksheet.Range["T56"].Text = "Adı, Soyadı ";
+      worksheet.Range["X56"].Text = "Adı, Soyadı ";
+      worksheet.Range["T56:X56"].Style.VerticalAlignment = VerticalAlignType.Bottom;
+      worksheet.Range["B57:G57"].Merge();
+      worksheet.Range["B57"].Text = dataTable.Rows[0]["unvan_adi"].ToString() + " " + dataTable.Rows[0]["kullanici_adi"].ToString() + " " + dataTable.Rows[0]["kullanici_soyadi"].ToString();
+      worksheet.Range["B58:G58"].Merge();
+      worksheet.Range["B58"].Text = dataTable.Rows[0]["gorev_adi"].ToString();
+      worksheet.Range["H57:L58"].Merge();
+      worksheet.Range["M57:S57"].Merge();
+      worksheet.Range["M58:S58"].Merge();
+      worksheet.Range["M57"].Text = dataTable.Rows[0]["agrikoordinator"].ToString();
+      worksheet.Range["M58"].Text = "Erasmus Kurum Koordinatörü ";
+      worksheet.Range["M58"].Style.HorizontalAlignment = HorizontalAlignType.Center;
+      worksheet.Range["T57:W57"].Merge();
+      worksheet.Range["T57"].Text = "Unvanı";
+      worksheet.Range["T58:W58"].Merge();
+      worksheet.Range["X57"].Merge();
+      worksheet.Range["X57"].Text = "Unvanı";
+      worksheet.Range["A1:X58"].Style.Borders[BordersLineType.EdgeTop].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["A1:X58"].Style.Borders[BordersLineType.EdgeTop].LineStyle = LineStyleType.Thin;
+      worksheet.Range["A1:X58"].Style.Borders[BordersLineType.EdgeBottom].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["A1:X58"].Style.Borders[BordersLineType.EdgeBottom].LineStyle = LineStyleType.Thin;
+      worksheet.Range["A1:X58"].Style.Borders[BordersLineType.EdgeLeft].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["A1:X58"].Style.Borders[BordersLineType.EdgeLeft].LineStyle = LineStyleType.Thin;
+      worksheet.Range["A1:X58"].Style.Borders[BordersLineType.EdgeRight].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["A1:X58"].Style.Borders[BordersLineType.EdgeRight].LineStyle = LineStyleType.Thin;
+      Workbook workbook2 = workbook1;
+      string startupPath = Application.StartupPath;
+      dateTime = DateTime.Now;
+      string str = dateTime.ToString().Replace(".", "").Replace("-", "").Replace("/", "").Replace(" ", "").Replace(":", "");
+      string fileName = startupPath + "/muhasebeislemfisi(Avans)" + str + ".xlsx";
+      workbook2.SaveToFile(fileName);
+      this.ExcelDocViewer(workbook1.FileName);
+    }
+
+    private void ExcelDocViewer(string fileName)
+    {
+      try
+      {
+        Process.Start(fileName);
+      }
+      catch
+      {
+      }
+    }
+
+    private void harcama_talimati_yazdir(float yuzde)
+    {
+      SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["promethues_projesi.Properties.Settings.prometheus_projesiConnectionString"].ConnectionString);
+      SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+      DataTable dataTable = new DataTable();
+      SqlCommand sqlCommand = new SqlCommand("select * from odeme_fisi_avans where avansmi=1 and hareketlilik_id=@hareketlilik_id");
+      sqlCommand.Connection = sqlConnection;
+      sqlDataAdapter.SelectCommand = sqlCommand;
+      sqlCommand.Parameters.AddWithValue("hareketlilik_id", (object) Convert.ToInt32(this.hareketlilikIdTB.Text.Trim()));
+      try
+      {
+        sqlConnection.Open();
+        sqlDataAdapter.Fill(dataTable);
+        sqlConnection.Close();
+      }
+      catch (Exception ex)
+      {
+        int num = (int) MessageBox.Show(ex.Message);
+        return;
+      }
+      if (dataTable.Rows.Count <= 0)
+        return;
+      Workbook workbook1 = new Workbook();
+      Worksheet worksheet = workbook1.Worksheets[0];
+      workbook1.Version = ExcelVersion.Version2013;
+      worksheet.Range["A1"].ColumnWidth = 3.57;
+      worksheet.Range["B1"].ColumnWidth = 2.0;
+      worksheet.Range["C1"].ColumnWidth = 9.14;
+      worksheet.Range["D1:F1"].ColumnWidth = 7.0;
+      worksheet.Range["G1"].ColumnWidth = 13.43;
+      worksheet.Range["H1"].ColumnWidth = 9.14;
+      worksheet.Range["I1"].ColumnWidth = 8.14;
+      worksheet.Range["J1"].ColumnWidth = 9.29;
+      worksheet.Range["K1"].ColumnWidth = 7.0;
+      worksheet.Range["L1"].ColumnWidth = 5.3;
+      worksheet.Range["M1:N1"].ColumnWidth = 7.0;
+      worksheet.Range["B1:N1"].Merge();
+      worksheet.Range["B1"].Text = "HARCAMA TALİMATI";
+      worksheet.Range["B1"].Style.HorizontalAlignment = HorizontalAlignType.Center;
+      worksheet.Range["B1"].Style.Font.IsBold = true;
+      worksheet.Range["C3:H3"].Merge();
+      worksheet.Range["C3"].Text = "Sayı: B.30.2.AİÇ.0.76.00.00-720-";
+      worksheet.Range["L3"].Merge();
+      worksheet.Range["L3"].Text = "Tarih";
+      worksheet.Range["M3:N3"].Merge();
+      worksheet.Range["M3"].Text = DateTime.Today.ToShortDateString();
+      worksheet.Range["C4:H4"].Merge();
+      worksheet.Range["C4"].Text = "Harcama Talebinde Bulunan Birim: Uluslararası İlişkiler Birimi";
+      worksheet.Range["B5:N5"].Merge();
+      worksheet.Range["B5"].Text = "GENEL SEKRETERLİK MAKAMINA";
+      worksheet.Range["B5"].Style.HorizontalAlignment = HorizontalAlignType.Center;
+      worksheet.Range["B5"].Style.Font.IsBold = true;
+      worksheet.Range["B6:N6"].Merge();
+      worksheet.Range["B7:N7"].Merge();
+      worksheet.Range["B8:B17"].Merge();
+      worksheet.Range["B8"].Text = "YAPILACAK HARCAMANIN";
+      worksheet.Range["B8"].Style.Rotation = 90;
+      worksheet.Range["C8:F8"].Merge();
+      worksheet.Range["C8"].Text = "Gerekçesi ve hukuki dayanağı";
+      worksheet.Range["C8"].Style.VerticalAlignment = VerticalAlignType.Center;
+      worksheet.Range["G8:N8"].Merge();
+      worksheet.Range["G8"].IsWrapText = true;
+      worksheet.Range["G8:N8"].Text = this.donemCB.Text + " Erasmus Plus Öğrenci Öğrenim Hareketlilik Faaliyeti Hibe Sözleşmesi Sözleşme No: 2016-1-TR01-KA103-026936 ";
+      worksheet.Range["G8:N8"].RowHeight *= 2.0;
+      worksheet.Range["C9:F9"].Merge();
+      worksheet.Range["C9"].Text = "Konusu/nev'i / niteliği";
+      worksheet.Range["G9:N9"].Merge();
+      worksheet.Range["G9"].Text = " ";
+      worksheet.Range["C10:F10"].Merge();
+      worksheet.Range["C10"].Text = "Miktarı";
+      worksheet.Range["G10:N10"].Merge();
+      worksheet.Range["G10"].Text = ((double) yuzde > 50.0 ? "İlk" : "Son") + " ödeme (%" + yuzde.ToString() + ")";
+      worksheet.Range["C11:F11"].Merge();
+      worksheet.Range["C11"].Text = "Gerçekleştirme süresi";
+      worksheet.Range["G11"].Merge();
+      worksheet.Range["G11"].Text = DateTime.Parse(dataTable.Rows[0]["gidis_tarih"].ToString()).ToShortDateString();
+      worksheet.Range["H11:I11"].Merge();
+      CellRange cellRange1 = worksheet.Range["H11"];
+      DateTime dateTime = DateTime.Parse(dataTable.Rows[0]["donus_tarihi"].ToString());
+      string shortDateString1 = dateTime.ToShortDateString();
+      cellRange1.Text = shortDateString1;
+      worksheet.Range["J11"].Merge();
+      worksheet.Range["J11"].Text = dataTable.Rows[0]["kalinacak_gun"].ToString();
+      worksheet.Range["K11"].Merge();
+      worksheet.Range["K11"].Text = "GÜN";
+      worksheet.Range["C12:F12"].Merge();
+      worksheet.Range["C12"].Text = "Gerçekleştirme usulü";
+      worksheet.Range["G12:N12"].Merge();
+      worksheet.Range["G12"].Text = " ";
+      worksheet.Range["C13:F13"].Merge();
+      worksheet.Range["C13"].Text = "Tutarı veya belirlenmişse yaklaşık bedeli";
+      worksheet.Range["G13:N13"].Merge();
+      worksheet.Range["G13"].Text = dataTable.Rows[0]["Odenen"].ToString() + " " + (object) '€' + " (Toplamda " + (object) (Convert.ToDouble(dataTable.Rows[0]["Odenen"].ToString()) * 5.0 / 4.0) + " " + (object) '€' + " olan ödemenin ilk ödenen %" + yuzde.ToString() + "'lik kısmı)";
+      worksheet.Range["C14:F14"].Merge();
+      worksheet.Range["C14"].Text = "Kullanılabilir ödenek tutarı";
+      worksheet.Range["C14:F14"].AutoFitRows();
+      worksheet.Range["G14:N14"].Merge();
+      worksheet.Range["G14:N14"].IsWrapText = true;
+      worksheet.Range["G14"].Text = dataTable.Rows[0]["miktar"].ToString() + " Avro (Erasmus Plus Öğrenci Öğrenim Hareketliliği için " + dataTable.Rows[0]["gidilecek_ogretim_yili"].ToString() + " akademik yılında hibe sözleşmesi ile belirlenen toplam miktar)";
+      worksheet.Range["G14"].RowHeight *= 2.0;
+      worksheet.Range["C14:F14"].Style.VerticalAlignment = VerticalAlignType.Center;
+      worksheet.Range["C15:F15"].Merge();
+      worksheet.Range["C15"].Text = "Ödeneğin bütçe tertibi";
+      worksheet.Range["G15:N15"].Merge();
+      worksheet.Range["G15"].Text = "162-38.71.00.01.09.9.9.9.00-2-8.9.";
+      worksheet.Range["C16:F16"].Merge();
+      worksheet.Range["C16"].Text = "Gerçekleştirme görevlileri";
+      worksheet.Range["G16:N16"].Merge();
+      worksheet.Range["G16"].Text = dataTable.Rows[0]["unvan_adi"].ToString() + " " + dataTable.Rows[0]["kullanici_adi"].ToString() + " " + dataTable.Rows[0]["kullanici_soyadi"].ToString();
+      worksheet.Range["C17:F17"].Merge();
+      worksheet.Range["G17:N17"].Merge();
+      worksheet.Range["C20:N32"].IsWrapText = true;
+      worksheet.Range["C19:E19"].Merge();
+      worksheet.Range["C19"].Text = "AÇIKLAMALAR";
+      worksheet.Range["C20:N32"].Merge();
+      CellRange cellRange2 = worksheet.Range["C20"];
+      string[] strArray1 = new string[43];
+      strArray1[0] = "*";
+      strArray1[1] = dataTable.Rows[0]["gidilecek_ogretim_yili"].ToString();
+      strArray1[2] = " Erasmus Plus Öğrenci Hareketliliği çerçevesinde gerçekleştirilecek olan Erasmus faaliyetleri için harcanmak üzere Ağrı İbrahim Çeçen Üniversitesi'nin Erasmus faaliyetleri için açılmış olan ";
+      strArray1[3] = dataTable.Rows[0]["agri_banka_adi"].ToString();
+      strArray1[4] = " ";
+      strArray1[5] = dataTable.Rows[0]["agri_sube_adi"].ToString();
+      strArray1[6] = ", IBAN: ";
+      strArray1[7] = dataTable.Rows[0]["agriIBAN"].ToString();
+      strArray1[8] = " (Tam Hesap Numarası: ";
+      strArray1[9] = dataTable.Rows[0]["agri_hesap_no"].ToString();
+      strArray1[10] = " ) nolu ";
+      strArray1[11] = dataTable.Rows[0]["donem_adi"].ToString();
+      strArray1[12] = " Avro döviz hesabından; ";
+      string[] strArray2 = strArray1;
+      dateTime = DateTime.Parse(dataTable.Rows[0]["gidis_tarih"].ToString());
+      string shortDateString2 = dateTime.ToShortDateString();
+      strArray2[13] = shortDateString2;
+      strArray1[14] = "-";
+      string[] strArray3 = strArray1;
+      dateTime = DateTime.Parse(dataTable.Rows[0]["Donus_Tarihi"].ToString());
+      string shortDateString3 = dateTime.ToShortDateString();
+      strArray3[15] = shortDateString3;
+      strArray1[16] = " tarihleri arasında ";
+      strArray1[17] = dataTable.Rows[0]["ulke_adi"].ToString();
+      strArray1[18] = "\t";
+      strArray1[19] = dataTable.Rows[0]["universite_adi"].ToString();
+      strArray1[20] = " Erasmus Öğrenci Öğrenim Hareketliliğine katılacak olan ";
+      strArray1[21] = dataTable.Rows[0]["ad"].ToString();
+      strArray1[22] = " ";
+      strArray1[23] = dataTable.Rows[0]["soyad"].ToString();
+      strArray1[24] = " adına açılmış olan ";
+      strArray1[25] = dataTable.Rows[0]["banka_adi"].ToString();
+      strArray1[26] = " ";
+      strArray1[27] = dataTable.Rows[0]["sube_adi_kodu"].ToString();
+      strArray1[28] = " İban No:\t\t";
+      strArray1[29] = dataTable.Rows[0]["ogrenci_IBAN"].ToString();
+      strArray1[30] = " nolu Avro döviz hesabına aktarılması. İlgili öğrencinin alacağı toplam hibe miktarı, gün üzerinden hesaplanan miktarıyla ";
+      strArray1[31] = (Convert.ToDouble(dataTable.Rows[0]["Odenen"].ToString()) * 5.0 / 4.0).ToString();
+      strArray1[32] = " Avro'dur. Faaliyet başlangıcında ödenecek olan miktar ";
+      strArray1[33] = dataTable.Rows[0]["Odenen"].ToString();
+      strArray1[34] = " Avro olup toplam alacağı hibenin %";
+      strArray1[35] = yuzde.ToString();
+      strArray1[36] = "'i kadardır. Kalan %";
+      string[] strArray4 = strArray1;
+      float num1 = 100f - yuzde;
+      string str1 = num1.ToString();
+      strArray4[37] = str1;
+      strArray1[38] = "'lik kısım ise öğrencinin öğrenim hareketliliğini tamamlayıp nihai raporu sunmasından sonra ödenecektir. Öğrenciye yapılacak olan ilk ödeme (%";
+      strArray1[39] = yuzde.ToString();
+      strArray1[40] = ") ile son ödeme (%";
+      string[] strArray5 = strArray1;
+      num1 = 100f - yuzde;
+      string str2 = num1.ToString();
+      strArray5[41] = str2;
+      strArray1[42] = "), 2013-2014 Akademik Yılı Hayatboyu Öğrenme Programı (LLP) Yükseköğretim Kurumları İçin Erasmus Uygulama El Kitabı'nda yer alan esaslar çerçevesinde gerçekleştirilir.";
+      string str3 = string.Concat(strArray1);
+      cellRange2.Text = str3;
+      worksheet.Range["B33:N36"].Merge();
+      worksheet.Range["C37:H39"].Merge();
+      worksheet.Range["C37:H39"].Text = "Yukarıda belirtilen harcamanın ilk taksitinin yaptırılması için pala hesabına " + dataTable.Rows[0]["Odenen"].ToString() + " Avro'nun yatırılması olurlarınıza arz olunur. ";
+      worksheet.Range["C37:H39"].IsWrapText = true;
+      worksheet.Range["B40:H40"].Merge();
+      worksheet.Range["B40"].Text = "Teklif Eden Yetkilinin";
+      worksheet.Range["B40"].Style.HorizontalAlignment = HorizontalAlignType.Center;
+      worksheet.Range["B41:H41"].Merge();
+      worksheet.Range["B41"].Text = "İmzası        :.................................................";
+      worksheet.Range["B42:H42"].Merge();
+      worksheet.Range["B42"].Text = "Adı Soyadı : " + dataTable.Rows[0]["unvan_adi"].ToString() + " " + dataTable.Rows[0]["kullanici_adi"].ToString() + " " + dataTable.Rows[0]["kullanici_soyadi"].ToString();
+      worksheet.Range["B43:H43"].Merge();
+      worksheet.Range["B43"].Text = "Unvanı       : " + dataTable.Rows[0]["gorev_adi"].ToString();
+      worksheet.Range["I37:N37"].Merge();
+      worksheet.Range["I37"].Text = "O L U R";
+      worksheet.Range["I37"].Style.HorizontalAlignment = HorizontalAlignType.Center;
+      worksheet.Range["N37"].Style.HorizontalAlignment = HorizontalAlignType.Center;
+      worksheet.Range["I38:N38"].Merge();
+      CellRange cellRange3 = worksheet.Range["I38"];
+      dateTime = DateTime.Today;
+      string shortDateString4 = dateTime.ToShortDateString();
+      cellRange3.Text = shortDateString4;
+      worksheet.Range["I38"].Style.HorizontalAlignment = HorizontalAlignType.Center;
+      worksheet.Range["I40:N40"].Merge();
+      worksheet.Range["I40"].Text = "Harcama Yetkilisi";
+      worksheet.Range["N40"].Style.HorizontalAlignment = HorizontalAlignType.Center;
+      worksheet.Range["I41:N41"].Merge();
+      worksheet.Range["I41"].Text = "İmzası        :.................................................";
+      worksheet.Range["I42:N42"].Merge();
+      worksheet.Range["I42"].Text = "Adı Soyadı : " + dataTable.Rows[0]["agrikoordinator"].ToString();
+      worksheet.Range["I43:N43"].Merge();
+      worksheet.Range["I43"].Text = "Unvanı       :Erasmus Kurum Koordinatörü";
+      worksheet.Range["B2:B6"].Style.Borders[BordersLineType.EdgeLeft].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["B2:B6"].Style.Borders[BordersLineType.EdgeLeft].LineStyle = LineStyleType.Thick;
+      worksheet.Range["B2:N2"].Style.Borders[BordersLineType.EdgeTop].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["B2:N2"].Style.Borders[BordersLineType.EdgeTop].LineStyle = LineStyleType.Thick;
+      worksheet.Range["B6:N6"].Style.Borders[BordersLineType.EdgeBottom].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["B6:N6"].Style.Borders[BordersLineType.EdgeBottom].LineStyle = LineStyleType.Thick;
+      worksheet.Range["N2:N6"].Style.Borders[BordersLineType.EdgeRight].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["N2:N6"].Style.Borders[BordersLineType.EdgeRight].LineStyle = LineStyleType.Thick;
+      worksheet.Range["B8:B17"].Style.Borders[BordersLineType.EdgeLeft].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["B8:B17"].Style.Borders[BordersLineType.EdgeLeft].LineStyle = LineStyleType.Thick;
+      worksheet.Range["B8:N8"].Style.Borders[BordersLineType.EdgeTop].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["B8:N8"].Style.Borders[BordersLineType.EdgeTop].LineStyle = LineStyleType.Thick;
+      worksheet.Range["B17:N17"].Style.Borders[BordersLineType.EdgeBottom].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["B17:N17"].Style.Borders[BordersLineType.EdgeBottom].LineStyle = LineStyleType.Thick;
+      worksheet.Range["N8:N17"].Style.Borders[BordersLineType.EdgeRight].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["N8:N17"].Style.Borders[BordersLineType.EdgeRight].LineStyle = LineStyleType.Thick;
+      worksheet.Range["B19:B36"].Style.Borders[BordersLineType.EdgeLeft].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["B19:B36"].Style.Borders[BordersLineType.EdgeLeft].LineStyle = LineStyleType.Thick;
+      worksheet.Range["B19:N19"].Style.Borders[BordersLineType.EdgeTop].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["B19:N19"].Style.Borders[BordersLineType.EdgeTop].LineStyle = LineStyleType.Thick;
+      worksheet.Range["B36:N36"].Style.Borders[BordersLineType.EdgeBottom].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["B36:N36"].Style.Borders[BordersLineType.EdgeBottom].LineStyle = LineStyleType.Thick;
+      worksheet.Range["N19:N36"].Style.Borders[BordersLineType.EdgeRight].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["N19:N36"].Style.Borders[BordersLineType.EdgeRight].LineStyle = LineStyleType.Thick;
+      worksheet.Range["B37:B44"].Style.Borders[BordersLineType.EdgeLeft].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["B37:B44"].Style.Borders[BordersLineType.EdgeLeft].LineStyle = LineStyleType.Thick;
+      worksheet.Range["B37:N37"].Style.Borders[BordersLineType.EdgeTop].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["B37:N37"].Style.Borders[BordersLineType.EdgeTop].LineStyle = LineStyleType.Thick;
+      worksheet.Range["B44:N44"].Style.Borders[BordersLineType.EdgeBottom].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["B44:N44"].Style.Borders[BordersLineType.EdgeBottom].LineStyle = LineStyleType.Thick;
+      worksheet.Range["N37:N44"].Style.Borders[BordersLineType.EdgeRight].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["N37:N44"].Style.Borders[BordersLineType.EdgeRight].LineStyle = LineStyleType.Thick;
+      worksheet.Range["H37:H44"].Style.Borders[BordersLineType.EdgeRight].Color = Color.FromArgb(0, 0, 0);
+      worksheet.Range["H37:H44"].Style.Borders[BordersLineType.EdgeRight].LineStyle = LineStyleType.Thick;
+      Workbook workbook2 = workbook1;
+      string startupPath = Application.StartupPath;
+      dateTime = DateTime.Now;
+      string str4 = dateTime.ToString().Replace(".", "").Replace("-", "").Replace("/", "").Replace(" ", "").Replace(":", "");
+      string fileName = startupPath + "/OdemeTalimati(Avans)" + str4 + ".xlsx";
+      workbook2.SaveToFile(fileName);
+      this.ExcelDocViewer(workbook1.FileName);
+    }
+
+    private void yazdirsonBTN_Click(object sender, EventArgs e)
+    {
+      this.muhasebe_islem_fisi_yazdir((float) Convert.ToDouble(this.sonOdemeYuzdeTB.Text));
+      this.harcama_talimati_yazdir((float) Convert.ToDouble(this.sonOdemeYuzdeTB.Text));
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      this.components = (IContainer) new Container();
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (ogrenci_hareketlilik));
+      this.araTB = new TextBox();
+      this.label1 = new Label();
+      this.adTB = new TextBox();
+      this.vwogrencihareketlilikBindingSource = new BindingSource(this.components);
+      this.prometheus_projesiDataSet = new prometheus_projesiDataSet();
+      this.soyadTB = new TextBox();
+      this.birimTB = new TextBox();
+      this.textBox5 = new TextBox();
+      this.UlkelerCB = new ComboBox();
+      this.ulkelerBindingSource = new BindingSource(this.components);
+      this.prometheus_projesiDataSet1 = new prometheus_projesiDataSet();
+      this.UniveristelerCB = new ComboBox();
+      this.ulkeleruniversiteBindingSource = new BindingSource(this.components);
+      this.BolumlerCB = new ComboBox();
+      this.universiteanlasmalibolumlerBindingSource = new BindingSource(this.components);
+      this.label2 = new Label();
+      this.label3 = new Label();
+      this.label4 = new Label();
+      this.groupBox1 = new GroupBox();
+      this.label7 = new Label();
+      this.label9 = new Label();
+      this.label6 = new Label();
+      this.label10 = new Label();
+      this.donusYilCB = new ComboBox();
+      this.label5 = new Label();
+      this.donusAyCB = new ComboBox();
+      this.GidisYilCB = new ComboBox();
+      this.donusGunCB = new ComboBox();
+      this.GidisAyCB = new ComboBox();
+      this.GidisGunCB = new ComboBox();
+      this.StajDersCB = new ComboBox();
+      this.label11 = new Label();
+      this.kydtBTN = new Button();
+      this.label12 = new Label();
+      this.label13 = new Label();
+      this.label14 = new Label();
+      this.label15 = new Label();
+      this.yazdiravansBTN = new Button();
+      this.button1 = new Button();
+      this.bolumTB = new GroupBox();
+      this.label8 = new Label();
+      this.label16 = new Label();
+      this.ogrNoTB = new TextBox();
+      this.kimlikNoTB = new TextBox();
+      this.groupBox3 = new GroupBox();
+      this.tumuBT = new Button();
+      this.dataGridView2 = new DataGridView();
+      this.ogrenciidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.adDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.soyadDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.tcDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.bolumDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.dogumtarihiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.telefonDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.ogrencinoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.bolumidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.birimkoduDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.bolumadiingilizceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.oGRBOLUMDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.birimidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.birimadiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.birimadiingilizceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.ogrenciSWIFTDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.ogrenciIBANDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.ogrencihesapnoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.subeadresiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.subeadikoduDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.bankaadiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.ogrenciadresDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.ogrenimkademesiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.uyruguDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.sinifDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.ıSCEDFkoduDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.ogrencicinsiyetDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.hareketlilikidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.gidisTarihDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.gidilecekDonemDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.kalinacakGunDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.donusTarihiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.harcamaMiktariDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.personelmiDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
+      this.gidecekkisikimliknoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.gidilecekDonemenDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.gidilecekogretimyiliDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.stajdersDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.uLKEADIDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.uNIADIDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.bolumadiorjinalDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.gIDILECEKULKEIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.gIDILECEKBOLUMIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.gIDILECEKUNIIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.vw_ogrenci_hareketlilikTableAdapter = new vw_ogrenci_hareketlilikTableAdapter();
+      this.ulkelerTableAdapter = new ulkelerTableAdapter();
+      this.universiteTableAdapter = new universiteTableAdapter();
+      this.anlasmali_bolumlerTableAdapter = new anlasmali_bolumlerTableAdapter();
+      this.button2 = new Button();
+      this.hareketlilikTableAdapter1 = new HareketlilikTableAdapter();
+      this.label17 = new Label();
+      this.donemCB = new ComboBox();
+      this.label18 = new Label();
+      this.ogretimYiliCB = new ComboBox();
+      this.donus_tarihiTB = new TextBox();
+      this.gidisTarihiTB = new TextBox();
+      this.groupBox2 = new GroupBox();
+      this.yazdirsonBTN = new Button();
+      this.odemeDonemCB = new ComboBox();
+      this.odemelerAvansBindingSource = new BindingSource(this.components);
+      this.toplambutce1BindingSource = new BindingSource(this.components);
+      this.label25 = new Label();
+      this.sonOdenenTB = new TextBox();
+      this.odemelerSonBindingSource = new BindingSource(this.components);
+      this.label24 = new Label();
+      this.label23 = new Label();
+      this.odenenAvansTB = new TextBox();
+      this.sonOdemeKaydetBT = new Button();
+      this.avansKaydetBT = new Button();
+      this.sonOdemeTB = new TextBox();
+      this.label21 = new Label();
+      this.avansMiktarTB = new TextBox();
+      this.label20 = new Label();
+      this.label19 = new Label();
+      this.sonOdemeOnayCB = new CheckBox();
+      this.avansYuzdeTB = new TextBox();
+      this.sonOdemeYuzdeTB = new TextBox();
+      this.avansOnayCB = new CheckBox();
+      this.label22 = new Label();
+      this.hareketlilikIdTB = new TextBox();
+      this.odemelerAvansTableAdapter = new odemelerAvansTableAdapter();
+      this.odemelerSonTableAdapter = new odemelerSonTableAdapter();
+      this.prometheus_projesiDataSet2 = new prometheus_projesiDataSet();
+      this.groupBox4 = new GroupBox();
+      this.avansOIDTB = new TextBox();
+      this.sonOdemeOIDTB = new TextBox();
+      this.toplam_butce1TableAdapter = new toplam_butce1TableAdapter();
+      this.dataNavigator1 = new DataNavigator();
+      ((ISupportInitialize) this.vwogrencihareketlilikBindingSource).BeginInit();
+      this.prometheus_projesiDataSet.BeginInit();
+      ((ISupportInitialize) this.ulkelerBindingSource).BeginInit();
+      this.prometheus_projesiDataSet1.BeginInit();
+      ((ISupportInitialize) this.ulkeleruniversiteBindingSource).BeginInit();
+      ((ISupportInitialize) this.universiteanlasmalibolumlerBindingSource).BeginInit();
+      this.groupBox1.SuspendLayout();
+      this.bolumTB.SuspendLayout();
+      this.groupBox3.SuspendLayout();
+      ((ISupportInitialize) this.dataGridView2).BeginInit();
+      this.groupBox2.SuspendLayout();
+      ((ISupportInitialize) this.odemelerAvansBindingSource).BeginInit();
+      ((ISupportInitialize) this.toplambutce1BindingSource).BeginInit();
+      ((ISupportInitialize) this.odemelerSonBindingSource).BeginInit();
+      this.prometheus_projesiDataSet2.BeginInit();
+      this.groupBox4.SuspendLayout();
+      this.SuspendLayout();
+      this.araTB.Location = new Point(152, 15);
+      this.araTB.Margin = new Padding(3, 4, 3, 4);
+      this.araTB.Name = "araTB";
+      this.araTB.Size = new Size(350, 23);
+      this.araTB.TabIndex = 0;
+      this.label1.AutoSize = true;
+      this.label1.Location = new Point(44, 18);
+      this.label1.Name = "label1";
+      this.label1.Size = new Size(104, 17);
+      this.label1.TabIndex = 1;
+      this.label1.Text = "ARAMA İFADESİ";
+      this.adTB.DataBindings.Add(new Binding("Text", (object) this.vwogrencihareketlilikBindingSource, "ad", true));
+      this.adTB.Location = new Point(26, 47);
+      this.adTB.Margin = new Padding(3, 4, 3, 4);
+      this.adTB.Name = "adTB";
+      this.adTB.Size = new Size(168, 23);
+      this.adTB.TabIndex = 2;
+      this.vwogrencihareketlilikBindingSource.DataMember = "vw_ogrenci_hareketlilik";
+      this.vwogrencihareketlilikBindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.prometheus_projesiDataSet.DataSetName = "prometheus_projesiDataSet";
+      this.prometheus_projesiDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+      this.soyadTB.DataBindings.Add(new Binding("Text", (object) this.vwogrencihareketlilikBindingSource, "soyad", true));
+      this.soyadTB.Location = new Point(211, 47);
+      this.soyadTB.Margin = new Padding(3, 4, 3, 4);
+      this.soyadTB.Name = "soyadTB";
+      this.soyadTB.Size = new Size(172, 23);
+      this.soyadTB.TabIndex = 3;
+      this.birimTB.DataBindings.Add(new Binding("Text", (object) this.vwogrencihareketlilikBindingSource, "birim_adi", true));
+      this.birimTB.Location = new Point(400, 47);
+      this.birimTB.Margin = new Padding(3, 4, 3, 4);
+      this.birimTB.Name = "birimTB";
+      this.birimTB.Size = new Size(313, 23);
+      this.birimTB.TabIndex = 4;
+      this.textBox5.DataBindings.Add(new Binding("Text", (object) this.vwogrencihareketlilikBindingSource, "OGR_BOLUM", true));
+      this.textBox5.Location = new Point(400, 96);
+      this.textBox5.Margin = new Padding(3, 4, 3, 4);
+      this.textBox5.Name = "textBox5";
+      this.textBox5.Size = new Size(313, 23);
+      this.textBox5.TabIndex = 5;
+      this.UlkelerCB.DataBindings.Add(new Binding("SelectedValue", (object) this.vwogrencihareketlilikBindingSource, "GIDILECEK_ULKE_ID", true));
+      this.UlkelerCB.DataSource = (object) this.ulkelerBindingSource;
+      this.UlkelerCB.DisplayMember = "ulke_adi";
+      this.UlkelerCB.FormattingEnabled = true;
+      this.UlkelerCB.Location = new Point(29, 47);
+      this.UlkelerCB.Margin = new Padding(3, 4, 3, 4);
+      this.UlkelerCB.Name = "UlkelerCB";
+      this.UlkelerCB.Size = new Size(168, 24);
+      this.UlkelerCB.TabIndex = 6;
+      this.UlkelerCB.ValueMember = "ulke_id";
+      this.ulkelerBindingSource.DataMember = "ulkeler";
+      this.ulkelerBindingSource.DataSource = (object) this.prometheus_projesiDataSet1;
+      this.prometheus_projesiDataSet1.DataSetName = "prometheus_projesiDataSet";
+      this.prometheus_projesiDataSet1.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+      this.UniveristelerCB.DataBindings.Add(new Binding("SelectedValue", (object) this.vwogrencihareketlilikBindingSource, "GIDILECEK_UNI_ID", true));
+      this.UniveristelerCB.DataSource = (object) this.ulkeleruniversiteBindingSource;
+      this.UniveristelerCB.DisplayMember = "universite_adi";
+      this.UniveristelerCB.FormattingEnabled = true;
+      this.UniveristelerCB.Location = new Point(205, 47);
+      this.UniveristelerCB.Margin = new Padding(3, 4, 3, 4);
+      this.UniveristelerCB.Name = "UniveristelerCB";
+      this.UniveristelerCB.Size = new Size(291, 24);
+      this.UniveristelerCB.TabIndex = 7;
+      this.UniveristelerCB.ValueMember = "universite_id";
+      this.ulkeleruniversiteBindingSource.DataMember = "ulkeler_universite";
+      this.ulkeleruniversiteBindingSource.DataSource = (object) this.ulkelerBindingSource;
+      this.BolumlerCB.DataBindings.Add(new Binding("SelectedValue", (object) this.vwogrencihareketlilikBindingSource, "GIDILECEK_BOLUM_ID", true));
+      this.BolumlerCB.DataSource = (object) this.universiteanlasmalibolumlerBindingSource;
+      this.BolumlerCB.DisplayMember = "bolum_adi";
+      this.BolumlerCB.FormattingEnabled = true;
+      this.BolumlerCB.Location = new Point(504, 47);
+      this.BolumlerCB.Margin = new Padding(3, 4, 3, 4);
+      this.BolumlerCB.Name = "BolumlerCB";
+      this.BolumlerCB.Size = new Size(209, 24);
+      this.BolumlerCB.TabIndex = 8;
+      this.BolumlerCB.ValueMember = "bolum_id";
+      this.universiteanlasmalibolumlerBindingSource.DataMember = "universite_anlasmali_bolumler";
+      this.universiteanlasmalibolumlerBindingSource.DataSource = (object) this.ulkeleruniversiteBindingSource;
+      this.label2.AutoSize = true;
+      this.label2.Location = new Point(28, 27);
+      this.label2.Name = "label2";
+      this.label2.Size = new Size(66, 17);
+      this.label2.TabIndex = 10;
+      this.label2.Text = "ÜLKE ADI";
+      this.label3.AutoSize = true;
+      this.label3.Location = new Point(203, 27);
+      this.label3.Name = "label3";
+      this.label3.Size = new Size(109, 17);
+      this.label3.TabIndex = 11;
+      this.label3.Text = "ÜNİVERSİTE ADI";
+      this.label4.AutoSize = true;
+      this.label4.Location = new Point(501, 27);
+      this.label4.Name = "label4";
+      this.label4.Size = new Size(78, 17);
+      this.label4.TabIndex = 12;
+      this.label4.Text = "BÖLÜM ADI";
+      this.groupBox1.Controls.Add((Control) this.label7);
+      this.groupBox1.Controls.Add((Control) this.label9);
+      this.groupBox1.Controls.Add((Control) this.label6);
+      this.groupBox1.Controls.Add((Control) this.label10);
+      this.groupBox1.Controls.Add((Control) this.donusYilCB);
+      this.groupBox1.Controls.Add((Control) this.label5);
+      this.groupBox1.Controls.Add((Control) this.donusAyCB);
+      this.groupBox1.Controls.Add((Control) this.GidisYilCB);
+      this.groupBox1.Controls.Add((Control) this.donusGunCB);
+      this.groupBox1.Controls.Add((Control) this.GidisAyCB);
+      this.groupBox1.Controls.Add((Control) this.GidisGunCB);
+      this.groupBox1.Location = new Point(788, 287);
+      this.groupBox1.Margin = new Padding(3, 4, 3, 4);
+      this.groupBox1.Name = "groupBox1";
+      this.groupBox1.Padding = new Padding(3, 4, 3, 4);
+      this.groupBox1.Size = new Size(379, 142);
+      this.groupBox1.TabIndex = 16;
+      this.groupBox1.TabStop = false;
+      this.groupBox1.Text = "GİDİŞ-DÖNÜŞ TARİHLERİ";
+      this.label7.AutoSize = true;
+      this.label7.Location = new Point(306, 31);
+      this.label7.Name = "label7";
+      this.label7.Size = new Size(27, 17);
+      this.label7.TabIndex = 20;
+      this.label7.Text = "YIL";
+      this.label9.AutoSize = true;
+      this.label9.Location = new Point(7, 89);
+      this.label9.Name = "label9";
+      this.label9.Size = new Size(54, 17);
+      this.label9.TabIndex = 19;
+      this.label9.Text = "DÖNÜŞ";
+      this.label6.AutoSize = true;
+      this.label6.Location = new Point(185, 33);
+      this.label6.Name = "label6";
+      this.label6.Size = new Size(24, 17);
+      this.label6.TabIndex = 19;
+      this.label6.Text = "AY";
+      this.label10.AutoSize = true;
+      this.label10.Location = new Point(7, 57);
+      this.label10.Name = "label10";
+      this.label10.Size = new Size(43, 17);
+      this.label10.TabIndex = 17;
+      this.label10.Text = "GİDİŞ";
+      this.donusYilCB.FormattingEnabled = true;
+      this.donusYilCB.Items.AddRange(new object[13]
+      {
+        (object) "2015",
+        (object) "2016",
+        (object) "2017",
+        (object) "2018",
+        (object) "2019",
+        (object) "2020",
+        (object) "2021",
+        (object) "2022",
+        (object) "2023",
+        (object) "2024",
+        (object) "2025",
+        (object) "2026",
+        (object) "2027"
+      });
+      this.donusYilCB.Location = new Point(290, 85);
+      this.donusYilCB.Margin = new Padding(3, 4, 3, 4);
+      this.donusYilCB.Name = "donusYilCB";
+      this.donusYilCB.Size = new Size(73, 24);
+      this.donusYilCB.TabIndex = 18;
+      this.label5.AutoSize = true;
+      this.label5.Location = new Point(86, 31);
+      this.label5.Name = "label5";
+      this.label5.Size = new Size(35, 17);
+      this.label5.TabIndex = 17;
+      this.label5.Text = "GÜN";
+      this.donusAyCB.FormattingEnabled = true;
+      this.donusAyCB.Items.AddRange(new object[12]
+      {
+        (object) "Ocak",
+        (object) "Şubat",
+        (object) "Mart",
+        (object) "Nisan",
+        (object) "Mayıs",
+        (object) "Haziran",
+        (object) "Temmuz",
+        (object) "Ağustos",
+        (object) "Eylül",
+        (object) "Ekim",
+        (object) "Kasım",
+        (object) "Aralık"
+      });
+      this.donusAyCB.Location = new Point(142, 85);
+      this.donusAyCB.Margin = new Padding(3, 4, 3, 4);
+      this.donusAyCB.Name = "donusAyCB";
+      this.donusAyCB.Size = new Size(140, 24);
+      this.donusAyCB.TabIndex = 17;
+      this.GidisYilCB.FormattingEnabled = true;
+      this.GidisYilCB.Items.AddRange(new object[13]
+      {
+        (object) "2015",
+        (object) "2016",
+        (object) "2017",
+        (object) "2018",
+        (object) "2019",
+        (object) "2020",
+        (object) "2021",
+        (object) "2022",
+        (object) "2023",
+        (object) "2024",
+        (object) "2025",
+        (object) "2026",
+        (object) "2027"
+      });
+      this.GidisYilCB.Location = new Point(290, 53);
+      this.GidisYilCB.Margin = new Padding(3, 4, 3, 4);
+      this.GidisYilCB.Name = "GidisYilCB";
+      this.GidisYilCB.Size = new Size(73, 24);
+      this.GidisYilCB.TabIndex = 18;
+      this.donusGunCB.FormattingEnabled = true;
+      this.donusGunCB.Items.AddRange(new object[31]
+      {
+        (object) "1",
+        (object) "2",
+        (object) "3",
+        (object) "4",
+        (object) "5",
+        (object) "6",
+        (object) "7",
+        (object) "8",
+        (object) "9",
+        (object) "10",
+        (object) "11",
+        (object) "12",
+        (object) "13",
+        (object) "14",
+        (object) "15",
+        (object) "16",
+        (object) "17",
+        (object) "18",
+        (object) "19",
+        (object) "20",
+        (object) "21",
+        (object) "22",
+        (object) "23",
+        (object) "24",
+        (object) "25",
+        (object) "26",
+        (object) "27",
+        (object) "28",
+        (object) "29",
+        (object) "30",
+        (object) "31"
+      });
+      this.donusGunCB.Location = new Point(77, 85);
+      this.donusGunCB.Margin = new Padding(3, 4, 3, 4);
+      this.donusGunCB.Name = "donusGunCB";
+      this.donusGunCB.Size = new Size(56, 24);
+      this.donusGunCB.TabIndex = 16;
+      this.GidisAyCB.FormattingEnabled = true;
+      this.GidisAyCB.Items.AddRange(new object[12]
+      {
+        (object) "Ocak",
+        (object) "Şubat",
+        (object) "Mart",
+        (object) "Nisan",
+        (object) "Mayıs",
+        (object) "Haziran",
+        (object) "Temmuz",
+        (object) "Ağustos",
+        (object) "Eylül",
+        (object) "Ekim",
+        (object) "Kasım",
+        (object) "Aralık"
+      });
+      this.GidisAyCB.Location = new Point(142, 53);
+      this.GidisAyCB.Margin = new Padding(3, 4, 3, 4);
+      this.GidisAyCB.Name = "GidisAyCB";
+      this.GidisAyCB.Size = new Size(140, 24);
+      this.GidisAyCB.TabIndex = 17;
+      this.GidisGunCB.DisplayMember = "gidis_id";
+      this.GidisGunCB.FormattingEnabled = true;
+      this.GidisGunCB.Items.AddRange(new object[31]
+      {
+        (object) "1",
+        (object) "2",
+        (object) "3",
+        (object) "4",
+        (object) "5",
+        (object) "6",
+        (object) "7",
+        (object) "8",
+        (object) "9",
+        (object) "10",
+        (object) "11",
+        (object) "12",
+        (object) "13",
+        (object) "14",
+        (object) "15",
+        (object) "16",
+        (object) "17",
+        (object) "18",
+        (object) "19",
+        (object) "20",
+        (object) "21",
+        (object) "22",
+        (object) "23",
+        (object) "24",
+        (object) "25",
+        (object) "26",
+        (object) "27",
+        (object) "28",
+        (object) "29",
+        (object) "30",
+        (object) "31"
+      });
+      this.GidisGunCB.Location = new Point(77, 53);
+      this.GidisGunCB.Margin = new Padding(3, 4, 3, 4);
+      this.GidisGunCB.Name = "GidisGunCB";
+      this.GidisGunCB.Size = new Size(56, 24);
+      this.GidisGunCB.TabIndex = 16;
+      this.GidisGunCB.ValueMember = "gidis_id";
+      this.StajDersCB.DataBindings.Add(new Binding("Text", (object) this.vwogrencihareketlilikBindingSource, "staj_ders", true));
+      this.StajDersCB.FormattingEnabled = true;
+      this.StajDersCB.Items.AddRange(new object[2]
+      {
+        (object) "STAJ",
+        (object) "DERS ALMA"
+      });
+      this.StajDersCB.Location = new Point(10, 41);
+      this.StajDersCB.Margin = new Padding(3, 4, 3, 4);
+      this.StajDersCB.Name = "StajDersCB";
+      this.StajDersCB.Size = new Size(137, 24);
+      this.StajDersCB.TabIndex = 21;
+      this.label11.AutoSize = true;
+      this.label11.Location = new Point(10, 21);
+      this.label11.Name = "label11";
+      this.label11.Size = new Size(135, 17);
+      this.label11.TabIndex = 22;
+      this.label11.Text = "HAREKETLİLİK TÜRÜ";
+      this.kydtBTN.BackColor = Color.Silver;
+      this.kydtBTN.Location = new Point(131, 556);
+      this.kydtBTN.Margin = new Padding(3, 4, 3, 4);
+      this.kydtBTN.Name = "kydtBTN";
+      this.kydtBTN.Size = new Size(180, 68);
+      this.kydtBTN.TabIndex = 23;
+      this.kydtBTN.Text = "KAYDET";
+      this.kydtBTN.UseVisualStyleBackColor = false;
+      this.kydtBTN.Click += new EventHandler(this.kydtBTN_Click);
+      this.label12.AutoSize = true;
+      this.label12.Location = new Point(28, 27);
+      this.label12.Name = "label12";
+      this.label12.Size = new Size(30, 17);
+      this.label12.TabIndex = 24;
+      this.label12.Text = "ADI";
+      this.label13.AutoSize = true;
+      this.label13.Location = new Point(208, 27);
+      this.label13.Name = "label13";
+      this.label13.Size = new Size(56, 17);
+      this.label13.TabIndex = 25;
+      this.label13.Text = "SOYADI";
+      this.label14.AutoSize = true;
+      this.label14.Location = new Point(397, 27);
+      this.label14.Name = "label14";
+      this.label14.Size = new Size(151, 17);
+      this.label14.TabIndex = 26;
+      this.label14.Text = "FAKÜLTE/YÜKSEKOKUL";
+      this.label15.AutoSize = true;
+      this.label15.Location = new Point(399, 76);
+      this.label15.Name = "label15";
+      this.label15.Size = new Size(61, 17);
+      this.label15.TabIndex = 27;
+      this.label15.Text = "BÖLÜMÜ";
+      this.yazdiravansBTN.BackColor = Color.FromArgb((int) byte.MaxValue, 192, 128);
+      this.yazdiravansBTN.Location = new Point(205, 63);
+      this.yazdiravansBTN.Margin = new Padding(3, 4, 3, 4);
+      this.yazdiravansBTN.Name = "yazdiravansBTN";
+      this.yazdiravansBTN.Size = new Size(73, 124);
+      this.yazdiravansBTN.TabIndex = 29;
+      this.yazdiravansBTN.Text = "YAZDIR";
+      this.yazdiravansBTN.UseVisualStyleBackColor = false;
+      this.yazdiravansBTN.Click += new EventHandler(this.yzdrBTN_Click);
+      this.button1.Location = new Point(510, 5);
+      this.button1.Margin = new Padding(3, 4, 3, 4);
+      this.button1.Name = "button1";
+      this.button1.Size = new Size((int) sbyte.MaxValue, 42);
+      this.button1.TabIndex = 31;
+      this.button1.Text = "ARA";
+      this.button1.UseVisualStyleBackColor = true;
+      this.button1.Click += new EventHandler(this.button1_Click);
+      this.bolumTB.Controls.Add((Control) this.label8);
+      this.bolumTB.Controls.Add((Control) this.label16);
+      this.bolumTB.Controls.Add((Control) this.label12);
+      this.bolumTB.Controls.Add((Control) this.label13);
+      this.bolumTB.Controls.Add((Control) this.ogrNoTB);
+      this.bolumTB.Controls.Add((Control) this.label14);
+      this.bolumTB.Controls.Add((Control) this.label15);
+      this.bolumTB.Controls.Add((Control) this.birimTB);
+      this.bolumTB.Controls.Add((Control) this.kimlikNoTB);
+      this.bolumTB.Controls.Add((Control) this.textBox5);
+      this.bolumTB.Controls.Add((Control) this.adTB);
+      this.bolumTB.Controls.Add((Control) this.soyadTB);
+      this.bolumTB.Enabled = false;
+      this.bolumTB.Location = new Point(47, 287);
+      this.bolumTB.Margin = new Padding(3, 4, 3, 4);
+      this.bolumTB.Name = "bolumTB";
+      this.bolumTB.Padding = new Padding(3, 4, 3, 4);
+      this.bolumTB.Size = new Size(723, 142);
+      this.bolumTB.TabIndex = 33;
+      this.bolumTB.TabStop = false;
+      this.bolumTB.Text = "ÖĞRENCİNİN";
+      this.label8.AutoSize = true;
+      this.label8.Location = new Point(28, 76);
+      this.label8.Name = "label8";
+      this.label8.Size = new Size(105, 17);
+      this.label8.TabIndex = 30;
+      this.label8.Text = "TC/YU Kimlik No";
+      this.label16.AutoSize = true;
+      this.label16.Location = new Point(208, 76);
+      this.label16.Name = "label16";
+      this.label16.Size = new Size(89, 17);
+      this.label16.TabIndex = 31;
+      this.label16.Text = "ÖĞRENCİ NO";
+      this.ogrNoTB.DataBindings.Add(new Binding("Text", (object) this.vwogrencihareketlilikBindingSource, "ogrenci_no", true));
+      this.ogrNoTB.Location = new Point(211, 96);
+      this.ogrNoTB.Margin = new Padding(3, 4, 3, 4);
+      this.ogrNoTB.Name = "ogrNoTB";
+      this.ogrNoTB.Size = new Size(172, 23);
+      this.ogrNoTB.TabIndex = 29;
+      this.kimlikNoTB.DataBindings.Add(new Binding("Text", (object) this.vwogrencihareketlilikBindingSource, "tc", true));
+      this.kimlikNoTB.Location = new Point(26, 96);
+      this.kimlikNoTB.Margin = new Padding(3, 4, 3, 4);
+      this.kimlikNoTB.Name = "kimlikNoTB";
+      this.kimlikNoTB.Size = new Size(168, 23);
+      this.kimlikNoTB.TabIndex = 28;
+      this.groupBox3.Controls.Add((Control) this.label2);
+      this.groupBox3.Controls.Add((Control) this.UlkelerCB);
+      this.groupBox3.Controls.Add((Control) this.label3);
+      this.groupBox3.Controls.Add((Control) this.label4);
+      this.groupBox3.Controls.Add((Control) this.UniveristelerCB);
+      this.groupBox3.Controls.Add((Control) this.BolumlerCB);
+      this.groupBox3.Location = new Point(48, 437);
+      this.groupBox3.Margin = new Padding(3, 4, 3, 4);
+      this.groupBox3.Name = "groupBox3";
+      this.groupBox3.Padding = new Padding(3, 4, 3, 4);
+      this.groupBox3.Size = new Size(723, 84);
+      this.groupBox3.TabIndex = 34;
+      this.groupBox3.TabStop = false;
+      this.groupBox3.Text = "GİDECEĞİ YER";
+      this.tumuBT.Location = new Point(644, 5);
+      this.tumuBT.Margin = new Padding(3, 4, 3, 4);
+      this.tumuBT.Name = "tumuBT";
+      this.tumuBT.Size = new Size((int) sbyte.MaxValue, 42);
+      this.tumuBT.TabIndex = 35;
+      this.tumuBT.Text = "TÜMÜ";
+      this.tumuBT.UseVisualStyleBackColor = true;
+      this.tumuBT.Click += new EventHandler(this.tumuBT_Click);
+      this.dataGridView2.AutoGenerateColumns = false;
+      this.dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dataGridView2.Columns.AddRange((DataGridViewColumn) this.ogrenciidDataGridViewTextBoxColumn, (DataGridViewColumn) this.adDataGridViewTextBoxColumn, (DataGridViewColumn) this.soyadDataGridViewTextBoxColumn, (DataGridViewColumn) this.tcDataGridViewTextBoxColumn, (DataGridViewColumn) this.bolumDataGridViewTextBoxColumn, (DataGridViewColumn) this.dogumtarihiDataGridViewTextBoxColumn, (DataGridViewColumn) this.emailDataGridViewTextBoxColumn, (DataGridViewColumn) this.telefonDataGridViewTextBoxColumn, (DataGridViewColumn) this.ogrencinoDataGridViewTextBoxColumn, (DataGridViewColumn) this.bolumidDataGridViewTextBoxColumn, (DataGridViewColumn) this.birimkoduDataGridViewTextBoxColumn, (DataGridViewColumn) this.bolumadiingilizceDataGridViewTextBoxColumn, (DataGridViewColumn) this.oGRBOLUMDataGridViewTextBoxColumn, (DataGridViewColumn) this.birimidDataGridViewTextBoxColumn, (DataGridViewColumn) this.birimadiDataGridViewTextBoxColumn, (DataGridViewColumn) this.birimadiingilizceDataGridViewTextBoxColumn, (DataGridViewColumn) this.ogrenciSWIFTDataGridViewTextBoxColumn, (DataGridViewColumn) this.ogrenciIBANDataGridViewTextBoxColumn, (DataGridViewColumn) this.ogrencihesapnoDataGridViewTextBoxColumn, (DataGridViewColumn) this.subeadresiDataGridViewTextBoxColumn, (DataGridViewColumn) this.subeadikoduDataGridViewTextBoxColumn, (DataGridViewColumn) this.bankaadiDataGridViewTextBoxColumn, (DataGridViewColumn) this.ogrenciadresDataGridViewTextBoxColumn, (DataGridViewColumn) this.ogrenimkademesiDataGridViewTextBoxColumn, (DataGridViewColumn) this.uyruguDataGridViewTextBoxColumn, (DataGridViewColumn) this.sinifDataGridViewTextBoxColumn, (DataGridViewColumn) this.ıSCEDFkoduDataGridViewTextBoxColumn, (DataGridViewColumn) this.ogrencicinsiyetDataGridViewTextBoxColumn, (DataGridViewColumn) this.hareketlilikidDataGridViewTextBoxColumn, (DataGridViewColumn) this.gidisTarihDataGridViewTextBoxColumn, (DataGridViewColumn) this.gidilecekDonemDataGridViewTextBoxColumn, (DataGridViewColumn) this.kalinacakGunDataGridViewTextBoxColumn, (DataGridViewColumn) this.donusTarihiDataGridViewTextBoxColumn, (DataGridViewColumn) this.harcamaMiktariDataGridViewTextBoxColumn, (DataGridViewColumn) this.personelmiDataGridViewCheckBoxColumn, (DataGridViewColumn) this.gidecekkisikimliknoDataGridViewTextBoxColumn, (DataGridViewColumn) this.gidilecekDonemenDataGridViewTextBoxColumn, (DataGridViewColumn) this.gidilecekogretimyiliDataGridViewTextBoxColumn, (DataGridViewColumn) this.stajdersDataGridViewTextBoxColumn, (DataGridViewColumn) this.uLKEADIDataGridViewTextBoxColumn, (DataGridViewColumn) this.uNIADIDataGridViewTextBoxColumn, (DataGridViewColumn) this.bolumadiorjinalDataGridViewTextBoxColumn, (DataGridViewColumn) this.gIDILECEKULKEIDDataGridViewTextBoxColumn, (DataGridViewColumn) this.gIDILECEKBOLUMIDDataGridViewTextBoxColumn, (DataGridViewColumn) this.gIDILECEKUNIIDDataGridViewTextBoxColumn);
+      this.dataGridView2.DataSource = (object) this.vwogrencihareketlilikBindingSource;
+      this.dataGridView2.Location = new Point(48, 58);
+      this.dataGridView2.Margin = new Padding(3, 4, 3, 4);
+      this.dataGridView2.Name = "dataGridView2";
+      this.dataGridView2.Size = new Size(1419, 164);
+      this.dataGridView2.TabIndex = 36;
+      this.dataGridView2.CellContentClick += new DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+      this.dataGridView2.SelectionChanged += new EventHandler(this.dataGridView2_SelectionChanged);
+      this.ogrenciidDataGridViewTextBoxColumn.DataPropertyName = "ogrenci_id";
+      this.ogrenciidDataGridViewTextBoxColumn.HeaderText = "ogrenci_id";
+      this.ogrenciidDataGridViewTextBoxColumn.Name = "ogrenciidDataGridViewTextBoxColumn";
+      this.adDataGridViewTextBoxColumn.DataPropertyName = "ad";
+      this.adDataGridViewTextBoxColumn.HeaderText = "ad";
+      this.adDataGridViewTextBoxColumn.Name = "adDataGridViewTextBoxColumn";
+      this.soyadDataGridViewTextBoxColumn.DataPropertyName = "soyad";
+      this.soyadDataGridViewTextBoxColumn.HeaderText = "soyad";
+      this.soyadDataGridViewTextBoxColumn.Name = "soyadDataGridViewTextBoxColumn";
+      this.tcDataGridViewTextBoxColumn.DataPropertyName = "tc";
+      this.tcDataGridViewTextBoxColumn.HeaderText = "tc";
+      this.tcDataGridViewTextBoxColumn.Name = "tcDataGridViewTextBoxColumn";
+      this.bolumDataGridViewTextBoxColumn.DataPropertyName = "bolum";
+      this.bolumDataGridViewTextBoxColumn.HeaderText = "bolum";
+      this.bolumDataGridViewTextBoxColumn.Name = "bolumDataGridViewTextBoxColumn";
+      this.dogumtarihiDataGridViewTextBoxColumn.DataPropertyName = "dogum_tarihi";
+      this.dogumtarihiDataGridViewTextBoxColumn.HeaderText = "dogum_tarihi";
+      this.dogumtarihiDataGridViewTextBoxColumn.Name = "dogumtarihiDataGridViewTextBoxColumn";
+      this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
+      this.emailDataGridViewTextBoxColumn.HeaderText = "email";
+      this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+      this.telefonDataGridViewTextBoxColumn.DataPropertyName = "telefon";
+      this.telefonDataGridViewTextBoxColumn.HeaderText = "telefon";
+      this.telefonDataGridViewTextBoxColumn.Name = "telefonDataGridViewTextBoxColumn";
+      this.ogrencinoDataGridViewTextBoxColumn.DataPropertyName = "ogrenci_no";
+      this.ogrencinoDataGridViewTextBoxColumn.HeaderText = "ogrenci_no";
+      this.ogrencinoDataGridViewTextBoxColumn.Name = "ogrencinoDataGridViewTextBoxColumn";
+      this.bolumidDataGridViewTextBoxColumn.DataPropertyName = "bolum_id";
+      this.bolumidDataGridViewTextBoxColumn.HeaderText = "bolum_id";
+      this.bolumidDataGridViewTextBoxColumn.Name = "bolumidDataGridViewTextBoxColumn";
+      this.birimkoduDataGridViewTextBoxColumn.DataPropertyName = "birim_kodu";
+      this.birimkoduDataGridViewTextBoxColumn.HeaderText = "birim_kodu";
+      this.birimkoduDataGridViewTextBoxColumn.Name = "birimkoduDataGridViewTextBoxColumn";
+      this.bolumadiingilizceDataGridViewTextBoxColumn.DataPropertyName = "bolum_adi_ingilizce";
+      this.bolumadiingilizceDataGridViewTextBoxColumn.HeaderText = "bolum_adi_ingilizce";
+      this.bolumadiingilizceDataGridViewTextBoxColumn.Name = "bolumadiingilizceDataGridViewTextBoxColumn";
+      this.oGRBOLUMDataGridViewTextBoxColumn.DataPropertyName = "OGR_BOLUM";
+      this.oGRBOLUMDataGridViewTextBoxColumn.HeaderText = "OGR_BOLUM";
+      this.oGRBOLUMDataGridViewTextBoxColumn.Name = "oGRBOLUMDataGridViewTextBoxColumn";
+      this.birimidDataGridViewTextBoxColumn.DataPropertyName = "birim_id";
+      this.birimidDataGridViewTextBoxColumn.HeaderText = "birim_id";
+      this.birimidDataGridViewTextBoxColumn.Name = "birimidDataGridViewTextBoxColumn";
+      this.birimadiDataGridViewTextBoxColumn.DataPropertyName = "birim_adi";
+      this.birimadiDataGridViewTextBoxColumn.HeaderText = "birim_adi";
+      this.birimadiDataGridViewTextBoxColumn.Name = "birimadiDataGridViewTextBoxColumn";
+      this.birimadiingilizceDataGridViewTextBoxColumn.DataPropertyName = "birim_adi_ingilizce";
+      this.birimadiingilizceDataGridViewTextBoxColumn.HeaderText = "birim_adi_ingilizce";
+      this.birimadiingilizceDataGridViewTextBoxColumn.Name = "birimadiingilizceDataGridViewTextBoxColumn";
+      this.ogrenciSWIFTDataGridViewTextBoxColumn.DataPropertyName = "ogrenci_SWIFT";
+      this.ogrenciSWIFTDataGridViewTextBoxColumn.HeaderText = "ogrenci_SWIFT";
+      this.ogrenciSWIFTDataGridViewTextBoxColumn.Name = "ogrenciSWIFTDataGridViewTextBoxColumn";
+      this.ogrenciIBANDataGridViewTextBoxColumn.DataPropertyName = "ogrenci_IBAN";
+      this.ogrenciIBANDataGridViewTextBoxColumn.HeaderText = "ogrenci_IBAN";
+      this.ogrenciIBANDataGridViewTextBoxColumn.Name = "ogrenciIBANDataGridViewTextBoxColumn";
+      this.ogrencihesapnoDataGridViewTextBoxColumn.DataPropertyName = "ogrenci_hesap_no";
+      this.ogrencihesapnoDataGridViewTextBoxColumn.HeaderText = "ogrenci_hesap_no";
+      this.ogrencihesapnoDataGridViewTextBoxColumn.Name = "ogrencihesapnoDataGridViewTextBoxColumn";
+      this.subeadresiDataGridViewTextBoxColumn.DataPropertyName = "sube_adresi";
+      this.subeadresiDataGridViewTextBoxColumn.HeaderText = "sube_adresi";
+      this.subeadresiDataGridViewTextBoxColumn.Name = "subeadresiDataGridViewTextBoxColumn";
+      this.subeadikoduDataGridViewTextBoxColumn.DataPropertyName = "sube_adi_kodu";
+      this.subeadikoduDataGridViewTextBoxColumn.HeaderText = "sube_adi_kodu";
+      this.subeadikoduDataGridViewTextBoxColumn.Name = "subeadikoduDataGridViewTextBoxColumn";
+      this.bankaadiDataGridViewTextBoxColumn.DataPropertyName = "banka_adi";
+      this.bankaadiDataGridViewTextBoxColumn.HeaderText = "banka_adi";
+      this.bankaadiDataGridViewTextBoxColumn.Name = "bankaadiDataGridViewTextBoxColumn";
+      this.ogrenciadresDataGridViewTextBoxColumn.DataPropertyName = "ogrenci_adres";
+      this.ogrenciadresDataGridViewTextBoxColumn.HeaderText = "ogrenci_adres";
+      this.ogrenciadresDataGridViewTextBoxColumn.Name = "ogrenciadresDataGridViewTextBoxColumn";
+      this.ogrenimkademesiDataGridViewTextBoxColumn.DataPropertyName = "ogrenim_kademesi";
+      this.ogrenimkademesiDataGridViewTextBoxColumn.HeaderText = "ogrenim_kademesi";
+      this.ogrenimkademesiDataGridViewTextBoxColumn.Name = "ogrenimkademesiDataGridViewTextBoxColumn";
+      this.uyruguDataGridViewTextBoxColumn.DataPropertyName = "uyrugu";
+      this.uyruguDataGridViewTextBoxColumn.HeaderText = "uyrugu";
+      this.uyruguDataGridViewTextBoxColumn.Name = "uyruguDataGridViewTextBoxColumn";
+      this.sinifDataGridViewTextBoxColumn.DataPropertyName = "sinif";
+      this.sinifDataGridViewTextBoxColumn.HeaderText = "sinif";
+      this.sinifDataGridViewTextBoxColumn.Name = "sinifDataGridViewTextBoxColumn";
+      this.ıSCEDFkoduDataGridViewTextBoxColumn.DataPropertyName = "ISCEDFkodu";
+      this.ıSCEDFkoduDataGridViewTextBoxColumn.HeaderText = "ISCEDFkodu";
+      this.ıSCEDFkoduDataGridViewTextBoxColumn.Name = "ıSCEDFkoduDataGridViewTextBoxColumn";
+      this.ogrencicinsiyetDataGridViewTextBoxColumn.DataPropertyName = "ogrenci_cinsiyet";
+      this.ogrencicinsiyetDataGridViewTextBoxColumn.HeaderText = "ogrenci_cinsiyet";
+      this.ogrencicinsiyetDataGridViewTextBoxColumn.Name = "ogrencicinsiyetDataGridViewTextBoxColumn";
+      this.hareketlilikidDataGridViewTextBoxColumn.DataPropertyName = "hareketlilik_id";
+      this.hareketlilikidDataGridViewTextBoxColumn.HeaderText = "hareketlilik_id";
+      this.hareketlilikidDataGridViewTextBoxColumn.Name = "hareketlilikidDataGridViewTextBoxColumn";
+      this.gidisTarihDataGridViewTextBoxColumn.DataPropertyName = "Gidis_Tarih";
+      this.gidisTarihDataGridViewTextBoxColumn.HeaderText = "Gidis_Tarih";
+      this.gidisTarihDataGridViewTextBoxColumn.Name = "gidisTarihDataGridViewTextBoxColumn";
+      this.gidilecekDonemDataGridViewTextBoxColumn.DataPropertyName = "Gidilecek_Donem";
+      this.gidilecekDonemDataGridViewTextBoxColumn.HeaderText = "Gidilecek_Donem";
+      this.gidilecekDonemDataGridViewTextBoxColumn.Name = "gidilecekDonemDataGridViewTextBoxColumn";
+      this.kalinacakGunDataGridViewTextBoxColumn.DataPropertyName = "Kalinacak_Gun";
+      this.kalinacakGunDataGridViewTextBoxColumn.HeaderText = "Kalinacak_Gun";
+      this.kalinacakGunDataGridViewTextBoxColumn.Name = "kalinacakGunDataGridViewTextBoxColumn";
+      this.donusTarihiDataGridViewTextBoxColumn.DataPropertyName = "Donus_Tarihi";
+      this.donusTarihiDataGridViewTextBoxColumn.HeaderText = "Donus_Tarihi";
+      this.donusTarihiDataGridViewTextBoxColumn.Name = "donusTarihiDataGridViewTextBoxColumn";
+      this.harcamaMiktariDataGridViewTextBoxColumn.DataPropertyName = "Harcama_Miktari";
+      this.harcamaMiktariDataGridViewTextBoxColumn.HeaderText = "Harcama_Miktari";
+      this.harcamaMiktariDataGridViewTextBoxColumn.Name = "harcamaMiktariDataGridViewTextBoxColumn";
+      this.harcamaMiktariDataGridViewTextBoxColumn.ReadOnly = true;
+      this.personelmiDataGridViewCheckBoxColumn.DataPropertyName = "personelmi";
+      this.personelmiDataGridViewCheckBoxColumn.HeaderText = "personelmi";
+      this.personelmiDataGridViewCheckBoxColumn.Name = "personelmiDataGridViewCheckBoxColumn";
+      this.gidecekkisikimliknoDataGridViewTextBoxColumn.DataPropertyName = "gidecekkisikimlikno";
+      this.gidecekkisikimliknoDataGridViewTextBoxColumn.HeaderText = "gidecekkisikimlikno";
+      this.gidecekkisikimliknoDataGridViewTextBoxColumn.Name = "gidecekkisikimliknoDataGridViewTextBoxColumn";
+      this.gidilecekDonemenDataGridViewTextBoxColumn.DataPropertyName = "Gidilecek_Donem_en";
+      this.gidilecekDonemenDataGridViewTextBoxColumn.HeaderText = "Gidilecek_Donem_en";
+      this.gidilecekDonemenDataGridViewTextBoxColumn.Name = "gidilecekDonemenDataGridViewTextBoxColumn";
+      this.gidilecekogretimyiliDataGridViewTextBoxColumn.DataPropertyName = "gidilecek_ogretim_yili";
+      this.gidilecekogretimyiliDataGridViewTextBoxColumn.HeaderText = "gidilecek_ogretim_yili";
+      this.gidilecekogretimyiliDataGridViewTextBoxColumn.Name = "gidilecekogretimyiliDataGridViewTextBoxColumn";
+      this.stajdersDataGridViewTextBoxColumn.DataPropertyName = "staj_ders";
+      this.stajdersDataGridViewTextBoxColumn.HeaderText = "staj_ders";
+      this.stajdersDataGridViewTextBoxColumn.Name = "stajdersDataGridViewTextBoxColumn";
+      this.uLKEADIDataGridViewTextBoxColumn.DataPropertyName = "ULKE_ADI";
+      this.uLKEADIDataGridViewTextBoxColumn.HeaderText = "ULKE_ADI";
+      this.uLKEADIDataGridViewTextBoxColumn.Name = "uLKEADIDataGridViewTextBoxColumn";
+      this.uNIADIDataGridViewTextBoxColumn.DataPropertyName = "UNI_ADI";
+      this.uNIADIDataGridViewTextBoxColumn.HeaderText = "UNI_ADI";
+      this.uNIADIDataGridViewTextBoxColumn.Name = "uNIADIDataGridViewTextBoxColumn";
+      this.bolumadiorjinalDataGridViewTextBoxColumn.DataPropertyName = "bolum_adi_orjinal";
+      this.bolumadiorjinalDataGridViewTextBoxColumn.HeaderText = "bolum_adi_orjinal";
+      this.bolumadiorjinalDataGridViewTextBoxColumn.Name = "bolumadiorjinalDataGridViewTextBoxColumn";
+      this.gIDILECEKULKEIDDataGridViewTextBoxColumn.DataPropertyName = "GIDILECEK_ULKE_ID";
+      this.gIDILECEKULKEIDDataGridViewTextBoxColumn.HeaderText = "GIDILECEK_ULKE_ID";
+      this.gIDILECEKULKEIDDataGridViewTextBoxColumn.Name = "gIDILECEKULKEIDDataGridViewTextBoxColumn";
+      this.gIDILECEKBOLUMIDDataGridViewTextBoxColumn.DataPropertyName = "GIDILECEK_BOLUM_ID";
+      this.gIDILECEKBOLUMIDDataGridViewTextBoxColumn.HeaderText = "GIDILECEK_BOLUM_ID";
+      this.gIDILECEKBOLUMIDDataGridViewTextBoxColumn.Name = "gIDILECEKBOLUMIDDataGridViewTextBoxColumn";
+      this.gIDILECEKUNIIDDataGridViewTextBoxColumn.DataPropertyName = "GIDILECEK_UNI_ID";
+      this.gIDILECEKUNIIDDataGridViewTextBoxColumn.HeaderText = "GIDILECEK_UNI_ID";
+      this.gIDILECEKUNIIDDataGridViewTextBoxColumn.Name = "gIDILECEKUNIIDDataGridViewTextBoxColumn";
+      this.vw_ogrenci_hareketlilikTableAdapter.ClearBeforeFill = true;
+      this.ulkelerTableAdapter.ClearBeforeFill = true;
+      this.universiteTableAdapter.ClearBeforeFill = true;
+      this.anlasmali_bolumlerTableAdapter.ClearBeforeFill = true;
+      this.button2.BackColor = Color.FromArgb((int) byte.MaxValue, 128, 128);
+      this.button2.Location = new Point(415, 556);
+      this.button2.Margin = new Padding(3, 4, 3, 4);
+      this.button2.Name = "button2";
+      this.button2.Size = new Size(180, 68);
+      this.button2.TabIndex = 37;
+      this.button2.Text = "SİL";
+      this.button2.UseVisualStyleBackColor = false;
+      this.button2.Click += new EventHandler(this.button2_Click);
+      this.hareketlilikTableAdapter1.ClearBeforeFill = true;
+      this.label17.AutoSize = true;
+      this.label17.Location = new Point(162, 21);
+      this.label17.Name = "label17";
+      this.label17.Size = new Size(55, 17);
+      this.label17.TabIndex = 39;
+      this.label17.Text = "DÖNEM";
+      this.donemCB.DataBindings.Add(new Binding("Text", (object) this.vwogrencihareketlilikBindingSource, "Gidilecek_Donem", true));
+      this.donemCB.FormattingEnabled = true;
+      this.donemCB.Items.AddRange(new object[3]
+      {
+        (object) "BAHAR",
+        (object) "GÜZ",
+        (object) "YAZ"
+      });
+      this.donemCB.Location = new Point(162, 41);
+      this.donemCB.Margin = new Padding(3, 4, 3, 4);
+      this.donemCB.Name = "donemCB";
+      this.donemCB.Size = new Size(86, 24);
+      this.donemCB.TabIndex = 38;
+      this.label18.AutoSize = true;
+      this.label18.Location = new Point(252, 21);
+      this.label18.Name = "label18";
+      this.label18.Size = new Size(93, 17);
+      this.label18.TabIndex = 41;
+      this.label18.Text = "ÖĞRETİM YILI";
+      this.ogretimYiliCB.DataBindings.Add(new Binding("Text", (object) this.vwogrencihareketlilikBindingSource, "gidilecek_ogretim_yili", true));
+      this.ogretimYiliCB.FormattingEnabled = true;
+      this.ogretimYiliCB.Items.AddRange(new object[8]
+      {
+        (object) "2015-2016",
+        (object) "2016-2017",
+        (object) "2017-2018",
+        (object) "2018-2019",
+        (object) "2019-2020",
+        (object) "2020-2021",
+        (object) "2021-2022",
+        (object) "2022-2023"
+      });
+      this.ogretimYiliCB.Location = new Point((int) byte.MaxValue, 41);
+      this.ogretimYiliCB.Margin = new Padding(3, 4, 3, 4);
+      this.ogretimYiliCB.Name = "ogretimYiliCB";
+      this.ogretimYiliCB.Size = new Size(108, 24);
+      this.ogretimYiliCB.TabIndex = 40;
+      this.donus_tarihiTB.DataBindings.Add(new Binding("Text", (object) this.vwogrencihareketlilikBindingSource, "Donus_Tarihi", true));
+      this.donus_tarihiTB.Location = new Point(990, 103);
+      this.donus_tarihiTB.Margin = new Padding(3, 4, 3, 4);
+      this.donus_tarihiTB.Name = "donus_tarihiTB";
+      this.donus_tarihiTB.Size = new Size(116, 23);
+      this.donus_tarihiTB.TabIndex = 71;
+      this.gidisTarihiTB.DataBindings.Add(new Binding("Text", (object) this.vwogrencihareketlilikBindingSource, "Gidis_Tarih", true));
+      this.gidisTarihiTB.Location = new Point(815, 103);
+      this.gidisTarihiTB.Margin = new Padding(3, 4, 3, 4);
+      this.gidisTarihiTB.Name = "gidisTarihiTB";
+      this.gidisTarihiTB.Size = new Size(116, 23);
+      this.gidisTarihiTB.TabIndex = 70;
+      this.groupBox2.Controls.Add((Control) this.yazdirsonBTN);
+      this.groupBox2.Controls.Add((Control) this.odemeDonemCB);
+      this.groupBox2.Controls.Add((Control) this.label25);
+      this.groupBox2.Controls.Add((Control) this.sonOdenenTB);
+      this.groupBox2.Controls.Add((Control) this.label24);
+      this.groupBox2.Controls.Add((Control) this.label23);
+      this.groupBox2.Controls.Add((Control) this.odenenAvansTB);
+      this.groupBox2.Controls.Add((Control) this.sonOdemeKaydetBT);
+      this.groupBox2.Controls.Add((Control) this.yazdiravansBTN);
+      this.groupBox2.Controls.Add((Control) this.avansKaydetBT);
+      this.groupBox2.Controls.Add((Control) this.sonOdemeTB);
+      this.groupBox2.Controls.Add((Control) this.label21);
+      this.groupBox2.Controls.Add((Control) this.avansMiktarTB);
+      this.groupBox2.Controls.Add((Control) this.label20);
+      this.groupBox2.Controls.Add((Control) this.label19);
+      this.groupBox2.Controls.Add((Control) this.sonOdemeOnayCB);
+      this.groupBox2.Controls.Add((Control) this.avansYuzdeTB);
+      this.groupBox2.Controls.Add((Control) this.sonOdemeYuzdeTB);
+      this.groupBox2.Controls.Add((Control) this.avansOnayCB);
+      this.groupBox2.Controls.Add((Control) this.label22);
+      this.groupBox2.Location = new Point(788, 437);
+      this.groupBox2.Margin = new Padding(3, 4, 3, 4);
+      this.groupBox2.Name = "groupBox2";
+      this.groupBox2.Padding = new Padding(3, 4, 3, 4);
+      this.groupBox2.Size = new Size(723, 219);
+      this.groupBox2.TabIndex = 73;
+      this.groupBox2.TabStop = false;
+      this.groupBox2.Text = "Ödemeler";
+      this.yazdirsonBTN.BackColor = Color.FromArgb((int) byte.MaxValue, 192, 128);
+      this.yazdirsonBTN.Location = new Point(552, 63);
+      this.yazdirsonBTN.Margin = new Padding(3, 4, 3, 4);
+      this.yazdirsonBTN.Name = "yazdirsonBTN";
+      this.yazdirsonBTN.Size = new Size(73, 124);
+      this.yazdirsonBTN.TabIndex = 73;
+      this.yazdirsonBTN.Text = "YAZDIR";
+      this.yazdirsonBTN.UseVisualStyleBackColor = false;
+      this.yazdirsonBTN.Click += new EventHandler(this.yazdirsonBTN_Click);
+      this.odemeDonemCB.DataBindings.Add(new Binding("SelectedValue", (object) this.odemelerAvansBindingSource, "butce_donem_id", true));
+      this.odemeDonemCB.DataSource = (object) this.toplambutce1BindingSource;
+      this.odemeDonemCB.DisplayMember = "donem_adi";
+      this.odemeDonemCB.FormattingEnabled = true;
+      this.odemeDonemCB.Location = new Point(129, 31);
+      this.odemeDonemCB.Margin = new Padding(3, 4, 3, 4);
+      this.odemeDonemCB.Name = "odemeDonemCB";
+      this.odemeDonemCB.Size = new Size(327, 24);
+      this.odemeDonemCB.TabIndex = 72;
+      this.odemeDonemCB.ValueMember = "id";
+      this.odemelerAvansBindingSource.DataMember = "odemelerAvans";
+      this.odemelerAvansBindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.toplambutce1BindingSource.DataMember = "toplam_butce1";
+      this.toplambutce1BindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.label25.AutoSize = true;
+      this.label25.Location = new Point(9, 34);
+      this.label25.Name = "label25";
+      this.label25.Size = new Size(94, 17);
+      this.label25.TabIndex = 71;
+      this.label25.Text = "Bütçe Dönemi";
+      this.sonOdenenTB.DataBindings.Add(new Binding("Text", (object) this.odemelerSonBindingSource, "odenen", true));
+      this.sonOdenenTB.Location = new Point(471, 126);
+      this.sonOdenenTB.Margin = new Padding(3, 4, 3, 4);
+      this.sonOdenenTB.Name = "sonOdenenTB";
+      this.sonOdenenTB.Size = new Size(67, 23);
+      this.sonOdenenTB.TabIndex = 70;
+      this.odemelerSonBindingSource.DataMember = "odemelerSon";
+      this.odemelerSonBindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.label24.AutoSize = true;
+      this.label24.Location = new Point(9, 129);
+      this.label24.Name = "label24";
+      this.label24.Size = new Size(97, 17);
+      this.label24.TabIndex = 69;
+      this.label24.Text = "Ödenen Avans";
+      this.label23.AutoSize = true;
+      this.label23.Location = new Point(329, 129);
+      this.label23.Name = "label23";
+      this.label23.Size = new Size(84, 17);
+      this.label23.TabIndex = 68;
+      this.label23.Text = "Son Ödenen";
+      this.odenenAvansTB.DataBindings.Add(new Binding("Text", (object) this.odemelerAvansBindingSource, "odenen", true));
+      this.odenenAvansTB.Location = new Point(131, 126);
+      this.odenenAvansTB.Margin = new Padding(3, 4, 3, 4);
+      this.odenenAvansTB.Name = "odenenAvansTB";
+      this.odenenAvansTB.Size = new Size(67, 23);
+      this.odenenAvansTB.TabIndex = 67;
+      this.sonOdemeKaydetBT.Location = new Point(457, 159);
+      this.sonOdemeKaydetBT.Margin = new Padding(3, 4, 3, 4);
+      this.sonOdemeKaydetBT.Name = "sonOdemeKaydetBT";
+      this.sonOdemeKaydetBT.Size = new Size(87, 28);
+      this.sonOdemeKaydetBT.TabIndex = 66;
+      this.sonOdemeKaydetBT.Text = "Kaydet";
+      this.sonOdemeKaydetBT.UseVisualStyleBackColor = true;
+      this.sonOdemeKaydetBT.Click += new EventHandler(this.sonOdemeKaydetBT_Click);
+      this.avansKaydetBT.Location = new Point(113, 159);
+      this.avansKaydetBT.Margin = new Padding(3, 4, 3, 4);
+      this.avansKaydetBT.Name = "avansKaydetBT";
+      this.avansKaydetBT.Size = new Size(87, 28);
+      this.avansKaydetBT.TabIndex = 65;
+      this.avansKaydetBT.Text = "Kaydet";
+      this.avansKaydetBT.UseVisualStyleBackColor = true;
+      this.avansKaydetBT.Click += new EventHandler(this.avansKaydetBT_Click);
+      this.sonOdemeTB.Enabled = false;
+      this.sonOdemeTB.Location = new Point(471, 95);
+      this.sonOdemeTB.Margin = new Padding(3, 4, 3, 4);
+      this.sonOdemeTB.Name = "sonOdemeTB";
+      this.sonOdemeTB.Size = new Size(67, 23);
+      this.sonOdemeTB.TabIndex = 63;
+      this.sonOdemeTB.TextChanged += new EventHandler(this.sonOdemeTB_TextChanged);
+      this.label21.AutoSize = true;
+      this.label21.Location = new Point(9, 98);
+      this.label21.Name = "label21";
+      this.label21.Size = new Size(109, 17);
+      this.label21.TabIndex = 62;
+      this.label21.Text = "Avans Miktarı (€)";
+      this.avansMiktarTB.Enabled = false;
+      this.avansMiktarTB.Location = new Point(131, 95);
+      this.avansMiktarTB.Margin = new Padding(3, 4, 3, 4);
+      this.avansMiktarTB.Name = "avansMiktarTB";
+      this.avansMiktarTB.Size = new Size(67, 23);
+      this.avansMiktarTB.TabIndex = 61;
+      this.avansMiktarTB.TextChanged += new EventHandler(this.avansMiktarTB_TextChanged);
+      this.label20.AutoSize = true;
+      this.label20.Location = new Point(329, 66);
+      this.label20.Name = "label20";
+      this.label20.Size = new Size(108, 17);
+      this.label20.TabIndex = 60;
+      this.label20.Text = "Son Ödeme (%)";
+      this.label19.AutoSize = true;
+      this.label19.Location = new Point(9, 66);
+      this.label19.Name = "label19";
+      this.label19.Size = new Size(73, 17);
+      this.label19.TabIndex = 59;
+      this.label19.Text = "Avans (%)";
+      this.sonOdemeOnayCB.AutoSize = true;
+      this.sonOdemeOnayCB.DataBindings.Add(new Binding("Checked", (object) this.odemelerSonBindingSource, "onaylandi", true));
+      this.sonOdemeOnayCB.Location = new Point(335, 159);
+      this.sonOdemeOnayCB.Margin = new Padding(3, 4, 3, 4);
+      this.sonOdemeOnayCB.Name = "sonOdemeOnayCB";
+      this.sonOdemeOnayCB.Size = new Size(90, 21);
+      this.sonOdemeOnayCB.TabIndex = 58;
+      this.sonOdemeOnayCB.Text = "Onaylandı";
+      this.sonOdemeOnayCB.UseVisualStyleBackColor = true;
+      this.avansYuzdeTB.Location = new Point(131, 63);
+      this.avansYuzdeTB.Margin = new Padding(3, 4, 3, 4);
+      this.avansYuzdeTB.Name = "avansYuzdeTB";
+      this.avansYuzdeTB.Size = new Size(67, 23);
+      this.avansYuzdeTB.TabIndex = 0;
+      this.avansYuzdeTB.Text = "80";
+      this.avansYuzdeTB.TextChanged += new EventHandler(this.avansYuzdeTB_TextChanged);
+      this.sonOdemeYuzdeTB.Enabled = false;
+      this.sonOdemeYuzdeTB.Location = new Point(471, 63);
+      this.sonOdemeYuzdeTB.Margin = new Padding(3, 4, 3, 4);
+      this.sonOdemeYuzdeTB.Name = "sonOdemeYuzdeTB";
+      this.sonOdemeYuzdeTB.Size = new Size(67, 23);
+      this.sonOdemeYuzdeTB.TabIndex = 1;
+      this.sonOdemeYuzdeTB.Text = "20";
+      this.sonOdemeYuzdeTB.TextChanged += new EventHandler(this.sonOdemeYuzdeTB_TextChanged);
+      this.avansOnayCB.AutoSize = true;
+      this.avansOnayCB.DataBindings.Add(new Binding("Checked", (object) this.odemelerAvansBindingSource, "onaylandi", true));
+      this.avansOnayCB.Location = new Point(13, 159);
+      this.avansOnayCB.Margin = new Padding(3, 4, 3, 4);
+      this.avansOnayCB.Name = "avansOnayCB";
+      this.avansOnayCB.Size = new Size(90, 21);
+      this.avansOnayCB.TabIndex = 57;
+      this.avansOnayCB.Text = "Onaylandı";
+      this.avansOnayCB.UseVisualStyleBackColor = true;
+      this.label22.AutoSize = true;
+      this.label22.Location = new Point(329, 98);
+      this.label22.Name = "label22";
+      this.label22.Size = new Size(144, 17);
+      this.label22.TabIndex = 64;
+      this.label22.Text = "Son Ödeme Miktarı (€)";
+      this.hareketlilikIdTB.DataBindings.Add(new Binding("Text", (object) this.vwogrencihareketlilikBindingSource, "hareketlilik_id", true));
+      this.hareketlilikIdTB.Location = new Point(357, 124);
+      this.hareketlilikIdTB.Margin = new Padding(3, 4, 3, 4);
+      this.hareketlilikIdTB.Name = "hareketlilikIdTB";
+      this.hareketlilikIdTB.Size = new Size(116, 23);
+      this.hareketlilikIdTB.TabIndex = 74;
+      this.odemelerAvansTableAdapter.ClearBeforeFill = true;
+      this.odemelerSonTableAdapter.ClearBeforeFill = true;
+      this.prometheus_projesiDataSet2.DataSetName = "prometheus_projesiDataSet";
+      this.prometheus_projesiDataSet2.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+      this.groupBox4.Controls.Add((Control) this.label11);
+      this.groupBox4.Controls.Add((Control) this.StajDersCB);
+      this.groupBox4.Controls.Add((Control) this.donemCB);
+      this.groupBox4.Controls.Add((Control) this.label17);
+      this.groupBox4.Controls.Add((Control) this.label18);
+      this.groupBox4.Controls.Add((Control) this.ogretimYiliCB);
+      this.groupBox4.Location = new Point(1173, 287);
+      this.groupBox4.Margin = new Padding(3, 4, 3, 4);
+      this.groupBox4.Name = "groupBox4";
+      this.groupBox4.Padding = new Padding(3, 4, 3, 4);
+      this.groupBox4.Size = new Size(379, 84);
+      this.groupBox4.TabIndex = 75;
+      this.groupBox4.TabStop = false;
+      this.groupBox4.Text = "Hareketlilik Detay";
+      this.avansOIDTB.DataBindings.Add(new Binding("Text", (object) this.odemelerAvansBindingSource, "oid", true));
+      this.avansOIDTB.Location = new Point(1376, 547);
+      this.avansOIDTB.Margin = new Padding(3, 4, 3, 4);
+      this.avansOIDTB.Name = "avansOIDTB";
+      this.avansOIDTB.Size = new Size(41, 23);
+      this.avansOIDTB.TabIndex = 71;
+      this.sonOdemeOIDTB.DataBindings.Add(new Binding("Text", (object) this.odemelerSonBindingSource, "oid", true));
+      this.sonOdemeOIDTB.Location = new Point(1166, 501);
+      this.sonOdemeOIDTB.Margin = new Padding(3, 4, 3, 4);
+      this.sonOdemeOIDTB.Name = "sonOdemeOIDTB";
+      this.sonOdemeOIDTB.Size = new Size(28, 23);
+      this.sonOdemeOIDTB.TabIndex = 72;
+      this.toplam_butce1TableAdapter.ClearBeforeFill = true;
+      ((NavigatorButtonBase) this.dataNavigator1.Buttons.Append).Visible = false;
+      ((NavigatorButtonBase) this.dataNavigator1.Buttons.CancelEdit).Visible = false;
+      ((NavigatorButtonBase) this.dataNavigator1.Buttons.EndEdit).Visible = false;
+      ((NavigatorButtonBase) this.dataNavigator1.Buttons.Remove).Visible = false;
+      ((NavigatorBase) this.dataNavigator1).ButtonStyle = (BorderStyles) 1;
+      this.dataNavigator1.DataSource = (object) this.vwogrencihareketlilikBindingSource;
+      ((Control) this.dataNavigator1).Location = new Point(48, 227);
+      ((Control) this.dataNavigator1).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.dataNavigator1).Name = "dataNavigator1";
+      ((Control) this.dataNavigator1).Size = new Size(469, 52);
+      ((Control) this.dataNavigator1).TabIndex = 76;
+      ((Control) this.dataNavigator1).Text = "dataNavigator1";
+      this.Appearance.BackColor = Color.Thistle;
+      this.Appearance.Options.UseBackColor = true;
+      ((ContainerControl) this).AutoScaleDimensions = new SizeF(7f, 16f);
+      ((ContainerControl) this).AutoScaleMode = AutoScaleMode.Font;
+      ((Form) this).ClientSize = new Size(1587, 741);
+      ((Control) this).Controls.Add((Control) this.dataNavigator1);
+      ((Control) this).Controls.Add((Control) this.groupBox2);
+      ((Control) this).Controls.Add((Control) this.groupBox4);
+      ((Control) this).Controls.Add((Control) this.dataGridView2);
+      ((Control) this).Controls.Add((Control) this.hareketlilikIdTB);
+      ((Control) this).Controls.Add((Control) this.button2);
+      ((Control) this).Controls.Add((Control) this.tumuBT);
+      ((Control) this).Controls.Add((Control) this.button1);
+      ((Control) this).Controls.Add((Control) this.kydtBTN);
+      ((Control) this).Controls.Add((Control) this.groupBox1);
+      ((Control) this).Controls.Add((Control) this.label1);
+      ((Control) this).Controls.Add((Control) this.araTB);
+      ((Control) this).Controls.Add((Control) this.bolumTB);
+      ((Control) this).Controls.Add((Control) this.groupBox3);
+      ((Control) this).Controls.Add((Control) this.donus_tarihiTB);
+      ((Control) this).Controls.Add((Control) this.gidisTarihiTB);
+      ((Control) this).Controls.Add((Control) this.avansOIDTB);
+      ((Control) this).Controls.Add((Control) this.sonOdemeOIDTB);
+      // ISSUE: explicit non-virtual call
+      __nonvirtual (((Control) this).DataBindings).Add(new Binding("Text", (object) this.vwogrencihareketlilikBindingSource, "staj_ders", true));
+      ((Form) this).Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      ((Form) this).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this).Name = nameof (ogrenci_hareketlilik);
+      ((Control) this).Text = "Öğrenci Hareketlilik İşlemleri";
+      ((Form) this).Load += new EventHandler(this.ogrenci_hareketlilik_Load);
+      ((ISupportInitialize) this.vwogrencihareketlilikBindingSource).EndInit();
+      this.prometheus_projesiDataSet.EndInit();
+      ((ISupportInitialize) this.ulkelerBindingSource).EndInit();
+      this.prometheus_projesiDataSet1.EndInit();
+      ((ISupportInitialize) this.ulkeleruniversiteBindingSource).EndInit();
+      ((ISupportInitialize) this.universiteanlasmalibolumlerBindingSource).EndInit();
+      this.groupBox1.ResumeLayout(false);
+      this.groupBox1.PerformLayout();
+      this.bolumTB.ResumeLayout(false);
+      this.bolumTB.PerformLayout();
+      this.groupBox3.ResumeLayout(false);
+      this.groupBox3.PerformLayout();
+      ((ISupportInitialize) this.dataGridView2).EndInit();
+      this.groupBox2.ResumeLayout(false);
+      this.groupBox2.PerformLayout();
+      ((ISupportInitialize) this.odemelerAvansBindingSource).EndInit();
+      ((ISupportInitialize) this.toplambutce1BindingSource).EndInit();
+      ((ISupportInitialize) this.odemelerSonBindingSource).EndInit();
+      this.prometheus_projesiDataSet2.EndInit();
+      this.groupBox4.ResumeLayout(false);
+      this.groupBox4.PerformLayout();
+      this.ResumeLayout(false);
+      ((Control) this).PerformLayout();
+    }
+  }
+}
