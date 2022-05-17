@@ -1,0 +1,53 @@
+// Decompiled with JetBrains decompiler
+// Type: promethues_projesi.vize2
+// Assembly: promethues_projesi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: B9C4A65B-B397-4621-A7E0-7BC7D8FEFDBA
+// Assembly location: C:\Users\Belediye\AppData\Local\Temp\Gutadis\09e50f9ba5\promethues_projesi.exe
+
+using Microsoft.Reporting.WinForms;
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace promethues_projesi
+{
+  public class vize2 : Form
+  {
+    private IContainer components = (IContainer) null;
+    private ReportViewer reportViewer1;
+
+    public vize2() => this.InitializeComponent();
+
+    private void vize2_Load(object sender, EventArgs e) => this.reportViewer1.RefreshReport();
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (vize2));
+      this.reportViewer1 = new ReportViewer();
+      this.SuspendLayout();
+      ((Control) this.reportViewer1).Location = new Point(0, -2);
+      ((Control) this.reportViewer1).Margin = new Padding(4, 4, 4, 4);
+      ((Control) this.reportViewer1).Name = "reportViewer1";
+      ((Control) this.reportViewer1).Size = new Size(1083, 513);
+      ((Control) this.reportViewer1).TabIndex = 0;
+      this.AutoScaleDimensions = new SizeF(8f, 16f);
+      this.AutoScaleMode = AutoScaleMode.Font;
+      this.ClientSize = new Size(1091, 512);
+      this.Controls.Add((Control) this.reportViewer1);
+      this.Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      this.Margin = new Padding(4, 4, 4, 4);
+      this.Name = nameof (vize2);
+      this.Text = nameof (vize2);
+      this.Load += new EventHandler(this.vize2_Load);
+      this.ResumeLayout(false);
+    }
+  }
+}
