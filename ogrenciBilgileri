@@ -1,0 +1,919 @@
+// Decompiled with JetBrains decompiler
+// Type: promethues_projesi.ogrenci_bilgileri
+// Assembly: promethues_projesi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: B9C4A65B-B397-4621-A7E0-7BC7D8FEFDBA
+// Assembly location: C:\Users\Belediye\AppData\Local\Temp\Gutadis\09e50f9ba5\promethues_projesi.exe
+
+using DevExpress.Utils;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.Repository;
+using promethues_projesi.prometheus_projesiDataSetTableAdapters;
+using System;
+using System.ComponentModel;
+using System.Data;
+using System.Data.OleDb;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace promethues_projesi
+{
+  public class ogrenci_bilgileri : XtraForm
+  {
+    private OleDbConnection xlsxbaglanti = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=excel_dosya.xlsx; Extended Properties='Excel 12.0 Xml;HDR=YES'");
+    private DataTable tablo = new DataTable();
+    private IContainer components = (IContainer) null;
+    private TextEdit adTB;
+    private TextEdit soyadTB;
+    private TextEdit kimliknoTB;
+    private TextEdit textEdit5;
+    private TextEdit telTB;
+    private SimpleButton simpleButton1;
+    private SimpleButton simpleButton2;
+    private LabelControl labelControl1;
+    private LabelControl labelControl2;
+    private LabelControl labelControl3;
+    private LabelControl labelControl4;
+    private LabelControl labelControl5;
+    private LabelControl labelControl6;
+    private DataGridView dataGridView1;
+    private DataNavigator dataNavigator1;
+    private Label label1;
+    private ComboBox fakultelerCB;
+    private Label label2;
+    private ComboBox bolumlerCB;
+    private DateTimePicker dog_tar_dtp;
+    private TextBox idTB;
+    private DataGridViewTextBoxColumn ogrencinoDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn adDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn soyadDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn tcDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn dogumtarihiDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn telefonDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn birimadiDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn bolumadiDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn birimadiingilizceDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn bolumadiingilizceDataGridViewTextBoxColumn;
+    private LabelControl labelControl7;
+    private TextEdit epostaTB;
+    private LabelControl labelControl8;
+    private TextEdit ogr_noTB;
+    private prometheus_projesiDataSet prometheus_projesiDataSet;
+    private Button yeniBTN;
+    private Button kaydetBTN;
+    private Button silBTN;
+    private BindingSource ogrencibilgileriBindingSource;
+    private ogrenci_bilgileriTableAdapter ogrenci_bilgileriTableAdapter;
+    private DataGridViewTextBoxColumn ogrenciidDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+    private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+    private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+    private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+    private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+    private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+    private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+    private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+    private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+    private prometheus_projesiDataSet prometheus_projesiDataSet1;
+    private BindingSource ogrencibilgileriBindingSource1;
+    private Button guncelleBTN;
+    private TextBox ogrenciidTB;
+    private GroupBox groupBox1;
+    private Button tumuBT;
+    private Button araBT;
+    private Label label3;
+    private TextBox araTB;
+    private TableAdapterManager tableAdapterManager;
+    private TextEdit uyruguTextEdit;
+    private TextEdit banka_adiTextEdit;
+    private TextEdit sube_adi_koduTextEdit;
+    private TextEdit ogrenci_hesap_noTextEdit;
+    private TextEdit ogrenci_IBANTextEdit;
+    private TextEdit ogrenci_SWIFTTextEdit;
+    private TextEdit iSCEDFkoduTextEdit;
+    private SpinEdit sinifSpinEdit;
+    private ComboBox cinsiyetCB;
+    private LabelControl labelControl9;
+    private ComboBox kademeCB;
+    private GroupBox groupBox2;
+    private TextBox subeAdresTB;
+    private TextBox adresTB;
+    private BindingSource birimlerBindingSource;
+    private birimlerTableAdapter birimlerTableAdapter;
+    private BindingSource birimlerbolumlerBindingSource;
+    private bolumlerTableAdapter bolumlerTableAdapter;
+
+    public ogrenci_bilgileri() => this.InitializeComponent();
+
+    private void simpleButton1_Click(object sender, EventArgs e)
+    {
+      int num = (int) MessageBox.Show("Verilerinizi Başarıyla Çekildi...");
+    }
+
+    private void simpleButton2_Click(object sender, EventArgs e)
+    {
+      int num = (int) MessageBox.Show("Verileriniz Başarıyla Veri Tabanına Eklendi...");
+    }
+
+    private void ogrenci_bilgileri_Load(object sender, EventArgs e)
+    {
+      this.bolumlerTableAdapter.Fill(this.prometheus_projesiDataSet.bolumler);
+      this.birimlerTableAdapter.Fill(this.prometheus_projesiDataSet.birimler);
+      this.sinifSpinEdit.Properties.MinValue = 1M;
+      this.sinifSpinEdit.Properties.MaxValue = 6M;
+      this.ogrenci_bilgileriTableAdapter.Fill(this.prometheus_projesiDataSet.ogrenci_bilgileri);
+    }
+
+    private void fillByToolStripButton_Click(object sender, EventArgs e)
+    {
+      try
+      {
+      }
+      catch (Exception ex)
+      {
+        int num = (int) MessageBox.Show(ex.Message);
+      }
+    }
+
+    private void fillByToolStripButton1_Click(object sender, EventArgs e)
+    {
+      try
+      {
+      }
+      catch (Exception ex)
+      {
+        int num = (int) MessageBox.Show(ex.Message);
+      }
+    }
+
+    private void fillByToolStripButton_Click_1(object sender, EventArgs e)
+    {
+      try
+      {
+      }
+      catch (Exception ex)
+      {
+        int num = (int) MessageBox.Show(ex.Message);
+      }
+    }
+
+    private void dataNavigator1_Click(object sender, EventArgs e)
+    {
+    }
+
+    private void dropDownButton1_Click(object sender, EventArgs e)
+    {
+    }
+
+    private void button1_Click(object sender, EventArgs e) => this.ogrencibilgileriBindingSource.AddNew();
+
+    private void sil_Click(object sender, EventArgs e)
+    {
+    }
+
+    private void yeniBTN_Click(object sender, EventArgs e)
+    {
+      this.ogrencibilgileriBindingSource.AddNew();
+      this.yeniBTN.Enabled = false;
+      this.kaydetBTN.Enabled = true;
+    }
+
+    private void kaydetBTN_Click(object sender, EventArgs e)
+    {
+      if (this.ogrenci_bilgileriTableAdapter.ekle(((Control) this.adTB).Text, ((Control) this.soyadTB).Text, ((Control) this.kimliknoTB).Text, new int?(Convert.ToInt32(this.bolumlerCB.SelectedValue)), new DateTime?(this.dog_tar_dtp.Value), ((Control) this.epostaTB).Text, ((Control) this.telTB).Text, ((Control) this.ogr_noTB).Text, ((Control) this.uyruguTextEdit).Text, this.kademeCB.Text, this.adresTB.Text.Trim(), ((Control) this.banka_adiTextEdit).Text, ((Control) this.sube_adi_koduTextEdit).Text, this.subeAdresTB.Text.Trim(), ((Control) this.ogrenci_hesap_noTextEdit).Text, ((Control) this.ogrenci_IBANTextEdit).Text, ((Control) this.ogrenci_SWIFTTextEdit).Text, new byte?(Convert.ToByte(this.sinifSpinEdit.Value.ToString().Replace(",", ""))), ((Control) this.iSCEDFkoduTextEdit).Text, this.cinsiyetCB.Text) <= 0)
+        return;
+      this.ogrenci_bilgileriTableAdapter.Fill(this.prometheus_projesiDataSet.ogrenci_bilgileri);
+      int num = (int) MessageBox.Show("Bilgiler Eklendi");
+      this.yeniBTN.Enabled = true;
+      this.kaydetBTN.Enabled = false;
+    }
+
+    private void silBTN_Click(object sender, EventArgs e)
+    {
+      if (MessageBox.Show("Verileriniz Silinecektir.Verilerinizi Silmek İstediğinizden Eminmisiniz?", "silme", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) != DialogResult.Yes)
+        return;
+      this.ogrenci_bilgileriTableAdapter.sil(Convert.ToInt32(this.ogrenciidTB.Text));
+      this.ogrenci_bilgileriTableAdapter.Fill(this.prometheus_projesiDataSet.ogrenci_bilgileri);
+      int num = (int) MessageBox.Show("Bölüm Silindi");
+    }
+
+    private void tumuBT_Click(object sender, EventArgs e)
+    {
+      this.ogrenci_bilgileriTableAdapter.Fill(this.prometheus_projesiDataSet.ogrenci_bilgileri);
+      this.araTB.Text = "";
+    }
+
+    private void araBT_Click(object sender, EventArgs e) => this.ogrenci_bilgileriTableAdapter.FillAra(this.prometheus_projesiDataSet.ogrenci_bilgileri, this.araTB.Text.Trim());
+
+    private void guncelleBT_Click(object sender, EventArgs e)
+    {
+      this.ogrencibilgileriBindingSource.EndEdit();
+      this.ogrenci_bilgileriTableAdapter.guncelle(((Control) this.adTB).Text, ((Control) this.soyadTB).Text, ((Control) this.kimliknoTB).Text, new int?(Convert.ToInt32(this.bolumlerCB.SelectedValue)), new DateTime?(this.dog_tar_dtp.Value), ((Control) this.epostaTB).Text, ((Control) this.telTB).Text, ((Control) this.ogr_noTB).Text, ((Control) this.uyruguTextEdit).Text, this.kademeCB.Text, this.adresTB.Text, ((Control) this.banka_adiTextEdit).Text, ((Control) this.sube_adi_koduTextEdit).Text, this.subeAdresTB.Text, ((Control) this.ogrenci_hesap_noTextEdit).Text, ((Control) this.ogrenci_IBANTextEdit).Text, ((Control) this.ogrenci_SWIFTTextEdit).Text, new byte?(Convert.ToByte(this.sinifSpinEdit.Value.ToString().Replace(",", ""))), ((Control) this.iSCEDFkoduTextEdit).Text, this.cinsiyetCB.Text, Convert.ToInt32(this.ogrenciidTB.Text));
+      this.ogrenci_bilgileriTableAdapter.Fill(this.prometheus_projesiDataSet.ogrenci_bilgileri);
+      int num = (int) MessageBox.Show("Bilgiler Güncellendi");
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (ogrenci_bilgileri));
+      this.adTB = new TextEdit();
+      this.ogrencibilgileriBindingSource = new BindingSource();
+      this.prometheus_projesiDataSet = new prometheus_projesiDataSet();
+      this.soyadTB = new TextEdit();
+      this.kimliknoTB = new TextEdit();
+      this.textEdit5 = new TextEdit();
+      this.telTB = new TextEdit();
+      this.simpleButton1 = new SimpleButton();
+      this.simpleButton2 = new SimpleButton();
+      this.labelControl1 = new LabelControl();
+      this.labelControl2 = new LabelControl();
+      this.labelControl3 = new LabelControl();
+      this.labelControl4 = new LabelControl();
+      this.labelControl5 = new LabelControl();
+      this.labelControl6 = new LabelControl();
+      this.dataGridView1 = new DataGridView();
+      this.ogrenciidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
+      this.dataNavigator1 = new DataNavigator();
+      this.label1 = new Label();
+      this.fakultelerCB = new ComboBox();
+      this.prometheus_projesiDataSet1 = new prometheus_projesiDataSet();
+      this.label2 = new Label();
+      this.bolumlerCB = new ComboBox();
+      this.dog_tar_dtp = new DateTimePicker();
+      this.idTB = new TextBox();
+      this.labelControl7 = new LabelControl();
+      this.epostaTB = new TextEdit();
+      this.labelControl8 = new LabelControl();
+      this.ogr_noTB = new TextEdit();
+      this.yeniBTN = new Button();
+      this.kaydetBTN = new Button();
+      this.silBTN = new Button();
+      this.guncelleBTN = new Button();
+      this.ogrenciidTB = new TextBox();
+      this.ogrencibilgileriBindingSource1 = new BindingSource();
+      this.ogrenci_bilgileriTableAdapter = new ogrenci_bilgileriTableAdapter();
+      this.groupBox1 = new GroupBox();
+      this.tumuBT = new Button();
+      this.araBT = new Button();
+      this.label3 = new Label();
+      this.araTB = new TextBox();
+      this.tableAdapterManager = new TableAdapterManager();
+      this.uyruguTextEdit = new TextEdit();
+      this.banka_adiTextEdit = new TextEdit();
+      this.sube_adi_koduTextEdit = new TextEdit();
+      this.ogrenci_hesap_noTextEdit = new TextEdit();
+      this.ogrenci_IBANTextEdit = new TextEdit();
+      this.ogrenci_SWIFTTextEdit = new TextEdit();
+      this.iSCEDFkoduTextEdit = new TextEdit();
+      this.sinifSpinEdit = new SpinEdit();
+      this.cinsiyetCB = new ComboBox();
+      this.labelControl9 = new LabelControl();
+      this.kademeCB = new ComboBox();
+      this.groupBox2 = new GroupBox();
+      this.subeAdresTB = new TextBox();
+      this.adresTB = new TextBox();
+      this.birimlerBindingSource = new BindingSource();
+      this.birimlerTableAdapter = new birimlerTableAdapter();
+      this.birimlerbolumlerBindingSource = new BindingSource();
+      this.bolumlerTableAdapter = new bolumlerTableAdapter();
+      Label label1 = new Label();
+      Label label2 = new Label();
+      Label label3 = new Label();
+      Label label4 = new Label();
+      Label label5 = new Label();
+      Label label6 = new Label();
+      Label label7 = new Label();
+      Label label8 = new Label();
+      Label label9 = new Label();
+      Label label10 = new Label();
+      Label label11 = new Label();
+      ((ISupportInitialize) this.adTB.Properties).BeginInit();
+      ((ISupportInitialize) this.ogrencibilgileriBindingSource).BeginInit();
+      this.prometheus_projesiDataSet.BeginInit();
+      ((ISupportInitialize) this.soyadTB.Properties).BeginInit();
+      ((ISupportInitialize) this.kimliknoTB.Properties).BeginInit();
+      ((ISupportInitialize) this.textEdit5.Properties).BeginInit();
+      ((ISupportInitialize) this.telTB.Properties).BeginInit();
+      ((ISupportInitialize) this.dataGridView1).BeginInit();
+      this.prometheus_projesiDataSet1.BeginInit();
+      ((ISupportInitialize) this.epostaTB.Properties).BeginInit();
+      ((ISupportInitialize) this.ogr_noTB.Properties).BeginInit();
+      ((ISupportInitialize) this.ogrencibilgileriBindingSource1).BeginInit();
+      this.groupBox1.SuspendLayout();
+      ((ISupportInitialize) this.uyruguTextEdit.Properties).BeginInit();
+      ((ISupportInitialize) this.banka_adiTextEdit.Properties).BeginInit();
+      ((ISupportInitialize) this.sube_adi_koduTextEdit.Properties).BeginInit();
+      ((ISupportInitialize) this.ogrenci_hesap_noTextEdit.Properties).BeginInit();
+      ((ISupportInitialize) this.ogrenci_IBANTextEdit.Properties).BeginInit();
+      ((ISupportInitialize) this.ogrenci_SWIFTTextEdit.Properties).BeginInit();
+      ((ISupportInitialize) this.iSCEDFkoduTextEdit.Properties).BeginInit();
+      ((ISupportInitialize) this.sinifSpinEdit.Properties).BeginInit();
+      this.groupBox2.SuspendLayout();
+      ((ISupportInitialize) this.birimlerBindingSource).BeginInit();
+      ((ISupportInitialize) this.birimlerbolumlerBindingSource).BeginInit();
+      this.SuspendLayout();
+      label1.AutoSize = true;
+      label1.Location = new Point(1303, 91);
+      label1.Name = "uyruguLabel";
+      label1.Size = new Size(61, 17);
+      label1.TabIndex = 50;
+      label1.Text = "UYRUĞU";
+      label2.AutoSize = true;
+      label2.Location = new Point(1190, 149);
+      label2.Name = "ogrenim_kademesiLabel";
+      label2.Size = new Size(135, 17);
+      label2.TabIndex = 51;
+      label2.Text = "ÖĞRENİM KADEMESİ";
+      label3.AutoSize = true;
+      label3.Location = new Point(12, 209);
+      label3.Name = "ogrenci_adresLabel";
+      label3.Size = new Size(51, 17);
+      label3.TabIndex = 52;
+      label3.Text = "ADRES";
+      label4.AutoSize = true;
+      label4.Location = new Point(244, 30);
+      label4.Name = "banka_adiLabel";
+      label4.Size = new Size(75, 17);
+      label4.TabIndex = 53;
+      label4.Text = "BANKA ADI";
+      label5.AutoSize = true;
+      label5.Location = new Point(520, 30);
+      label5.Name = "sube_adi_koduLabel";
+      label5.Size = new Size(67, 17);
+      label5.TabIndex = 54;
+      label5.Text = "ŞUBE ADI";
+      label6.AutoSize = true;
+      label6.Location = new Point(782, 27);
+      label6.Name = "sube_adresiLabel";
+      label6.Size = new Size(92, 17);
+      label6.TabIndex = 55;
+      label6.Text = "ŞUBE ADRESİ";
+      label7.AutoSize = true;
+      label7.Location = new Point(16, 30);
+      label7.Name = "ogrenci_hesap_noLabel";
+      label7.Size = new Size(72, 17);
+      label7.TabIndex = 56;
+      label7.Text = "HESAP NO";
+      label8.AutoSize = true;
+      label8.Location = new Point(243, 81);
+      label8.Name = "ogrenci_IBANLabel";
+      label8.Size = new Size(37, 17);
+      label8.TabIndex = 57;
+      label8.Text = "IBAN";
+      label9.AutoSize = true;
+      label9.Location = new Point(16, 81);
+      label9.Name = "ogrenci_SWIFTLabel";
+      label9.Size = new Size(49, 17);
+      label9.TabIndex = 58;
+      label9.Text = "SWIFT";
+      label10.AutoSize = true;
+      label10.Location = new Point(1000, 149);
+      label10.Name = "iSCEDFkoduLabel";
+      label10.Size = new Size(99, 17);
+      label10.TabIndex = 59;
+      label10.Text = "ISCED F KODU";
+      label11.AutoSize = true;
+      label11.Location = new Point(1122, 149);
+      label11.Name = "sinifLabel";
+      label11.Size = new Size(44, 17);
+      label11.TabIndex = 60;
+      label11.Text = "SINIFI";
+      ((Control) this.adTB).DataBindings.Add(new Binding("Text", (object) this.ogrencibilgileriBindingSource, "ad", true));
+      ((Control) this.adTB).Location = new Point(10, 113);
+      ((Control) this.adTB).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.adTB).Name = "adTB";
+      ((Control) this.adTB).Size = new Size(251, 22);
+      ((Control) this.adTB).TabIndex = 1;
+      this.ogrencibilgileriBindingSource.DataMember = nameof (ogrenci_bilgileri);
+      this.ogrencibilgileriBindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.prometheus_projesiDataSet.DataSetName = "prometheus_projesiDataSet";
+      this.prometheus_projesiDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+      ((Control) this.soyadTB).DataBindings.Add(new Binding("Text", (object) this.ogrencibilgileriBindingSource, "soyad", true));
+      ((Control) this.soyadTB).Location = new Point(274, 113);
+      ((Control) this.soyadTB).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.soyadTB).Name = "soyadTB";
+      ((Control) this.soyadTB).Size = new Size(250, 22);
+      ((Control) this.soyadTB).TabIndex = 2;
+      ((Control) this.kimliknoTB).DataBindings.Add(new Binding("Text", (object) this.ogrencibilgileriBindingSource, "tc", true));
+      ((Control) this.kimliknoTB).Location = new Point(537, 113);
+      ((Control) this.kimliknoTB).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.kimliknoTB).Name = "kimliknoTB";
+      ((Control) this.kimliknoTB).Size = new Size(198, 22);
+      ((Control) this.kimliknoTB).TabIndex = 3;
+      ((Control) this.textEdit5).Location = new Point(806, 605);
+      ((Control) this.textEdit5).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.textEdit5).Name = "textEdit5";
+      ((Control) this.textEdit5).Size = new Size(233, 22);
+      ((Control) this.textEdit5).TabIndex = 10;
+      ((Control) this.textEdit5).Visible = false;
+      ((Control) this.telTB).DataBindings.Add(new Binding("Text", (object) this.ogrencibilgileriBindingSource, "telefon", true));
+      ((Control) this.telTB).Location = new Point(230, 171);
+      ((Control) this.telTB).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.telTB).Name = "telTB";
+      ((Control) this.telTB).Size = new Size(168, 22);
+      ((Control) this.telTB).TabIndex = 7;
+      ((BaseButton) this.simpleButton1).ButtonStyle = (BorderStyles) 4;
+      ((Control) this.simpleButton1).Cursor = Cursors.Default;
+      this.simpleButton1.ImageLocation = (ImageLocation) 2;
+      ((Control) this.simpleButton1).Location = new Point(256, 554);
+      ((Control) this.simpleButton1).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.simpleButton1).Name = "simpleButton1";
+      ((Control) this.simpleButton1).Size = new Size(240, 73);
+      ((Control) this.simpleButton1).TabIndex = 11;
+      ((Control) this.simpleButton1).Text = "Veri Tabanından Çek";
+      ((Control) this.simpleButton1).Visible = false;
+      ((Control) this.simpleButton1).Click += new EventHandler(this.simpleButton1_Click);
+      ((BaseButton) this.simpleButton2).ButtonStyle = (BorderStyles) 4;
+      this.simpleButton2.ImageLocation = (ImageLocation) 2;
+      ((Control) this.simpleButton2).Location = new Point(515, 554);
+      ((Control) this.simpleButton2).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.simpleButton2).Name = "simpleButton2";
+      ((Control) this.simpleButton2).Size = new Size(240, 73);
+      ((Control) this.simpleButton2).TabIndex = 12;
+      ((Control) this.simpleButton2).Text = "Veri Tabanına Ekle";
+      ((Control) this.simpleButton2).Visible = false;
+      ((Control) this.simpleButton2).Click += new EventHandler(this.simpleButton2_Click);
+      ((AppearanceObject) this.labelControl1.Appearance).ForeColor = Color.Black;
+      ((Control) this.labelControl1).Location = new Point(8, 91);
+      ((Control) this.labelControl1).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.labelControl1).Name = "labelControl1";
+      ((Control) this.labelControl1).Size = new Size(21, 16);
+      ((Control) this.labelControl1).TabIndex = 9;
+      ((Control) this.labelControl1).Text = "ADI";
+      ((AppearanceObject) this.labelControl2.Appearance).ForeColor = Color.Black;
+      ((Control) this.labelControl2).Location = new Point(274, 91);
+      ((Control) this.labelControl2).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.labelControl2).Name = "labelControl2";
+      ((Control) this.labelControl2).Size = new Size(45, 16);
+      ((Control) this.labelControl2).TabIndex = 10;
+      ((Control) this.labelControl2).Text = "SOYADI";
+      ((AppearanceObject) this.labelControl3.Appearance).ForeColor = Color.Black;
+      ((Control) this.labelControl3).Location = new Point(533, 90);
+      ((Control) this.labelControl3).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.labelControl3).Name = "labelControl3";
+      ((Control) this.labelControl3).Size = new Size(99, 16);
+      ((Control) this.labelControl3).TabIndex = 11;
+      ((Control) this.labelControl3).Text = "TC/YU KİMLİK NO";
+      ((AppearanceObject) this.labelControl4.Appearance).ForeColor = Color.Black;
+      ((Control) this.labelControl4).Location = new Point(888, 582);
+      ((Control) this.labelControl4).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.labelControl4).Name = "labelControl4";
+      ((Control) this.labelControl4).Size = new Size(73, 16);
+      ((Control) this.labelControl4).TabIndex = 12;
+      ((Control) this.labelControl4).Text = "ÖĞRENCİ NO";
+      ((Control) this.labelControl4).Visible = false;
+      ((AppearanceObject) this.labelControl5.Appearance).ForeColor = Color.Black;
+      ((Control) this.labelControl5).Location = new Point(8, 152);
+      ((Control) this.labelControl5).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.labelControl5).Name = "labelControl5";
+      ((Control) this.labelControl5).Size = new Size(88, 16);
+      ((Control) this.labelControl5).TabIndex = 13;
+      ((Control) this.labelControl5).Text = "DOĞUM TARİHİ";
+      ((AppearanceObject) this.labelControl6.Appearance).ForeColor = Color.Black;
+      this.labelControl6.LineColor = Color.White;
+      ((Control) this.labelControl6).Location = new Point(230, 152);
+      ((Control) this.labelControl6).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.labelControl6).Name = "labelControl6";
+      ((Control) this.labelControl6).Size = new Size(52, 16);
+      ((Control) this.labelControl6).TabIndex = 14;
+      ((Control) this.labelControl6).Text = "TELEFON";
+      this.dataGridView1.AutoGenerateColumns = false;
+      this.dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dataGridView1.Columns.AddRange((DataGridViewColumn) this.ogrenciidDataGridViewTextBoxColumn, (DataGridViewColumn) this.dataGridViewTextBoxColumn1, (DataGridViewColumn) this.dataGridViewTextBoxColumn2, (DataGridViewColumn) this.dataGridViewTextBoxColumn3, (DataGridViewColumn) this.dataGridViewTextBoxColumn4, (DataGridViewColumn) this.dataGridViewTextBoxColumn5, (DataGridViewColumn) this.dataGridViewTextBoxColumn6, (DataGridViewColumn) this.dataGridViewTextBoxColumn7, (DataGridViewColumn) this.dataGridViewTextBoxColumn8, (DataGridViewColumn) this.dataGridViewTextBoxColumn9);
+      this.dataGridView1.DataSource = (object) this.ogrencibilgileriBindingSource;
+      this.dataGridView1.Location = new Point(10, 345);
+      this.dataGridView1.Margin = new Padding(3, 4, 3, 4);
+      this.dataGridView1.Name = "dataGridView1";
+      this.dataGridView1.Size = new Size(1354, 164);
+      this.dataGridView1.TabIndex = 19;
+      this.ogrenciidDataGridViewTextBoxColumn.DataPropertyName = "ogrenci_id";
+      this.ogrenciidDataGridViewTextBoxColumn.HeaderText = "ID";
+      this.ogrenciidDataGridViewTextBoxColumn.Name = "ogrenciidDataGridViewTextBoxColumn";
+      this.ogrenciidDataGridViewTextBoxColumn.ReadOnly = true;
+      this.dataGridViewTextBoxColumn1.DataPropertyName = "ad";
+      this.dataGridViewTextBoxColumn1.HeaderText = "AD";
+      this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+      this.dataGridViewTextBoxColumn2.DataPropertyName = "soyad";
+      this.dataGridViewTextBoxColumn2.HeaderText = "SOYAD";
+      this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+      this.dataGridViewTextBoxColumn3.DataPropertyName = "tc";
+      this.dataGridViewTextBoxColumn3.HeaderText = "KİMLİK NO";
+      this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+      this.dataGridViewTextBoxColumn4.DataPropertyName = "dogum_tarihi";
+      this.dataGridViewTextBoxColumn4.HeaderText = "DOĞUM TARİHİ";
+      this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+      this.dataGridViewTextBoxColumn5.DataPropertyName = "email";
+      this.dataGridViewTextBoxColumn5.HeaderText = "E-POSTA";
+      this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+      this.dataGridViewTextBoxColumn6.DataPropertyName = "telefon";
+      this.dataGridViewTextBoxColumn6.HeaderText = "TELEFON";
+      this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+      this.dataGridViewTextBoxColumn7.DataPropertyName = "ogrenci_no";
+      this.dataGridViewTextBoxColumn7.HeaderText = "ÖĞRENCİ NO";
+      this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+      this.dataGridViewTextBoxColumn8.DataPropertyName = "bolum_adi";
+      this.dataGridViewTextBoxColumn8.HeaderText = "BÖLÜMÜ";
+      this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+      this.dataGridViewTextBoxColumn9.DataPropertyName = "birim_adi";
+      this.dataGridViewTextBoxColumn9.HeaderText = "FAKÜLTE/YÜKSEKOKUL";
+      this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+      this.dataGridViewTextBoxColumn9.Width = 200;
+      ((NavigatorButtonBase) this.dataNavigator1.Buttons.Append).Visible = false;
+      ((NavigatorButtonBase) this.dataNavigator1.Buttons.CancelEdit).Visible = false;
+      ((NavigatorButtonBase) this.dataNavigator1.Buttons.EndEdit).Visible = false;
+      ((NavigatorButtonBase) this.dataNavigator1.Buttons.Remove).Visible = false;
+      ((NavigatorBase) this.dataNavigator1).ButtonStyle = (BorderStyles) 1;
+      this.dataNavigator1.DataSource = (object) this.ogrencibilgileriBindingSource;
+      ((Control) this.dataNavigator1).Location = new Point(188, 513);
+      ((Control) this.dataNavigator1).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.dataNavigator1).Name = "dataNavigator1";
+      ((Control) this.dataNavigator1).Size = new Size(469, 52);
+      ((Control) this.dataNavigator1).TabIndex = 21;
+      ((Control) this.dataNavigator1).Text = "dataNavigator1";
+      this.label1.AutoSize = true;
+      this.label1.Location = new Point(410, 149);
+      this.label1.Name = "label1";
+      this.label1.Size = new Size(47, 17);
+      this.label1.TabIndex = 24;
+      this.label1.Text = "BİRİMİ";
+      this.fakultelerCB.DataBindings.Add(new Binding("SelectedValue", (object) this.ogrencibilgileriBindingSource, "birim_id", true));
+      this.fakultelerCB.DataSource = (object) this.birimlerBindingSource;
+      this.fakultelerCB.DisplayMember = "birim_adi";
+      this.fakultelerCB.FormattingEnabled = true;
+      this.fakultelerCB.Location = new Point(413, 171);
+      this.fakultelerCB.Margin = new Padding(3, 4, 3, 4);
+      this.fakultelerCB.Name = "fakultelerCB";
+      this.fakultelerCB.Size = new Size(260, 24);
+      this.fakultelerCB.TabIndex = 8;
+      this.fakultelerCB.ValueMember = "birim_id";
+      this.prometheus_projesiDataSet1.DataSetName = "prometheus_projesiDataSet";
+      this.prometheus_projesiDataSet1.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+      this.label2.AutoSize = true;
+      this.label2.Location = new Point(679, 149);
+      this.label2.Name = "label2";
+      this.label2.Size = new Size(61, 17);
+      this.label2.TabIndex = 32;
+      this.label2.Text = "BÖLÜMÜ";
+      this.bolumlerCB.DataBindings.Add(new Binding("Text", (object) this.ogrencibilgileriBindingSource, "bolum_adi", true));
+      this.bolumlerCB.DataBindings.Add(new Binding("SelectedValue", (object) this.ogrencibilgileriBindingSource, "bolum_id", true));
+      this.bolumlerCB.DataSource = (object) this.birimlerbolumlerBindingSource;
+      this.bolumlerCB.DisplayMember = "bolum_adi";
+      this.bolumlerCB.FormattingEnabled = true;
+      this.bolumlerCB.Location = new Point(682, 171);
+      this.bolumlerCB.Margin = new Padding(3, 4, 3, 4);
+      this.bolumlerCB.Name = "bolumlerCB";
+      this.bolumlerCB.Size = new Size(313, 24);
+      this.bolumlerCB.TabIndex = 9;
+      this.bolumlerCB.ValueMember = "bolum_id";
+      this.dog_tar_dtp.Location = new Point(10, 169);
+      this.dog_tar_dtp.Margin = new Padding(3, 4, 3, 4);
+      this.dog_tar_dtp.Name = "dog_tar_dtp";
+      this.dog_tar_dtp.Size = new Size(206, 23);
+      this.dog_tar_dtp.TabIndex = 6;
+      this.idTB.Location = new Point(224, 376);
+      this.idTB.Margin = new Padding(3, 4, 3, 4);
+      this.idTB.Name = "idTB";
+      this.idTB.Size = new Size(116, 23);
+      this.idTB.TabIndex = 35;
+      ((AppearanceObject) this.labelControl7.Appearance).ForeColor = Color.Black;
+      ((Control) this.labelControl7).Location = new Point(959, 90);
+      ((Control) this.labelControl7).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.labelControl7).Name = "labelControl7";
+      ((Control) this.labelControl7).Size = new Size(100, 16);
+      ((Control) this.labelControl7).TabIndex = 37;
+      ((Control) this.labelControl7).Text = "E-POSTA ADRESİ";
+      ((Control) this.epostaTB).DataBindings.Add(new Binding("Text", (object) this.ogrencibilgileriBindingSource, "email", true));
+      ((Control) this.epostaTB).Location = new Point(959, 113);
+      ((Control) this.epostaTB).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.epostaTB).Name = "epostaTB";
+      ((Control) this.epostaTB).Size = new Size(198, 22);
+      ((Control) this.epostaTB).TabIndex = 5;
+      ((AppearanceObject) this.labelControl8.Appearance).ForeColor = Color.Black;
+      ((Control) this.labelControl8).Location = new Point(747, 90);
+      ((Control) this.labelControl8).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.labelControl8).Name = "labelControl8";
+      ((Control) this.labelControl8).Size = new Size(73, 16);
+      ((Control) this.labelControl8).TabIndex = 39;
+      ((Control) this.labelControl8).Text = "ÖĞRENCİ NO";
+      ((Control) this.ogr_noTB).DataBindings.Add(new Binding("Text", (object) this.ogrencibilgileriBindingSource, "ogrenci_no", true));
+      ((Control) this.ogr_noTB).Location = new Point(748, 113);
+      ((Control) this.ogr_noTB).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.ogr_noTB).Name = "ogr_noTB";
+      ((Control) this.ogr_noTB).Size = new Size(198, 22);
+      ((Control) this.ogr_noTB).TabIndex = 4;
+      this.yeniBTN.Location = new Point(663, 513);
+      this.yeniBTN.Margin = new Padding(3, 4, 3, 4);
+      this.yeniBTN.Name = "yeniBTN";
+      this.yeniBTN.Size = new Size(80, 52);
+      this.yeniBTN.TabIndex = 44;
+      this.yeniBTN.Text = "YENİ";
+      this.yeniBTN.UseVisualStyleBackColor = true;
+      this.yeniBTN.Click += new EventHandler(this.yeniBTN_Click);
+      this.kaydetBTN.Enabled = false;
+      this.kaydetBTN.Location = new Point(739, 513);
+      this.kaydetBTN.Margin = new Padding(3, 4, 3, 4);
+      this.kaydetBTN.Name = "kaydetBTN";
+      this.kaydetBTN.Size = new Size(80, 52);
+      this.kaydetBTN.TabIndex = 45;
+      this.kaydetBTN.Text = "KAYDET";
+      this.kaydetBTN.UseVisualStyleBackColor = true;
+      this.kaydetBTN.Click += new EventHandler(this.kaydetBTN_Click);
+      this.silBTN.Location = new Point(888, 513);
+      this.silBTN.Margin = new Padding(3, 4, 3, 4);
+      this.silBTN.Name = "silBTN";
+      this.silBTN.Size = new Size(80, 52);
+      this.silBTN.TabIndex = 46;
+      this.silBTN.Text = "SİL";
+      this.silBTN.UseVisualStyleBackColor = true;
+      this.silBTN.Click += new EventHandler(this.silBTN_Click);
+      this.guncelleBTN.Location = new Point(814, 513);
+      this.guncelleBTN.Margin = new Padding(3, 4, 3, 4);
+      this.guncelleBTN.Name = "guncelleBTN";
+      this.guncelleBTN.Size = new Size(80, 52);
+      this.guncelleBTN.TabIndex = 48;
+      this.guncelleBTN.Text = "GÜNCELLE";
+      this.guncelleBTN.UseVisualStyleBackColor = true;
+      this.guncelleBTN.Click += new EventHandler(this.guncelleBT_Click);
+      this.ogrenciidTB.DataBindings.Add(new Binding("Text", (object) this.ogrencibilgileriBindingSource, "ogrenci_id", true));
+      this.ogrenciidTB.Location = new Point(135, 345);
+      this.ogrenciidTB.Margin = new Padding(3, 4, 3, 4);
+      this.ogrenciidTB.Name = "ogrenciidTB";
+      this.ogrenciidTB.Size = new Size(116, 23);
+      this.ogrenciidTB.TabIndex = 49;
+      this.ogrencibilgileriBindingSource1.DataMember = nameof (ogrenci_bilgileri);
+      this.ogrencibilgileriBindingSource1.DataSource = (object) this.prometheus_projesiDataSet1;
+      this.ogrenci_bilgileriTableAdapter.ClearBeforeFill = true;
+      this.groupBox1.Controls.Add((Control) this.tumuBT);
+      this.groupBox1.Controls.Add((Control) this.araBT);
+      this.groupBox1.Controls.Add((Control) this.label3);
+      this.groupBox1.Controls.Add((Control) this.araTB);
+      this.groupBox1.Location = new Point(10, 21);
+      this.groupBox1.Name = "groupBox1";
+      this.groupBox1.Size = new Size(1354, 62);
+      this.groupBox1.TabIndex = 50;
+      this.groupBox1.TabStop = false;
+      this.groupBox1.Text = "ÖĞRENCİ ARA";
+      this.tumuBT.Location = new Point(660, 18);
+      this.tumuBT.Margin = new Padding(3, 4, 3, 4);
+      this.tumuBT.Name = "tumuBT";
+      this.tumuBT.Size = new Size((int) sbyte.MaxValue, 32);
+      this.tumuBT.TabIndex = 39;
+      this.tumuBT.Text = "TÜMÜ";
+      this.tumuBT.UseVisualStyleBackColor = true;
+      this.tumuBT.Click += new EventHandler(this.tumuBT_Click);
+      this.araBT.Location = new Point(526, 18);
+      this.araBT.Margin = new Padding(3, 4, 3, 4);
+      this.araBT.Name = "araBT";
+      this.araBT.Size = new Size((int) sbyte.MaxValue, 32);
+      this.araBT.TabIndex = 38;
+      this.araBT.Text = "ARA";
+      this.araBT.UseVisualStyleBackColor = true;
+      this.araBT.Click += new EventHandler(this.araBT_Click);
+      this.label3.AutoSize = true;
+      this.label3.Location = new Point(56, 26);
+      this.label3.Name = "label3";
+      this.label3.Size = new Size(104, 17);
+      this.label3.TabIndex = 37;
+      this.label3.Text = "ARAMA İFADESİ";
+      this.araTB.Location = new Point(164, 23);
+      this.araTB.Margin = new Padding(3, 4, 3, 4);
+      this.araTB.Name = "araTB";
+      this.araTB.Size = new Size(350, 23);
+      this.araTB.TabIndex = 36;
+      this.tableAdapterManager.anlasmali_bolumlerTableAdapter = (anlasmali_bolumlerTableAdapter) null;
+      this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+      this.tableAdapterManager.butce_dagilimiTableAdapter = (butce_dagilimiTableAdapter) null;
+      this.tableAdapterManager.butce_kalemleri1TableAdapter = (butce_kalemleri1TableAdapter) null;
+      this.tableAdapterManager.butce_kalemleriTableAdapter = (butce_kalemleriTableAdapter) null;
+      this.tableAdapterManager.donemTableAdapter = (donemTableAdapter) null;
+      this.tableAdapterManager.etkinlikTableAdapter = (etkinlikTableAdapter) null;
+      this.tableAdapterManager.genel_bilgilerTableAdapter = (genel_bilgilerTableAdapter) null;
+      this.tableAdapterManager.gorevlerTableAdapter = (gorevlerTableAdapter) null;
+      this.tableAdapterManager.HareketlilikTableAdapter = (HareketlilikTableAdapter) null;
+      this.tableAdapterManager.kullaniciTableAdapter = (kullaniciTableAdapter) null;
+      this.tableAdapterManager.odemelerAvansTableAdapter = (odemelerAvansTableAdapter) null;
+      this.tableAdapterManager.odemelerSonTableAdapter = (odemelerSonTableAdapter) null;
+      this.tableAdapterManager.ogrenci_sinavTableAdapter = (ogrenci_sinavTableAdapter) null;
+      this.tableAdapterManager.sinavlarTableAdapter = (sinavlarTableAdapter) null;
+      this.tableAdapterManager.toplam_butce1TableAdapter = (toplam_butce1TableAdapter) null;
+      this.tableAdapterManager.toplam_butceTableAdapter = (toplam_butceTableAdapter) null;
+      this.tableAdapterManager.ulkelerTableAdapter = (ulkelerTableAdapter) null;
+      this.tableAdapterManager.universiteTableAdapter = (universiteTableAdapter) null;
+      this.tableAdapterManager.unvanlarTableAdapter = (unvanlarTableAdapter) null;
+      this.tableAdapterManager.UpdateOrder = TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+      this.tableAdapterManager.yetkilerTableAdapter = (yetkilerTableAdapter) null;
+      ((Control) this.uyruguTextEdit).DataBindings.Add(new Binding("EditValue", (object) this.ogrencibilgileriBindingSource, "uyrugu", true));
+      ((Control) this.uyruguTextEdit).Location = new Point(1304, 111);
+      ((Control) this.uyruguTextEdit).Name = "uyruguTextEdit";
+      ((Control) this.uyruguTextEdit).Size = new Size(60, 22);
+      ((Control) this.uyruguTextEdit).TabIndex = 51;
+      ((Control) this.banka_adiTextEdit).DataBindings.Add(new Binding("EditValue", (object) this.ogrencibilgileriBindingSource, "banka_adi", true));
+      ((Control) this.banka_adiTextEdit).Location = new Point(246, 53);
+      ((Control) this.banka_adiTextEdit).Name = "banka_adiTextEdit";
+      ((Control) this.banka_adiTextEdit).Size = new Size(257, 22);
+      ((Control) this.banka_adiTextEdit).TabIndex = 54;
+      ((Control) this.sube_adi_koduTextEdit).DataBindings.Add(new Binding("EditValue", (object) this.ogrencibilgileriBindingSource, "sube_adi_kodu", true));
+      ((Control) this.sube_adi_koduTextEdit).Location = new Point(523, 50);
+      ((Control) this.sube_adi_koduTextEdit).Name = "sube_adi_koduTextEdit";
+      ((Control) this.sube_adi_koduTextEdit).Size = new Size(236, 22);
+      ((Control) this.sube_adi_koduTextEdit).TabIndex = 55;
+      ((Control) this.ogrenci_hesap_noTextEdit).DataBindings.Add(new Binding("EditValue", (object) this.ogrencibilgileriBindingSource, "ogrenci_hesap_no", true));
+      ((Control) this.ogrenci_hesap_noTextEdit).Location = new Point(17, 53);
+      ((Control) this.ogrenci_hesap_noTextEdit).Name = "ogrenci_hesap_noTextEdit";
+      ((Control) this.ogrenci_hesap_noTextEdit).Size = new Size(210, 22);
+      ((Control) this.ogrenci_hesap_noTextEdit).TabIndex = 57;
+      ((Control) this.ogrenci_IBANTextEdit).DataBindings.Add(new Binding("EditValue", (object) this.ogrencibilgileriBindingSource, "ogrenci_IBAN", true));
+      ((Control) this.ogrenci_IBANTextEdit).Location = new Point(246, 101);
+      ((Control) this.ogrenci_IBANTextEdit).Name = "ogrenci_IBANTextEdit";
+      ((Control) this.ogrenci_IBANTextEdit).Size = new Size(257, 22);
+      ((Control) this.ogrenci_IBANTextEdit).TabIndex = 58;
+      ((Control) this.ogrenci_SWIFTTextEdit).DataBindings.Add(new Binding("EditValue", (object) this.ogrencibilgileriBindingSource, "ogrenci_SWIFT", true));
+      ((Control) this.ogrenci_SWIFTTextEdit).DataBindings.Add(new Binding("Text", (object) this.ogrencibilgileriBindingSource, "ogrenci_SWIFT", true));
+      ((Control) this.ogrenci_SWIFTTextEdit).Location = new Point(19, 101);
+      ((Control) this.ogrenci_SWIFTTextEdit).Name = "ogrenci_SWIFTTextEdit";
+      ((Control) this.ogrenci_SWIFTTextEdit).Size = new Size(208, 22);
+      ((Control) this.ogrenci_SWIFTTextEdit).TabIndex = 59;
+      ((Control) this.iSCEDFkoduTextEdit).DataBindings.Add(new Binding("EditValue", (object) this.ogrencibilgileriBindingSource, "ISCEDFkodu", true));
+      ((Control) this.iSCEDFkoduTextEdit).Location = new Point(1003, 171);
+      ((Control) this.iSCEDFkoduTextEdit).Name = "iSCEDFkoduTextEdit";
+      ((Control) this.iSCEDFkoduTextEdit).Size = new Size(100, 22);
+      ((Control) this.iSCEDFkoduTextEdit).TabIndex = 60;
+      ((Control) this.sinifSpinEdit).DataBindings.Add(new Binding("EditValue", (object) this.ogrencibilgileriBindingSource, "sinif", true));
+      ((BaseEdit) this.sinifSpinEdit).EditValue = (object) new Decimal(new int[4]);
+      ((Control) this.sinifSpinEdit).Location = new Point(1125, 170);
+      ((Control) this.sinifSpinEdit).Name = "sinifSpinEdit";
+      ((RepositoryItemButtonEdit) this.sinifSpinEdit.Properties).Buttons.AddRange(new EditorButton[1]
+      {
+        new EditorButton((ButtonPredefines) -5)
+      });
+      ((Control) this.sinifSpinEdit).Size = new Size(58, 22);
+      ((Control) this.sinifSpinEdit).TabIndex = 61;
+      this.cinsiyetCB.DataBindings.Add(new Binding("Text", (object) this.ogrencibilgileriBindingSource, "ogrenci_cinsiyet", true));
+      this.cinsiyetCB.FormattingEnabled = true;
+      this.cinsiyetCB.Items.AddRange(new object[2]
+      {
+        (object) "KADIN",
+        (object) "ERKEK"
+      });
+      this.cinsiyetCB.Location = new Point(1177, 111);
+      this.cinsiyetCB.Name = "cinsiyetCB";
+      this.cinsiyetCB.Size = new Size(121, 24);
+      this.cinsiyetCB.TabIndex = 62;
+      ((AppearanceObject) this.labelControl9.Appearance).ForeColor = Color.Black;
+      ((Control) this.labelControl9).Location = new Point(1177, 91);
+      ((Control) this.labelControl9).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this.labelControl9).Name = "labelControl9";
+      ((Control) this.labelControl9).Size = new Size(54, 16);
+      ((Control) this.labelControl9).TabIndex = 63;
+      ((Control) this.labelControl9).Text = "CİNSİYET";
+      this.kademeCB.DataBindings.Add(new Binding("Text", (object) this.ogrencibilgileriBindingSource, "ogrenim_kademesi", true));
+      this.kademeCB.FormattingEnabled = true;
+      this.kademeCB.Items.AddRange(new object[4]
+      {
+        (object) "ÖNLİSANS",
+        (object) "LİSANS",
+        (object) "YÜKSEK LİSANS",
+        (object) "DOKTORA"
+      });
+      this.kademeCB.Location = new Point(1192, 169);
+      this.kademeCB.Name = "kademeCB";
+      this.kademeCB.Size = new Size(172, 24);
+      this.kademeCB.TabIndex = 64;
+      this.groupBox2.Controls.Add((Control) this.subeAdresTB);
+      this.groupBox2.Controls.Add((Control) label7);
+      this.groupBox2.Controls.Add((Control) this.banka_adiTextEdit);
+      this.groupBox2.Controls.Add((Control) label4);
+      this.groupBox2.Controls.Add((Control) this.sube_adi_koduTextEdit);
+      this.groupBox2.Controls.Add((Control) label5);
+      this.groupBox2.Controls.Add((Control) label6);
+      this.groupBox2.Controls.Add((Control) this.ogrenci_hesap_noTextEdit);
+      this.groupBox2.Controls.Add((Control) label9);
+      this.groupBox2.Controls.Add((Control) this.ogrenci_IBANTextEdit);
+      this.groupBox2.Controls.Add((Control) this.ogrenci_SWIFTTextEdit);
+      this.groupBox2.Controls.Add((Control) label8);
+      this.groupBox2.Location = new Point(293, 198);
+      this.groupBox2.Name = "groupBox2";
+      this.groupBox2.Size = new Size(1071, 138);
+      this.groupBox2.TabIndex = 65;
+      this.groupBox2.TabStop = false;
+      this.groupBox2.Text = "ÖĞRENCİ BANKA BİLGİLERİ";
+      this.subeAdresTB.DataBindings.Add(new Binding("Text", (object) this.ogrencibilgileriBindingSource, "sube_adresi", true));
+      this.subeAdresTB.Location = new Point(785, 50);
+      this.subeAdresTB.Multiline = true;
+      this.subeAdresTB.Name = "subeAdresTB";
+      this.subeAdresTB.Size = new Size(279, 71);
+      this.subeAdresTB.TabIndex = 61;
+      this.adresTB.DataBindings.Add(new Binding("Text", (object) this.ogrencibilgileriBindingSource, "ogrenci_adres", true));
+      this.adresTB.Location = new Point(17, 229);
+      this.adresTB.Multiline = true;
+      this.adresTB.Name = "adresTB";
+      this.adresTB.Size = new Size((int) byte.MaxValue, 107);
+      this.adresTB.TabIndex = 60;
+      this.birimlerBindingSource.DataMember = "birimler";
+      this.birimlerBindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.birimlerTableAdapter.ClearBeforeFill = true;
+      this.birimlerbolumlerBindingSource.DataMember = "birimler_bolumler";
+      this.birimlerbolumlerBindingSource.DataSource = (object) this.birimlerBindingSource;
+      this.bolumlerTableAdapter.ClearBeforeFill = true;
+      this.Appearance.BackColor = Color.Silver;
+      this.Appearance.Options.UseBackColor = true;
+      ((ContainerControl) this).AutoScaleDimensions = new SizeF(7f, 16f);
+      ((ContainerControl) this).AutoScaleMode = AutoScaleMode.Font;
+      ((Form) this).ClientSize = new Size(1727, 647);
+      ((Control) this).Controls.Add((Control) this.groupBox2);
+      ((Control) this).Controls.Add((Control) this.adresTB);
+      ((Control) this).Controls.Add((Control) this.kademeCB);
+      ((Control) this).Controls.Add((Control) this.labelControl9);
+      ((Control) this).Controls.Add((Control) this.cinsiyetCB);
+      ((Control) this).Controls.Add((Control) label11);
+      ((Control) this).Controls.Add((Control) this.sinifSpinEdit);
+      ((Control) this).Controls.Add((Control) label10);
+      ((Control) this).Controls.Add((Control) this.iSCEDFkoduTextEdit);
+      ((Control) this).Controls.Add((Control) label3);
+      ((Control) this).Controls.Add((Control) label2);
+      ((Control) this).Controls.Add((Control) label1);
+      ((Control) this).Controls.Add((Control) this.uyruguTextEdit);
+      ((Control) this).Controls.Add((Control) this.groupBox1);
+      ((Control) this).Controls.Add((Control) this.guncelleBTN);
+      ((Control) this).Controls.Add((Control) this.silBTN);
+      ((Control) this).Controls.Add((Control) this.kaydetBTN);
+      ((Control) this).Controls.Add((Control) this.yeniBTN);
+      ((Control) this).Controls.Add((Control) this.labelControl8);
+      ((Control) this).Controls.Add((Control) this.ogr_noTB);
+      ((Control) this).Controls.Add((Control) this.labelControl7);
+      ((Control) this).Controls.Add((Control) this.epostaTB);
+      ((Control) this).Controls.Add((Control) this.dog_tar_dtp);
+      ((Control) this).Controls.Add((Control) this.bolumlerCB);
+      ((Control) this).Controls.Add((Control) this.label2);
+      ((Control) this).Controls.Add((Control) this.fakultelerCB);
+      ((Control) this).Controls.Add((Control) this.label1);
+      ((Control) this).Controls.Add((Control) this.dataNavigator1);
+      ((Control) this).Controls.Add((Control) this.dataGridView1);
+      ((Control) this).Controls.Add((Control) this.labelControl6);
+      ((Control) this).Controls.Add((Control) this.labelControl5);
+      ((Control) this).Controls.Add((Control) this.labelControl4);
+      ((Control) this).Controls.Add((Control) this.labelControl3);
+      ((Control) this).Controls.Add((Control) this.labelControl2);
+      ((Control) this).Controls.Add((Control) this.labelControl1);
+      ((Control) this).Controls.Add((Control) this.simpleButton2);
+      ((Control) this).Controls.Add((Control) this.simpleButton1);
+      ((Control) this).Controls.Add((Control) this.telTB);
+      ((Control) this).Controls.Add((Control) this.textEdit5);
+      ((Control) this).Controls.Add((Control) this.kimliknoTB);
+      ((Control) this).Controls.Add((Control) this.soyadTB);
+      ((Control) this).Controls.Add((Control) this.adTB);
+      ((Control) this).Controls.Add((Control) this.idTB);
+      ((Control) this).Controls.Add((Control) this.ogrenciidTB);
+      ((Form) this).Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      ((Form) this).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this).Name = nameof (ogrenci_bilgileri);
+      ((Control) this).Text = "ÖĞRENCİ BİLGİLERİ";
+      ((Form) this).Load += new EventHandler(this.ogrenci_bilgileri_Load);
+      ((ISupportInitialize) this.adTB.Properties).EndInit();
+      ((ISupportInitialize) this.ogrencibilgileriBindingSource).EndInit();
+      this.prometheus_projesiDataSet.EndInit();
+      ((ISupportInitialize) this.soyadTB.Properties).EndInit();
+      ((ISupportInitialize) this.kimliknoTB.Properties).EndInit();
+      ((ISupportInitialize) this.textEdit5.Properties).EndInit();
+      ((ISupportInitialize) this.telTB.Properties).EndInit();
+      ((ISupportInitialize) this.dataGridView1).EndInit();
+      this.prometheus_projesiDataSet1.EndInit();
+      ((ISupportInitialize) this.epostaTB.Properties).EndInit();
+      ((ISupportInitialize) this.ogr_noTB.Properties).EndInit();
+      ((ISupportInitialize) this.ogrencibilgileriBindingSource1).EndInit();
+      this.groupBox1.ResumeLayout(false);
+      this.groupBox1.PerformLayout();
+      ((ISupportInitialize) this.uyruguTextEdit.Properties).EndInit();
+      ((ISupportInitialize) this.banka_adiTextEdit.Properties).EndInit();
+      ((ISupportInitialize) this.sube_adi_koduTextEdit.Properties).EndInit();
+      ((ISupportInitialize) this.ogrenci_hesap_noTextEdit.Properties).EndInit();
+      ((ISupportInitialize) this.ogrenci_IBANTextEdit.Properties).EndInit();
+      ((ISupportInitialize) this.ogrenci_SWIFTTextEdit.Properties).EndInit();
+      ((ISupportInitialize) this.iSCEDFkoduTextEdit.Properties).EndInit();
+      ((ISupportInitialize) this.sinifSpinEdit.Properties).EndInit();
+      this.groupBox2.ResumeLayout(false);
+      this.groupBox2.PerformLayout();
+      ((ISupportInitialize) this.birimlerBindingSource).EndInit();
+      ((ISupportInitialize) this.birimlerbolumlerBindingSource).EndInit();
+      this.ResumeLayout(false);
+      ((Control) this).PerformLayout();
+    }
+  }
+}
