@@ -1,0 +1,494 @@
+// Decompiled with JetBrains decompiler
+// Type: promethues_projesi.anaForm
+// Assembly: promethues_projesi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: B9C4A65B-B397-4621-A7E0-7BC7D8FEFDBA
+// Assembly location: C:\Users\Belediye\AppData\Local\Temp\Gutadis\09e50f9ba5\promethues_projesi.exe
+
+using DevExpress.Utils;
+using DevExpress.XtraEditors;
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace promethues_projesi
+{
+  public class anaForm : XtraForm
+  {
+    private IContainer components = (IContainer) null;
+    private TileGroup tileGroup1;
+    private TileItem tileItem1;
+    private TileGroup tileGroup3;
+    private TileGroup tileGroup4;
+    private TileItem tileItem5;
+    private TileGroup tileGroup8;
+    private TileItem genelBT;
+    private TileItem kullaniciislemleriBT;
+    private TileGroup tileGroup5;
+    private TileItem raporlarBT;
+    private TileItem universiteBT;
+    private TileItem birimlerBT;
+    private TileItem hareketlilikBT;
+    private TileGroup tileGroup6;
+    private TileItem ogrenciBT;
+    private TileControl tileControl1;
+    private TileGroup tileGroup7;
+    private TileGroup tileGroup2;
+    private TileItem personelBT;
+
+    public anaForm() => this.InitializeComponent();
+
+    private void tileItem4_ItemClick(object sender, TileItemEventArgs e)
+    {
+      int num = (int) ((Form) new universite_ekle()).ShowDialog();
+    }
+
+    private void tileItem1_ItemClick(object sender, TileItemEventArgs e)
+    {
+    }
+
+    private void tileItem6_ItemClick(object sender, TileItemEventArgs e)
+    {
+    }
+
+    private void tileItem2_ItemClick(object sender, TileItemEventArgs e) => ((Control) new personel_bilgileri()).Show();
+
+    private void tileItem7_ItemClick(object sender, TileItemEventArgs e)
+    {
+    }
+
+    private void tileItem3_ItemClick(object sender, TileItemEventArgs e) => ((Control) new fakulteler()).Show();
+
+    private void tileItem8_ItemClick(object sender, TileItemEventArgs e)
+    {
+      int num = (int) ((Form) new genelbilgilerFrm()).ShowDialog();
+    }
+
+    private void tileItem6_ItemClick_1(object sender, TileItemEventArgs e)
+    {
+      int num = (int) ((Form) new ogrenci_bilgileri()).ShowDialog();
+    }
+
+    private void raporlar_ItemClick(object sender, TileItemEventArgs e)
+    {
+      int num = (int) ((Form) new tumraporlarFrm()).ShowDialog();
+    }
+
+    private void tileControl1_Click(object sender, EventArgs e)
+    {
+    }
+
+    private void tileItem9_ItemClick(object sender, TileItemEventArgs e) => ((Control) new hareketlilik()).Show();
+
+    private void genel_bilgiler_Load(object sender, EventArgs e)
+    {
+    }
+
+    private void genel_bilgiler_FormClosed(object sender, FormClosedEventArgs e) => Application.Exit();
+
+    private void kullaniciislemleriBT_ItemClick(object sender, TileItemEventArgs e)
+    {
+      int num = (int) ((Form) new sifre_degistirmeFrm()).ShowDialog();
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (anaForm));
+      TileItemElement tileItemElement1 = new TileItemElement();
+      TileItemElement tileItemElement2 = new TileItemElement();
+      TileItemFrame tileItemFrame1 = new TileItemFrame();
+      TileItemElement tileItemElement3 = new TileItemElement();
+      TileItemFrame tileItemFrame2 = new TileItemFrame();
+      TileItemElement tileItemElement4 = new TileItemElement();
+      TileItemElement tileItemElement5 = new TileItemElement();
+      SuperToolTip superToolTip = new SuperToolTip();
+      ToolTipTitleItem toolTipTitleItem = new ToolTipTitleItem();
+      TileItemElement tileItemElement6 = new TileItemElement();
+      TileItemFrame tileItemFrame3 = new TileItemFrame();
+      TileItemElement tileItemElement7 = new TileItemElement();
+      TileItemElement tileItemElement8 = new TileItemElement();
+      TileItemFrame tileItemFrame4 = new TileItemFrame();
+      TileItemElement tileItemElement9 = new TileItemElement();
+      TileItemElement tileItemElement10 = new TileItemElement();
+      TileItemFrame tileItemFrame5 = new TileItemFrame();
+      TileItemElement tileItemElement11 = new TileItemElement();
+      TileItemElement tileItemElement12 = new TileItemElement();
+      TileItemFrame tileItemFrame6 = new TileItemFrame();
+      TileItemElement tileItemElement13 = new TileItemElement();
+      TileItemElement tileItemElement14 = new TileItemElement();
+      TileItemFrame tileItemFrame7 = new TileItemFrame();
+      TileItemElement tileItemElement15 = new TileItemElement();
+      TileItemElement tileItemElement16 = new TileItemElement();
+      TileItemFrame tileItemFrame8 = new TileItemFrame();
+      TileItemElement tileItemElement17 = new TileItemElement();
+      TileItemElement tileItemElement18 = new TileItemElement();
+      TileItemFrame tileItemFrame9 = new TileItemFrame();
+      TileItemElement tileItemElement19 = new TileItemElement();
+      TileItemElement tileItemElement20 = new TileItemElement();
+      TileItemFrame tileItemFrame10 = new TileItemFrame();
+      TileItemElement tileItemElement21 = new TileItemElement();
+      TileItemElement tileItemElement22 = new TileItemElement();
+      TileItemFrame tileItemFrame11 = new TileItemFrame();
+      TileItemElement tileItemElement23 = new TileItemElement();
+      this.tileGroup1 = new TileGroup();
+      this.tileGroup3 = new TileGroup();
+      this.tileGroup4 = new TileGroup();
+      this.tileItem1 = new TileItem();
+      this.tileItem5 = new TileItem();
+      this.tileGroup8 = new TileGroup();
+      this.raporlarBT = new TileItem();
+      this.kullaniciislemleriBT = new TileItem();
+      this.genelBT = new TileItem();
+      this.tileGroup5 = new TileGroup();
+      this.universiteBT = new TileItem();
+      this.hareketlilikBT = new TileItem();
+      this.birimlerBT = new TileItem();
+      this.tileGroup6 = new TileGroup();
+      this.ogrenciBT = new TileItem();
+      this.tileControl1 = new TileControl();
+      this.tileGroup7 = new TileGroup();
+      this.personelBT = new TileItem();
+      this.tileGroup2 = new TileGroup();
+      this.SuspendLayout();
+      this.tileGroup1.Name = "tileGroup1";
+      this.tileGroup3.Name = "tileGroup3";
+      this.tileGroup4.Name = "tileGroup4";
+      this.tileItem1.BackgroundImage = (Image) componentResourceManager.GetObject("tileItem1.BackgroundImage");
+      this.tileItem1.Checked = true;
+      this.tileItem1.ContentAnimation = (TileItemContentAnimationType) 4;
+      tileItemElement1.Appearance.Hovered.Font = new Font("Segoe UI Light", 17f);
+      tileItemElement1.Appearance.Hovered.Options.UseFont = true;
+      tileItemElement1.Appearance.Hovered.Options.UseTextOptions = true;
+      tileItemElement1.Appearance.Hovered.TextOptions.Trimming = (Trimming) 4;
+      tileItemElement1.Appearance.Hovered.TextOptions.WordWrap = (WordWrap) 1;
+      tileItemElement1.Appearance.Normal.Font = new Font("Segoe UI Light", 17f);
+      tileItemElement1.Appearance.Normal.Options.UseFont = true;
+      tileItemElement1.Appearance.Normal.Options.UseTextOptions = true;
+      tileItemElement1.Appearance.Normal.TextOptions.Trimming = (Trimming) 4;
+      tileItemElement1.Appearance.Normal.TextOptions.WordWrap = (WordWrap) 1;
+      tileItemElement1.Appearance.Selected.Font = new Font("Segoe UI Light", 17f);
+      tileItemElement1.Appearance.Selected.Options.UseFont = true;
+      tileItemElement1.Appearance.Selected.Options.UseTextOptions = true;
+      tileItemElement1.Appearance.Selected.TextOptions.Trimming = (Trimming) 4;
+      tileItemElement1.Appearance.Selected.TextOptions.WordWrap = (WordWrap) 1;
+      tileItemElement1.Text = "Header";
+      tileItemElement1.TextAlignment = (TileItemContentAlignment) 10;
+      tileItemElement1.TextLocation = new Point(4, 0);
+      tileItemElement2.Appearance.Hovered.Font = new Font("Segoe UI", 9f);
+      tileItemElement2.Appearance.Hovered.Options.UseFont = true;
+      tileItemElement2.Appearance.Hovered.Options.UseTextOptions = true;
+      tileItemElement2.Appearance.Hovered.TextOptions.WordWrap = (WordWrap) 2;
+      tileItemElement2.Appearance.Normal.Font = new Font("Segoe UI", 9f);
+      tileItemElement2.Appearance.Normal.Options.UseFont = true;
+      tileItemElement2.Appearance.Normal.Options.UseTextOptions = true;
+      tileItemElement2.Appearance.Normal.TextOptions.WordWrap = (WordWrap) 2;
+      tileItemElement2.Appearance.Selected.Font = new Font("Segoe UI", 9f);
+      tileItemElement2.Appearance.Selected.Options.UseFont = true;
+      tileItemElement2.Appearance.Selected.Options.UseTextOptions = true;
+      tileItemElement2.Appearance.Selected.TextOptions.WordWrap = (WordWrap) 2;
+      tileItemElement2.Text = "The quick brown fox jumps over the lazy dog.";
+      tileItemElement2.TextAlignment = (TileItemContentAlignment) 10;
+      tileItemElement2.TextLocation = new Point(4, 27);
+      this.tileItem1.Elements.Add(tileItemElement1);
+      this.tileItem1.Elements.Add(tileItemElement2);
+      tileItemFrame1.Animation = (TileItemContentAnimationType) 2;
+      tileItemFrame1.Appearance.BackColor = Color.Teal;
+      tileItemFrame1.Appearance.Options.UseBackColor = true;
+      tileItemElement3.Image = (Image) componentResourceManager.GetObject("tileItemElement3.Image");
+      tileItemElement3.ImageAlignment = (TileItemContentAlignment) 10;
+      tileItemElement3.ImageLocation = new Point(-12, -8);
+      tileItemElement3.ImageScaleMode = (TileItemImageScaleMode) 6;
+      tileItemElement3.ImageSize = new Size(248, 120);
+      tileItemFrame1.Elements.Add(tileItemElement3);
+      tileItemFrame1.Image = (Image) componentResourceManager.GetObject("tileItemFrame1.Image");
+      tileItemFrame2.Animation = (TileItemContentAnimationType) 1;
+      tileItemFrame2.Appearance.BackColor = Color.FromArgb(0, 192, 0);
+      tileItemFrame2.Appearance.Options.UseBackColor = true;
+      tileItemFrame2.BackgroundImage = (Image) componentResourceManager.GetObject("tileItemFrame2.BackgroundImage");
+      tileItemElement4.Appearance.Hovered.Font = new Font("Segoe UI Light", 17f);
+      tileItemElement4.Appearance.Hovered.Options.UseFont = true;
+      tileItemElement4.Appearance.Hovered.Options.UseTextOptions = true;
+      tileItemElement4.Appearance.Hovered.TextOptions.Trimming = (Trimming) 4;
+      tileItemElement4.Appearance.Hovered.TextOptions.WordWrap = (WordWrap) 1;
+      tileItemElement4.Appearance.Normal.Font = new Font("Segoe UI Light", 17f);
+      tileItemElement4.Appearance.Normal.Options.UseFont = true;
+      tileItemElement4.Appearance.Normal.Options.UseTextOptions = true;
+      tileItemElement4.Appearance.Normal.TextOptions.Trimming = (Trimming) 4;
+      tileItemElement4.Appearance.Normal.TextOptions.WordWrap = (WordWrap) 1;
+      tileItemElement4.Appearance.Selected.Font = new Font("Segoe UI Light", 17f);
+      tileItemElement4.Appearance.Selected.Options.UseFont = true;
+      tileItemElement4.Appearance.Selected.Options.UseTextOptions = true;
+      tileItemElement4.Appearance.Selected.TextOptions.Trimming = (Trimming) 4;
+      tileItemElement4.Appearance.Selected.TextOptions.WordWrap = (WordWrap) 1;
+      tileItemElement4.Text = "Header";
+      tileItemElement4.TextAlignment = (TileItemContentAlignment) 10;
+      tileItemElement4.TextLocation = new Point(4, 0);
+      tileItemElement5.Appearance.Hovered.Font = new Font("Segoe UI", 9f);
+      tileItemElement5.Appearance.Hovered.Options.UseFont = true;
+      tileItemElement5.Appearance.Hovered.Options.UseTextOptions = true;
+      tileItemElement5.Appearance.Hovered.TextOptions.WordWrap = (WordWrap) 2;
+      tileItemElement5.Appearance.Normal.Font = new Font("Segoe UI", 9f);
+      tileItemElement5.Appearance.Normal.Options.UseFont = true;
+      tileItemElement5.Appearance.Normal.Options.UseTextOptions = true;
+      tileItemElement5.Appearance.Normal.TextOptions.WordWrap = (WordWrap) 2;
+      tileItemElement5.Appearance.Selected.Font = new Font("Segoe UI", 9f);
+      tileItemElement5.Appearance.Selected.Options.UseFont = true;
+      tileItemElement5.Appearance.Selected.Options.UseTextOptions = true;
+      tileItemElement5.Appearance.Selected.TextOptions.WordWrap = (WordWrap) 2;
+      tileItemElement5.Text = "The quick brown fox jumps over the lazy dog.";
+      tileItemElement5.TextAlignment = (TileItemContentAlignment) 10;
+      tileItemElement5.TextLocation = new Point(4, 27);
+      tileItemFrame2.Elements.Add(tileItemElement4);
+      tileItemFrame2.Elements.Add(tileItemElement5);
+      this.tileItem1.Frames.Add(tileItemFrame1);
+      this.tileItem1.Frames.Add(tileItemFrame2);
+      this.tileItem1.Id = 1;
+      this.tileItem1.ItemSize = (TileItemSize) 3;
+      this.tileItem1.Name = "tileItem1";
+      ((BaseToolTipObject) toolTipTitleItem).Appearance.Image = (Image) componentResourceManager.GetObject("resource.Image");
+      ((BaseToolTipObject) toolTipTitleItem).Appearance.Options.UseImage = true;
+      ((ToolTipItem) toolTipTitleItem).Image = (Image) componentResourceManager.GetObject("toolTipTitleItem1.Image");
+      superToolTip.Items.Add((BaseToolTipItem) toolTipTitleItem);
+      this.tileItem1.SuperTip = superToolTip;
+      this.tileItem1.TextShowMode = (TileItemContentShowMode) 2;
+      // ISSUE: method pointer
+      this.tileItem1.ItemClick += new TileItemClickEventHandler((object) this, __methodptr(tileItem1_ItemClick));
+      this.tileItem5.Checked = true;
+      tileItemElement6.Appearance.Hovered.ForeColor = Color.FromArgb(192, 64, 0);
+      tileItemElement6.Appearance.Hovered.Options.UseForeColor = true;
+      tileItemElement6.Image = (Image) componentResourceManager.GetObject("tileItemElement6.Image");
+      tileItemElement6.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement6.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement6.Text = "ÖDEMELER";
+      this.tileItem5.Elements.Add(tileItemElement6);
+      tileItemFrame3.Animation = (TileItemContentAnimationType) 4;
+      tileItemFrame3.Appearance.BackColor = Color.OliveDrab;
+      tileItemFrame3.Appearance.BackColor2 = Color.OliveDrab;
+      tileItemFrame3.Appearance.Options.UseBackColor = true;
+      tileItemElement7.Appearance.Hovered.ForeColor = Color.FromArgb(192, 64, 0);
+      tileItemElement7.Appearance.Hovered.Options.UseForeColor = true;
+      tileItemElement7.Image = (Image) componentResourceManager.GetObject("tileItemElement7.Image");
+      tileItemElement7.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement7.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement7.Text = "ÖDEMELER";
+      tileItemFrame3.Elements.Add(tileItemElement7);
+      tileItemFrame3.Image = (Image) componentResourceManager.GetObject("tileItemFrame3.Image");
+      this.tileItem5.Frames.Add(tileItemFrame3);
+      this.tileItem5.Id = 17;
+      this.tileItem5.ItemSize = (TileItemSize) 3;
+      this.tileItem5.Name = "tileItem5";
+      this.tileGroup8.Items.Add((ITileItem) this.raporlarBT);
+      this.tileGroup8.Items.Add((ITileItem) this.kullaniciislemleriBT);
+      this.tileGroup8.Name = "tileGroup8";
+      this.raporlarBT.AppearanceItem.Normal.BackColor = Color.DarkSlateGray;
+      this.raporlarBT.AppearanceItem.Normal.Options.UseBackColor = true;
+      this.raporlarBT.Checked = true;
+      tileItemElement8.Image = (Image) componentResourceManager.GetObject("tileItemElement8.Image");
+      tileItemElement8.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement8.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement8.Text = "RAPORLAR";
+      this.raporlarBT.Elements.Add(tileItemElement8);
+      tileItemElement9.Image = (Image) componentResourceManager.GetObject("tileItemElement9.Image");
+      tileItemElement9.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement9.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement9.Text = "RAPORLAR";
+      tileItemFrame4.Elements.Add(tileItemElement9);
+      tileItemFrame4.Image = (Image) componentResourceManager.GetObject("tileItemFrame4.Image");
+      this.raporlarBT.Frames.Add(tileItemFrame4);
+      this.raporlarBT.Id = 25;
+      this.raporlarBT.ItemSize = (TileItemSize) 3;
+      this.raporlarBT.Name = "raporlarBT";
+      // ISSUE: method pointer
+      this.raporlarBT.ItemClick += new TileItemClickEventHandler((object) this, __methodptr(raporlar_ItemClick));
+      this.kullaniciislemleriBT.AppearanceItem.Normal.BackColor = Color.Navy;
+      this.kullaniciislemleriBT.AppearanceItem.Normal.Options.UseBackColor = true;
+      this.kullaniciislemleriBT.Checked = true;
+      tileItemElement10.Image = (Image) componentResourceManager.GetObject("tileItemElement10.Image");
+      tileItemElement10.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement10.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement10.Text = "KULLANICI İŞLEMLERİ";
+      this.kullaniciislemleriBT.Elements.Add(tileItemElement10);
+      tileItemElement11.Image = (Image) componentResourceManager.GetObject("tileItemElement11.Image");
+      tileItemElement11.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement11.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement11.Text = "KULLANICI İŞLEMLERİ";
+      tileItemFrame5.Elements.Add(tileItemElement11);
+      tileItemFrame5.Image = (Image) componentResourceManager.GetObject("tileItemFrame5.Image");
+      this.kullaniciislemleriBT.Frames.Add(tileItemFrame5);
+      this.kullaniciislemleriBT.Id = 22;
+      this.kullaniciislemleriBT.ItemSize = (TileItemSize) 3;
+      this.kullaniciislemleriBT.Name = "kullaniciislemleriBT";
+      // ISSUE: method pointer
+      this.kullaniciislemleriBT.ItemClick += new TileItemClickEventHandler((object) this, __methodptr(kullaniciislemleriBT_ItemClick));
+      this.genelBT.AppearanceItem.Normal.BackColor = Color.Blue;
+      this.genelBT.AppearanceItem.Normal.Options.UseBackColor = true;
+      this.genelBT.Checked = true;
+      tileItemElement12.Image = (Image) componentResourceManager.GetObject("tileItemElement12.Image");
+      tileItemElement12.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement12.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement12.Text = "GENEL BİLGİLER";
+      this.genelBT.Elements.Add(tileItemElement12);
+      tileItemElement13.Image = (Image) componentResourceManager.GetObject("tileItemElement13.Image");
+      tileItemElement13.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement13.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement13.Text = "GENEL BİLGİLER";
+      tileItemFrame6.Elements.Add(tileItemElement13);
+      tileItemFrame6.Image = (Image) componentResourceManager.GetObject("tileItemFrame6.Image");
+      this.genelBT.Frames.Add(tileItemFrame6);
+      this.genelBT.Id = 24;
+      this.genelBT.ItemSize = (TileItemSize) 3;
+      this.genelBT.Name = "genelBT";
+      // ISSUE: method pointer
+      this.genelBT.ItemClick += new TileItemClickEventHandler((object) this, __methodptr(tileItem8_ItemClick));
+      this.tileGroup5.Items.Add((ITileItem) this.universiteBT);
+      this.tileGroup5.Items.Add((ITileItem) this.hareketlilikBT);
+      this.tileGroup5.Name = "tileGroup5";
+      this.universiteBT.Checked = true;
+      tileItemElement14.Image = (Image) componentResourceManager.GetObject("tileItemElement14.Image");
+      tileItemElement14.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement14.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement14.Text = "ÜNİVERSİTELER";
+      this.universiteBT.Elements.Add(tileItemElement14);
+      tileItemFrame7.Animation = (TileItemContentAnimationType) 2;
+      tileItemFrame7.Appearance.BackColor = Color.Red;
+      tileItemFrame7.Appearance.BackColor2 = Color.Red;
+      tileItemFrame7.Appearance.Options.UseBackColor = true;
+      tileItemElement15.Image = (Image) componentResourceManager.GetObject("tileItemElement15.Image");
+      tileItemElement15.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement15.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement15.Text = "ÜNİVERSİTELER";
+      tileItemFrame7.Elements.Add(tileItemElement15);
+      tileItemFrame7.Image = (Image) componentResourceManager.GetObject("tileItemFrame7.Image");
+      this.universiteBT.Frames.Add(tileItemFrame7);
+      this.universiteBT.Id = 12;
+      this.universiteBT.ItemSize = (TileItemSize) 3;
+      this.universiteBT.Name = "universiteBT";
+      // ISSUE: method pointer
+      this.universiteBT.ItemClick += new TileItemClickEventHandler((object) this, __methodptr(tileItem4_ItemClick));
+      this.hareketlilikBT.Checked = true;
+      tileItemElement16.Image = (Image) componentResourceManager.GetObject("tileItemElement16.Image");
+      tileItemElement16.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement16.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement16.Text = "HAREKETLİLİLK";
+      this.hareketlilikBT.Elements.Add(tileItemElement16);
+      tileItemFrame8.Appearance.BackColor = Color.SteelBlue;
+      tileItemFrame8.Appearance.BackColor2 = Color.SteelBlue;
+      tileItemFrame8.Appearance.Options.UseBackColor = true;
+      tileItemElement17.Image = (Image) componentResourceManager.GetObject("tileItemElement17.Image");
+      tileItemElement17.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement17.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement17.Text = "HAREKETLİLİLK";
+      tileItemFrame8.Elements.Add(tileItemElement17);
+      tileItemFrame8.Image = (Image) componentResourceManager.GetObject("tileItemFrame8.Image");
+      this.hareketlilikBT.Frames.Add(tileItemFrame8);
+      this.hareketlilikBT.Id = 10;
+      this.hareketlilikBT.ItemSize = (TileItemSize) 3;
+      this.hareketlilikBT.Name = "hareketlilikBT";
+      // ISSUE: method pointer
+      this.hareketlilikBT.ItemClick += new TileItemClickEventHandler((object) this, __methodptr(tileItem9_ItemClick));
+      this.birimlerBT.Checked = true;
+      tileItemElement18.Image = (Image) componentResourceManager.GetObject("tileItemElement18.Image");
+      tileItemElement18.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement18.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement18.Text = "BİRİM-BÖLÜM İŞLEMLERİ";
+      this.birimlerBT.Elements.Add(tileItemElement18);
+      tileItemFrame9.Appearance.BackColor = Color.DarkMagenta;
+      tileItemFrame9.Appearance.BackColor2 = Color.DarkMagenta;
+      tileItemFrame9.Appearance.Options.UseBackColor = true;
+      tileItemElement19.Image = (Image) componentResourceManager.GetObject("tileItemElement19.Image");
+      tileItemElement19.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement19.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement19.Text = "BİRİM-BÖLÜM İŞLEMLERİ";
+      tileItemFrame9.Elements.Add(tileItemElement19);
+      tileItemFrame9.Image = (Image) componentResourceManager.GetObject("tileItemFrame9.Image");
+      this.birimlerBT.Frames.Add(tileItemFrame9);
+      this.birimlerBT.Id = 13;
+      this.birimlerBT.ItemSize = (TileItemSize) 3;
+      this.birimlerBT.Name = "birimlerBT";
+      // ISSUE: method pointer
+      this.birimlerBT.ItemClick += new TileItemClickEventHandler((object) this, __methodptr(tileItem3_ItemClick));
+      this.tileGroup6.Items.Add((ITileItem) this.genelBT);
+      this.tileGroup6.Items.Add((ITileItem) this.birimlerBT);
+      this.tileGroup6.Name = "tileGroup6";
+      this.ogrenciBT.Checked = true;
+      tileItemElement20.Image = (Image) componentResourceManager.GetObject("tileItemElement20.Image");
+      tileItemElement20.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement20.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement20.Text = "ÖĞRENCİ BİLGİLERİ";
+      this.ogrenciBT.Elements.Add(tileItemElement20);
+      tileItemElement21.Image = (Image) componentResourceManager.GetObject("tileItemElement21.Image");
+      tileItemElement21.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement21.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement21.Text = "ÖĞRENCİ BİLGİLERİ";
+      tileItemFrame10.Elements.Add(tileItemElement21);
+      tileItemFrame10.Image = (Image) componentResourceManager.GetObject("tileItemFrame10.Image");
+      this.ogrenciBT.Frames.Add(tileItemFrame10);
+      this.ogrenciBT.Id = 23;
+      this.ogrenciBT.ItemSize = (TileItemSize) 3;
+      this.ogrenciBT.Name = "ogrenciBT";
+      // ISSUE: method pointer
+      this.ogrenciBT.ItemClick += new TileItemClickEventHandler((object) this, __methodptr(tileItem6_ItemClick_1));
+      ((Control) this.tileControl1).BackColor = Color.Maroon;
+      ((Control) this.tileControl1).BackgroundImage = (Image) componentResourceManager.GetObject("tileControl1.BackgroundImage");
+      ((Control) this.tileControl1).BackgroundImageLayout = ImageLayout.None;
+      ((Control) this.tileControl1).Dock = DockStyle.Fill;
+      this.tileControl1.DragSize = new Size(0, 0);
+      this.tileControl1.Groups.Add(this.tileGroup6);
+      this.tileControl1.Groups.Add(this.tileGroup7);
+      this.tileControl1.Groups.Add(this.tileGroup5);
+      this.tileControl1.Groups.Add(this.tileGroup8);
+      ((Control) this.tileControl1).Location = new Point(0, 0);
+      ((Control) this.tileControl1).Margin = new Padding(3, 4, 3, 4);
+      this.tileControl1.MaxId = 27;
+      ((Control) this.tileControl1).Name = "tileControl1";
+      ((Control) this.tileControl1).Padding = new Padding(21, 22, 21, 22);
+      ((Control) this.tileControl1).Size = new Size(1206, 721);
+      ((Control) this.tileControl1).TabIndex = 0;
+      ((Control) this.tileControl1).Click += new EventHandler(this.tileControl1_Click);
+      this.tileGroup7.Items.Add((ITileItem) this.ogrenciBT);
+      this.tileGroup7.Items.Add((ITileItem) this.personelBT);
+      this.tileGroup7.Name = "tileGroup7";
+      this.personelBT.AppearanceItem.Normal.BackColor = Color.FromArgb((int) byte.MaxValue, 128, 0);
+      this.personelBT.AppearanceItem.Normal.Options.UseBackColor = true;
+      this.personelBT.Checked = true;
+      tileItemElement22.Image = (Image) componentResourceManager.GetObject("tileItemElement22.Image");
+      tileItemElement22.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement22.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement22.Text = "PERSONEL BİLGİLERİ";
+      this.personelBT.Elements.Add(tileItemElement22);
+      tileItemElement23.Image = (Image) componentResourceManager.GetObject("tileItemElement23.Image");
+      tileItemElement23.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement23.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement23.Text = "PERSONEL BİLGİLERİ";
+      tileItemFrame11.Elements.Add(tileItemElement23);
+      tileItemFrame11.Image = (Image) componentResourceManager.GetObject("tileItemFrame11.Image");
+      this.personelBT.Frames.Add(tileItemFrame11);
+      this.personelBT.Id = 26;
+      this.personelBT.ItemSize = (TileItemSize) 3;
+      this.personelBT.Name = "personelBT";
+      // ISSUE: method pointer
+      this.personelBT.ItemClick += new TileItemClickEventHandler((object) this, __methodptr(tileItem2_ItemClick));
+      this.tileGroup2.Name = "tileGroup2";
+      ((ContainerControl) this).AutoScaleDimensions = new SizeF(7f, 16f);
+      ((ContainerControl) this).AutoScaleMode = AutoScaleMode.Font;
+      ((Form) this).ClientSize = new Size(1206, 721);
+      ((Control) this).Controls.Add((Control) this.tileControl1);
+      ((Form) this).Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      ((Form) this).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this).Name = nameof (anaForm);
+      ((Form) this).StartPosition = FormStartPosition.CenterScreen;
+      ((Control) this).Text = "AĞRI İBRAHİM ÇEÇEN ÜNİVERSİTESİ DIŞ İLİŞKİLER BİRİMİ";
+      ((Form) this).WindowState = FormWindowState.Maximized;
+      ((Form) this).FormClosed += new FormClosedEventHandler(this.genel_bilgiler_FormClosed);
+      ((Form) this).Load += new EventHandler(this.genel_bilgiler_Load);
+      this.ResumeLayout(false);
+    }
+  }
+}
