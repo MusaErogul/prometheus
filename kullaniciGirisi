@@ -1,0 +1,188 @@
+// Decompiled with JetBrains decompiler
+// Type: promethues_projesi.kullanici_girisi
+// Assembly: promethues_projesi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: B9C4A65B-B397-4621-A7E0-7BC7D8FEFDBA
+// Assembly location: C:\Users\Belediye\AppData\Local\Temp\Gutadis\09e50f9ba5\promethues_projesi.exe
+
+using DevExpress.XtraEditors;
+using promethues_projesi.prometheus_projesiDataSetTableAdapters;
+using System;
+using System.ComponentModel;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Security.Cryptography;
+using System.Text;
+using System.Windows.Forms;
+
+namespace promethues_projesi
+{
+  public class kullanici_girisi : XtraForm
+  {
+    public static int yetki = 0;
+    public static int kullanici_id = 0;
+    private IContainer components = (IContainer) null;
+    private TextBox KullaniciAdiTB;
+    private TextBox SifreTB;
+    private Label label1;
+    private Label label2;
+    private Button button1;
+    private prometheus_projesiDataSet prometheus_projesiDataSet;
+    private BindingSource kullaniciBindingSource;
+    private kullaniciTableAdapter kullaniciTableAdapter;
+
+    public kullanici_girisi() => this.InitializeComponent();
+
+    private void kullanici_girisi_Load(object sender, EventArgs e) => this.kullaniciTableAdapter.Fill(this.prometheus_projesiDataSet.kullanici);
+
+    private void button1_Click(object sender, EventArgs e)
+    {
+      SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["promethues_projesi.Properties.Settings.prometheus_projesiConnectionString"].ConnectionString);
+      SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+      DataTable dataTable = new DataTable();
+      SqlCommand sqlCommand = new SqlCommand("select * from kullanici where kullanici_adi=@kullanici_adi and sifre=@sifre and aktif=1");
+      sqlCommand.Connection = sqlConnection;
+      sqlDataAdapter.SelectCommand = sqlCommand;
+      this.KullaniciAdiTB.Text = this.KullaniciAdiTB.Text.Replace("'", "&#39");
+      this.SifreTB.Text = this.SifreTB.Text.Replace("'", "&#39");
+      if (this.KullaniciAdiTB.Text.Trim() == "")
+      {
+        int num1 = (int) MessageBox.Show("Kullanıcı adını giriniz");
+      }
+      else if (this.SifreTB.Text.Trim() == "")
+      {
+        int num2 = (int) MessageBox.Show("Şifre giriniz");
+      }
+      else
+      {
+        sqlCommand.Parameters.AddWithValue("kullanici_adi", (object) this.KullaniciAdiTB.Text.Trim());
+        sqlCommand.Parameters.AddWithValue("sifre", (object) this.sifrele(this.SifreTB.Text.Trim()));
+        try
+        {
+          sqlConnection.Open();
+          sqlDataAdapter.Fill(dataTable);
+          sqlConnection.Close();
+        }
+        catch (Exception ex)
+        {
+          int num3 = (int) MessageBox.Show(ex.Message);
+          return;
+        }
+        if (dataTable.Rows.Count <= 0)
+        {
+          int num4 = (int) MessageBox.Show("Kullanıcı bulunamadı");
+        }
+        else
+        {
+          kullanici_girisi.yetki = Convert.ToInt32(dataTable.Rows[0]["yetki"].ToString());
+          kullanici_girisi.kullanici_id = Convert.ToInt32(dataTable.Rows[0]["kullanici_id"].ToString());
+          anaForm anaForm = new anaForm();
+          ((Control) this).Hide();
+          ((Control) anaForm).Show();
+        }
+      }
+    }
+
+    private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) => ((Control) new sifre_degistirmeFrm()).Show();
+
+    private string sifrele(string gelen_sifre)
+    {
+      byte[] hash = new MD5CryptoServiceProvider().ComputeHash(new UTF8Encoding().GetBytes(gelen_sifre));
+      string str = "";
+      for (int index = 0; index < hash.Length; ++index)
+        str += Convert.ToString(hash[index], 16).PadLeft(2, '0');
+      return str.PadLeft(32, '0');
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      this.components = (IContainer) new Container();
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (kullanici_girisi));
+      this.KullaniciAdiTB = new TextBox();
+      this.SifreTB = new TextBox();
+      this.label1 = new Label();
+      this.label2 = new Label();
+      this.button1 = new Button();
+      this.kullaniciBindingSource = new BindingSource(this.components);
+      this.prometheus_projesiDataSet = new prometheus_projesiDataSet();
+      this.kullaniciTableAdapter = new kullaniciTableAdapter();
+      ((ISupportInitialize) this.kullaniciBindingSource).BeginInit();
+      this.prometheus_projesiDataSet.BeginInit();
+      this.SuspendLayout();
+      this.KullaniciAdiTB.Location = new Point(134, 41);
+      this.KullaniciAdiTB.Margin = new Padding(3, 4, 3, 4);
+      this.KullaniciAdiTB.Name = "KullaniciAdiTB";
+      this.KullaniciAdiTB.Size = new Size(188, 23);
+      this.KullaniciAdiTB.TabIndex = 0;
+      this.KullaniciAdiTB.Text = "nimet";
+      this.SifreTB.Location = new Point(134, 74);
+      this.SifreTB.Margin = new Padding(3, 4, 3, 4);
+      this.SifreTB.Name = "SifreTB";
+      this.SifreTB.PasswordChar = '*';
+      this.SifreTB.Size = new Size(188, 23);
+      this.SifreTB.TabIndex = 1;
+      this.SifreTB.Text = "1111";
+      this.SifreTB.UseSystemPasswordChar = true;
+      this.label1.AutoSize = true;
+      this.label1.BackColor = Color.FromArgb(224, 224, 224);
+      this.label1.Location = new Point(34, 44);
+      this.label1.Name = "label1";
+      this.label1.Size = new Size(99, 17);
+      this.label1.TabIndex = 2;
+      this.label1.Text = "KULLANICI ADI";
+      this.label2.AutoSize = true;
+      this.label2.BackColor = Color.FromArgb(224, 224, 224);
+      this.label2.Location = new Point(34, 78);
+      this.label2.Name = "label2";
+      this.label2.Size = new Size(44, 17);
+      this.label2.TabIndex = 3;
+      this.label2.Text = "ŞİFRE";
+      this.button1.BackColor = Color.Gray;
+      this.button1.Location = new Point(162, 107);
+      this.button1.Margin = new Padding(3, 4, 3, 4);
+      this.button1.Name = "button1";
+      this.button1.Size = new Size(147, 41);
+      this.button1.TabIndex = 4;
+      this.button1.Text = "GİRİŞ";
+      this.button1.UseVisualStyleBackColor = false;
+      this.button1.Click += new EventHandler(this.button1_Click);
+      this.kullaniciBindingSource.DataMember = "kullanici";
+      this.kullaniciBindingSource.DataSource = (object) this.prometheus_projesiDataSet;
+      this.prometheus_projesiDataSet.DataSetName = "prometheus_projesiDataSet";
+      this.prometheus_projesiDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+      this.kullaniciTableAdapter.ClearBeforeFill = true;
+      ((Form) this).AcceptButton = (IButtonControl) this.button1;
+      this.Appearance.BackColor = Color.Silver;
+      this.Appearance.Options.UseBackColor = true;
+      ((ContainerControl) this).AutoScaleDimensions = new SizeF(7f, 16f);
+      ((ContainerControl) this).AutoScaleMode = AutoScaleMode.Font;
+      this.BackgroundImageLayoutStore = ImageLayout.Stretch;
+      this.BackgroundImageStore = (Image) componentResourceManager.GetObject("$this.BackgroundImageStore");
+      ((Form) this).ClientSize = new Size(423, 203);
+      ((Control) this).Controls.Add((Control) this.SifreTB);
+      ((Control) this).Controls.Add((Control) this.button1);
+      ((Control) this).Controls.Add((Control) this.label2);
+      ((Control) this).Controls.Add((Control) this.KullaniciAdiTB);
+      ((Control) this).Controls.Add((Control) this.label1);
+      ((Form) this).FormBorderStyle = FormBorderStyle.Fixed3D;
+      ((Form) this).Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      ((Form) this).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this).Name = nameof (kullanici_girisi);
+      ((Form) this).StartPosition = FormStartPosition.CenterScreen;
+      ((Control) this).Text = "KULLANICI GİRİŞ EKRANI";
+      ((Form) this).Load += new EventHandler(this.kullanici_girisi_Load);
+      ((ISupportInitialize) this.kullaniciBindingSource).EndInit();
+      this.prometheus_projesiDataSet.EndInit();
+      this.ResumeLayout(false);
+      ((Control) this).PerformLayout();
+    }
+  }
+}
