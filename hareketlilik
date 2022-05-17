@@ -1,0 +1,238 @@
+// Decompiled with JetBrains decompiler
+// Type: promethues_projesi.hareketlilik
+// Assembly: promethues_projesi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: B9C4A65B-B397-4621-A7E0-7BC7D8FEFDBA
+// Assembly location: C:\Users\Belediye\AppData\Local\Temp\Gutadis\09e50f9ba5\promethues_projesi.exe
+
+using DevExpress.XtraEditors;
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace promethues_projesi
+{
+  public class hareketlilik : XtraForm
+  {
+    private IContainer components = (IContainer) null;
+    private TileControl tileControl1;
+    private TileGroup tileGroup2;
+    private TileItem tileItem1;
+    private TileItem tileItem2;
+    private TileItem tileItem3;
+    private TileItem tileItem4;
+    private TileItem tileItem5;
+    private TileItem tileItem6;
+
+    public hareketlilik() => this.InitializeComponent();
+
+    private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+    }
+
+    private void hareketlilik_Load(object sender, EventArgs e)
+    {
+    }
+
+    private void checkBox1_CheckedChanged(object sender, EventArgs e)
+    {
+    }
+
+    private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+    }
+
+    private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+    {
+    }
+
+    private void tileItem1_ItemClick(object sender, TileItemEventArgs e)
+    {
+      int num = (int) ((Form) new ogrenci_hareketlilik()).ShowDialog();
+    }
+
+    private void tileItem3_ItemClick(object sender, TileItemEventArgs e)
+    {
+      int num = (int) ((Form) new personel_hareketlilik()).ShowDialog();
+    }
+
+    private void tileItem4_ItemClick(object sender, TileItemEventArgs e) => ((Control) new etkinlik()).Show();
+
+    private void tileItem5_ItemClick(object sender, TileItemEventArgs e) => ((Control) new sinav_islemleri()).Show();
+
+    private void tileItem6_ItemClick(object sender, TileItemEventArgs e) => ((Control) new personel_ders_alma_verme_islemleri()).Show();
+
+    private void tileItem2_ItemClick(object sender, TileItemEventArgs e)
+    {
+      int num = (int) ((Form) new butceFrm()).ShowDialog();
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      TileItemElement tileItemElement1 = new TileItemElement();
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (hareketlilik));
+      TileItemFrame tileItemFrame1 = new TileItemFrame();
+      TileItemElement tileItemElement2 = new TileItemElement();
+      TileItemElement tileItemElement3 = new TileItemElement();
+      TileItemFrame tileItemFrame2 = new TileItemFrame();
+      TileItemElement tileItemElement4 = new TileItemElement();
+      TileItemElement tileItemElement5 = new TileItemElement();
+      TileItemFrame tileItemFrame3 = new TileItemFrame();
+      TileItemElement tileItemElement6 = new TileItemElement();
+      TileItemElement tileItemElement7 = new TileItemElement();
+      TileItemFrame tileItemFrame4 = new TileItemFrame();
+      TileItemElement tileItemElement8 = new TileItemElement();
+      TileItemElement tileItemElement9 = new TileItemElement();
+      TileItemElement tileItemElement10 = new TileItemElement();
+      this.tileControl1 = new TileControl();
+      this.tileGroup2 = new TileGroup();
+      this.tileItem1 = new TileItem();
+      this.tileItem2 = new TileItem();
+      this.tileItem3 = new TileItem();
+      this.tileItem4 = new TileItem();
+      this.tileItem5 = new TileItem();
+      this.tileItem6 = new TileItem();
+      this.SuspendLayout();
+      ((Control) this.tileControl1).Dock = DockStyle.Fill;
+      this.tileControl1.DragSize = new Size(0, 0);
+      this.tileControl1.Groups.Add(this.tileGroup2);
+      ((Control) this.tileControl1).Location = new Point(0, 0);
+      ((Control) this.tileControl1).Margin = new Padding(3, 4, 3, 4);
+      this.tileControl1.MaxId = 11;
+      ((Control) this.tileControl1).Name = "tileControl1";
+      ((Control) this.tileControl1).Padding = new Padding(21, 22, 21, 22);
+      ((Control) this.tileControl1).Size = new Size(1230, 492);
+      ((Control) this.tileControl1).TabIndex = 0;
+      ((Control) this.tileControl1).Text = "tileControl1";
+      this.tileGroup2.Items.Add((ITileItem) this.tileItem1);
+      this.tileGroup2.Items.Add((ITileItem) this.tileItem2);
+      this.tileGroup2.Items.Add((ITileItem) this.tileItem3);
+      this.tileGroup2.Items.Add((ITileItem) this.tileItem4);
+      this.tileGroup2.Items.Add((ITileItem) this.tileItem5);
+      this.tileGroup2.Items.Add((ITileItem) this.tileItem6);
+      this.tileGroup2.Name = "tileGroup2";
+      this.tileGroup2.Text = "SINAV ";
+      tileItemElement1.Image = (Image) componentResourceManager.GetObject("tileItemElement1.Image");
+      tileItemElement1.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement1.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement1.Text = "ÖĞRENCİ";
+      tileItemElement1.TextAlignment = (TileItemContentAlignment) 5;
+      this.tileItem1.Elements.Add(tileItemElement1);
+      tileItemFrame1.Animation = (TileItemContentAnimationType) 4;
+      tileItemFrame1.Appearance.BackColor = Color.LightSeaGreen;
+      tileItemFrame1.Appearance.BorderColor = Color.White;
+      tileItemFrame1.Appearance.Options.UseBackColor = true;
+      tileItemFrame1.Appearance.Options.UseBorderColor = true;
+      tileItemElement2.Image = (Image) componentResourceManager.GetObject("tileItemElement2.Image");
+      tileItemElement2.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement2.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement2.Text = "ÖĞRENCİ";
+      tileItemElement2.TextAlignment = (TileItemContentAlignment) 5;
+      tileItemFrame1.Elements.Add(tileItemElement2);
+      tileItemFrame1.Image = (Image) componentResourceManager.GetObject("tileItemFrame1.Image");
+      this.tileItem1.Frames.Add(tileItemFrame1);
+      this.tileItem1.Id = 2;
+      this.tileItem1.ItemSize = (TileItemSize) 3;
+      this.tileItem1.Name = "tileItem1";
+      // ISSUE: method pointer
+      this.tileItem1.ItemClick += new TileItemClickEventHandler((object) this, __methodptr(tileItem1_ItemClick));
+      tileItemElement3.Image = (Image) componentResourceManager.GetObject("tileItemElement3.Image");
+      tileItemElement3.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement3.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement3.Text = "BÜTÇE";
+      this.tileItem2.Elements.Add(tileItemElement3);
+      tileItemFrame2.Appearance.BackColor = Color.FromArgb((int) byte.MaxValue, 128, 0);
+      tileItemFrame2.Appearance.Options.UseBackColor = true;
+      tileItemElement4.Image = (Image) componentResourceManager.GetObject("tileItemElement4.Image");
+      tileItemElement4.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement4.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement4.Text = "BÜTÇE";
+      tileItemFrame2.Elements.Add(tileItemElement4);
+      tileItemFrame2.Image = (Image) componentResourceManager.GetObject("tileItemFrame2.Image");
+      this.tileItem2.Frames.Add(tileItemFrame2);
+      this.tileItem2.Id = 3;
+      this.tileItem2.ItemSize = (TileItemSize) 3;
+      this.tileItem2.Name = "tileItem2";
+      // ISSUE: method pointer
+      this.tileItem2.ItemClick += new TileItemClickEventHandler((object) this, __methodptr(tileItem2_ItemClick));
+      tileItemElement5.Image = (Image) componentResourceManager.GetObject("tileItemElement5.Image");
+      tileItemElement5.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement5.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement5.Text = "PERSONEL";
+      tileItemElement5.TextAlignment = (TileItemContentAlignment) 5;
+      this.tileItem3.Elements.Add(tileItemElement5);
+      tileItemFrame3.Appearance.BackColor = Color.Purple;
+      tileItemFrame3.Appearance.Options.UseBackColor = true;
+      tileItemElement6.Image = (Image) componentResourceManager.GetObject("tileItemElement6.Image");
+      tileItemElement6.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement6.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement6.Text = "PERSONEL";
+      tileItemElement6.TextAlignment = (TileItemContentAlignment) 5;
+      tileItemFrame3.Elements.Add(tileItemElement6);
+      tileItemFrame3.Image = (Image) componentResourceManager.GetObject("tileItemFrame3.Image");
+      this.tileItem3.Frames.Add(tileItemFrame3);
+      this.tileItem3.Id = 4;
+      this.tileItem3.ItemSize = (TileItemSize) 3;
+      this.tileItem3.Name = "tileItem3";
+      // ISSUE: method pointer
+      this.tileItem3.ItemClick += new TileItemClickEventHandler((object) this, __methodptr(tileItem3_ItemClick));
+      tileItemElement7.Image = (Image) componentResourceManager.GetObject("tileItemElement7.Image");
+      tileItemElement7.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement7.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement7.Text = "HAREKETLİLİĞİN ORGANİZASYONU";
+      this.tileItem4.Elements.Add(tileItemElement7);
+      tileItemFrame4.Appearance.BackColor = Color.FromArgb(0, 192, 0);
+      tileItemFrame4.Appearance.Options.UseBackColor = true;
+      tileItemElement8.Image = (Image) componentResourceManager.GetObject("tileItemElement8.Image");
+      tileItemElement8.ImageAlignment = (TileItemContentAlignment) 5;
+      tileItemElement8.ImageToTextAlignment = (TileControlImageToTextAlignment) 4;
+      tileItemElement8.Text = "HAREKETLİLİĞİN ORGANİZASYONU";
+      tileItemFrame4.Elements.Add(tileItemElement8);
+      tileItemFrame4.Image = (Image) componentResourceManager.GetObject("tileItemFrame4.Image");
+      this.tileItem4.Frames.Add(tileItemFrame4);
+      this.tileItem4.Id = 5;
+      this.tileItem4.ItemSize = (TileItemSize) 3;
+      this.tileItem4.Name = "tileItem4";
+      // ISSUE: method pointer
+      this.tileItem4.ItemClick += new TileItemClickEventHandler((object) this, __methodptr(tileItem4_ItemClick));
+      tileItemElement9.Image = (Image) componentResourceManager.GetObject("tileItemElement9.Image");
+      tileItemElement9.ImageAlignment = (TileItemContentAlignment) 6;
+      tileItemElement9.ImageToTextAlignment = (TileControlImageToTextAlignment) 1;
+      tileItemElement9.Text = "SINAV İŞLEMLERİ";
+      tileItemElement9.TextAlignment = (TileItemContentAlignment) 5;
+      this.tileItem5.Elements.Add(tileItemElement9);
+      this.tileItem5.Id = 9;
+      this.tileItem5.ItemSize = (TileItemSize) 3;
+      this.tileItem5.Name = "tileItem5";
+      // ISSUE: method pointer
+      this.tileItem5.ItemClick += new TileItemClickEventHandler((object) this, __methodptr(tileItem5_ItemClick));
+      tileItemElement10.Image = (Image) componentResourceManager.GetObject("tileItemElement10.Image");
+      tileItemElement10.ImageAlignment = (TileItemContentAlignment) 6;
+      tileItemElement10.Text = "DERS ALMA -VERME İŞLEMLERİ";
+      tileItemElement10.TextAlignment = (TileItemContentAlignment) 5;
+      this.tileItem6.Elements.Add(tileItemElement10);
+      this.tileItem6.Id = 10;
+      this.tileItem6.ItemSize = (TileItemSize) 3;
+      this.tileItem6.Name = "tileItem6";
+      // ISSUE: method pointer
+      this.tileItem6.ItemClick += new TileItemClickEventHandler((object) this, __methodptr(tileItem6_ItemClick));
+      ((ContainerControl) this).AutoScaleDimensions = new SizeF(7f, 16f);
+      ((ContainerControl) this).AutoScaleMode = AutoScaleMode.Font;
+      ((Form) this).ClientSize = new Size(1230, 492);
+      ((Control) this).Controls.Add((Control) this.tileControl1);
+      ((Form) this).Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      ((Form) this).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this).Name = nameof (hareketlilik);
+      ((Control) this).Text = "HAREKETLİLİK";
+      ((Form) this).Load += new EventHandler(this.hareketlilik_Load);
+      this.ResumeLayout(false);
+    }
+  }
+}
