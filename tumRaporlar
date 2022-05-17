@@ -1,0 +1,127 @@
+// Decompiled with JetBrains decompiler
+// Type: promethues_projesi.tumraporlarFrm
+// Assembly: promethues_projesi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: B9C4A65B-B397-4621-A7E0-7BC7D8FEFDBA
+// Assembly location: C:\Users\Belediye\AppData\Local\Temp\Gutadis\09e50f9ba5\promethues_projesi.exe
+
+using DevExpress.XtraEditors;
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace promethues_projesi
+{
+  public class tumraporlarFrm : XtraForm
+  {
+    private IContainer components = (IContainer) null;
+    private Button vizeEnBT;
+    private Button vizeTrBT;
+    private Button sozlesmeBT;
+    private Button konsoloslukTRBT;
+    private Button konsoloslukEnBT;
+    private Button button6;
+    private Button button7;
+
+    public tumraporlarFrm() => this.InitializeComponent();
+
+    private void vizeEnBT_Click(object sender, EventArgs e) => ((Control) new raporlar()).Show();
+
+    private void vizeTrBT_Click(object sender, EventArgs e) => ((Control) new vizeTurFrm()).Show();
+
+    private void sozlesmeBT_Click(object sender, EventArgs e) => new sozlesme_rapor().Show();
+
+    private void konsoloslukTRBT_Click(object sender, EventArgs e) => ((Control) new konsoloslukTurFrm()).Show();
+
+    private void konsoloslukEnBT_Click(object sender, EventArgs e) => ((Control) new konsoloslukEnFrm()).Show();
+
+    protected virtual void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (tumraporlarFrm));
+      this.vizeEnBT = new Button();
+      this.vizeTrBT = new Button();
+      this.sozlesmeBT = new Button();
+      this.konsoloslukTRBT = new Button();
+      this.konsoloslukEnBT = new Button();
+      this.button6 = new Button();
+      this.button7 = new Button();
+      this.SuspendLayout();
+      this.vizeEnBT.Location = new Point(14, 36);
+      this.vizeEnBT.Margin = new Padding(3, 4, 3, 4);
+      this.vizeEnBT.Name = "vizeEnBT";
+      this.vizeEnBT.Size = new Size(181, 28);
+      this.vizeEnBT.TabIndex = 0;
+      this.vizeEnBT.Text = "Vize Yazısı (İngilizce)";
+      this.vizeEnBT.UseVisualStyleBackColor = true;
+      this.vizeEnBT.Click += new EventHandler(this.vizeEnBT_Click);
+      this.vizeTrBT.Location = new Point(14, 64);
+      this.vizeTrBT.Margin = new Padding(3, 4, 3, 4);
+      this.vizeTrBT.Name = "vizeTrBT";
+      this.vizeTrBT.Size = new Size(181, 28);
+      this.vizeTrBT.TabIndex = 1;
+      this.vizeTrBT.Text = "Vize Yazısı (Türkçe)";
+      this.vizeTrBT.UseVisualStyleBackColor = true;
+      this.vizeTrBT.Click += new EventHandler(this.vizeTrBT_Click);
+      this.sozlesmeBT.Location = new Point(14, 92);
+      this.sozlesmeBT.Margin = new Padding(3, 4, 3, 4);
+      this.sozlesmeBT.Name = "sozlesmeBT";
+      this.sozlesmeBT.Size = new Size(181, 28);
+      this.sozlesmeBT.TabIndex = 2;
+      this.sozlesmeBT.Text = "Sözleşme";
+      this.sozlesmeBT.UseVisualStyleBackColor = true;
+      this.sozlesmeBT.Click += new EventHandler(this.sozlesmeBT_Click);
+      this.konsoloslukTRBT.Location = new Point(14, 121);
+      this.konsoloslukTRBT.Margin = new Padding(3, 4, 3, 4);
+      this.konsoloslukTRBT.Name = "konsoloslukTRBT";
+      this.konsoloslukTRBT.Size = new Size(181, 28);
+      this.konsoloslukTRBT.TabIndex = 3;
+      this.konsoloslukTRBT.Text = "Konsolosluk Yazısı (Türkçe)";
+      this.konsoloslukTRBT.UseVisualStyleBackColor = true;
+      this.konsoloslukTRBT.Click += new EventHandler(this.konsoloslukTRBT_Click);
+      this.konsoloslukEnBT.Location = new Point(14, 149);
+      this.konsoloslukEnBT.Margin = new Padding(3, 4, 3, 4);
+      this.konsoloslukEnBT.Name = "konsoloslukEnBT";
+      this.konsoloslukEnBT.Size = new Size(181, 28);
+      this.konsoloslukEnBT.TabIndex = 4;
+      this.konsoloslukEnBT.Text = "Konsolosluk Yazısı (İngilizce)";
+      this.konsoloslukEnBT.UseVisualStyleBackColor = true;
+      this.konsoloslukEnBT.Click += new EventHandler(this.konsoloslukEnBT_Click);
+      this.button6.Location = new Point(14, 177);
+      this.button6.Margin = new Padding(3, 4, 3, 4);
+      this.button6.Name = "button6";
+      this.button6.Size = new Size(181, 28);
+      this.button6.TabIndex = 5;
+      this.button6.Text = "button6";
+      this.button6.UseVisualStyleBackColor = true;
+      this.button7.Location = new Point(14, 206);
+      this.button7.Margin = new Padding(3, 4, 3, 4);
+      this.button7.Name = "button7";
+      this.button7.Size = new Size(181, 28);
+      this.button7.TabIndex = 6;
+      this.button7.Text = "button7";
+      this.button7.UseVisualStyleBackColor = true;
+      ((ContainerControl) this).AutoScaleDimensions = new SizeF(7f, 16f);
+      ((ContainerControl) this).AutoScaleMode = AutoScaleMode.Font;
+      ((Form) this).ClientSize = new Size(538, 324);
+      ((Control) this).Controls.Add((Control) this.button7);
+      ((Control) this).Controls.Add((Control) this.button6);
+      ((Control) this).Controls.Add((Control) this.konsoloslukEnBT);
+      ((Control) this).Controls.Add((Control) this.konsoloslukTRBT);
+      ((Control) this).Controls.Add((Control) this.sozlesmeBT);
+      ((Control) this).Controls.Add((Control) this.vizeTrBT);
+      ((Control) this).Controls.Add((Control) this.vizeEnBT);
+      ((Form) this).Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      ((Form) this).Margin = new Padding(3, 4, 3, 4);
+      ((Control) this).Name = nameof (tumraporlarFrm);
+      ((Control) this).Text = "Tüm Raporlar";
+      this.ResumeLayout(false);
+    }
+  }
+}
